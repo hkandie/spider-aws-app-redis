@@ -1,0 +1,307 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Creating ECS service",
+  "Parameters": {
+    "AppVersion": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "VpcId": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "ACCOUNTID": {
+      "Type": "String",
+      "Description": "Account ID"
+    },
+    "SecurityGroup1": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId01": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId02": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    }
+  },
+  "Resources": {
+    "RxPowetECSCluster": {
+      "Type": "AWS::ECS::Cluster"
+    },
+    "RxPowetECSTaskDefinition": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "RequiresCompatibilities": [
+            "FARGATE"
+        ],
+        "NetworkMode": "awsvpc",
+        "ContainerDefinitions": [
+          {
+            "Name": "rxpowet",
+            "Image": {
+              "Fn::Sub": "${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/rxpowet/emrys:${AppVersion}"
+            },
+            "Cpu": ,
+            "PortMappings": [
+              {
+                "ContainerPort": 9000,
+                "HostPort": 9000
+              }
+            ],
+            "Memory": "1024",
+            "Essential": "true"
+          }
+        ]
+      }
+    },
+    "RxPowetECSService": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": {
+          "Ref": "RxPowetECSCluster"
+        },
+        "DeploymentConfiguration": {
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 100
+        },
+        "LaunchType": "FARGATE",
+        "DesiredCount": 4,
+        "HealthCheckGracePeriodSeconds": 90,
+        "LoadBalancers": [
+          {
+            "ContainerName": "rxpowet",
+            "ContainerPort": 9000,
+            "TargetGroupArn": {
+              "Ref": "RxPowetTargetGroup"
+            }
+          }
+        ],
+        "PlacementStrategies": [
+          {
+            "Type": "binpack",
+            "Field": "memory"
+          },
+          {
+            "Type": "spread",
+            "Field": "host"
+          }
+        ],
+        "TaskDefinition": {
+          "Ref": "RxPowetECSTaskDefinition"
+        },
+        "ServiceName": "RxPowetService",
+        "Role": {
+          "Ref": "RxPowetECSRole"
+        }
+      }
+    },
+    "RxPowetLoadBalancer": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "Properties": {
+        "Name": "RxPowetLoadBalancer",
+        "Scheme": "internet-facing",
+        "Subnets": [
+          {
+            "Ref": "RxPowetSubnet1"
+          },
+          {
+            "Ref": "RxPowetSubnet2"
+          }
+        ],
+        "Type": "application",
+        "Listeners": [
+          {
+            "InstancePort": "9000",
+            "LoadBalancerPort": "80",
+            "Protocol": "HTTP"
+          }
+        ]
+      },
+      "DependsOn": "RxPowetGatewayAttachment"
+    },
+    "RxPowetTargetGroup": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "HealthCheckIntervalSeconds": 6,
+        "HealthCheckPath": "/",
+        "HealthCheckProtocol": "HTTP",
+        "HealthCheckTimeoutSeconds": 5,
+        "HealthyThresholdCount": 2,
+        "TargetType": "ip",
+        "Name": "RxPowetTargetGroup",
+        "Port": "80",
+        "Protocol": "HTTP",
+        "UnhealthyThresholdCount": 2,
+        "VpcId": {
+          "Ref": "RxPowetVPC"
+        }
+      }
+    },
+    "RxPowetVPC": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "172.31.0.1/16"
+      }
+    },
+    "RxPowetSubnet1": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "RxPowetVPC"
+        },
+        "CidrBlock": "172.31.120.0/20"
+      }
+    },
+    "RxPowetSubnet2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "RxPowetVPC"
+        },
+        "CidrBlock": "172.31.140.0/20"
+      }
+    },
+    "RxPowetInternetGateway": {
+      "Type": "AWS::EC2::InternetGateway"
+    },
+    "RxPowetGatewayAttachment": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "InternetGatewayId": {
+          "Ref": "RxPowetInternetGateway"
+        },
+        "VpcId": {
+          "Ref": "RxPowetVPC"
+        }
+      }
+    },
+    "RxPowetECSRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2008-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+            "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"
+        ]
+      }
+    },
+    "RxPowetTargetGroupPublic": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "HealthCheckIntervalSeconds": 6,
+        "HealthCheckPath": "/",
+        "HealthCheckProtocol": "HTTP",
+        "HealthCheckTimeoutSeconds": 5,
+        "HealthyThresholdCount": 2,
+        "Port": 80,
+        "Protocol": "HTTP",
+        "UnhealthyThresholdCount": 2,
+        "VpcId": {
+          "Ref": "VpcId"
+        }
+      }
+    },
+    "EcsSecurityGroupIngressFromPublicALB": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "Description": "Ingress from the public ALB",
+        "GroupId": {
+          "Fn::Sub": "${SecurityGroup1}"
+        },
+        "IpProtocol": -1,
+        "SourceSecurityGroupId": {
+          "Ref": "PublicLoadBalancerSG"
+        }
+      }
+    },
+    "PublicLoadBalancerSG": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Access to the public facing load balancer",
+        "VpcId": {
+          "Fn::Sub": "${VpcId}"
+        },
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "IpProtocol": -1
+          }
+        ]
+      }
+    },
+    "PublicLoadBalancer": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "Properties": {
+        "Scheme": "internet-facing",
+        "LoadBalancerAttributes": [
+          {
+            "Key": "idle_timeout.timeout_seconds",
+            "Value": "30"
+          }
+        ],
+        "Subnets": [
+          {
+            "Fn::Sub": "${SubnetId01}"
+          },
+          {
+            "Fn::Sub": "${SubnetId02}"
+          }
+        ],
+        "SecurityGroups": [
+          {
+            "Fn::Sub": "${SecurityGroup1}"
+          }
+        ]
+      }
+    },
+    "PublicLoadBalancerListener": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "DependsOn": [
+          "PublicLoadBalancer"
+      ],
+      "Properties": {
+        "DefaultActions": [
+          {
+            "TargetGroupArn": {
+              "Ref": "RxPowetTargetGroupPublic"
+            },
+            "Type": "forward"
+          }
+        ],
+        "LoadBalancerArn": {
+          "Ref": "PublicLoadBalancer"
+        },
+        "Port": 80,
+        "Protocol": "HTTP"
+      }
+    }
+  },
+  "Outputs": {
+    "PublicListener": {
+      "Description": "The ARN of the public load balancer's Listener",
+      "Value": {
+        "Ref": "PublicLoadBalancerListener"
+      }
+    },
+    "ExternalUrl": {
+      "Description": "The url of the external load balancer",
+      "Value": {
+        "Fn::Sub": "http://${PublicLoadBalancer.DNSName}"
+      }
+    }
+  }
+}

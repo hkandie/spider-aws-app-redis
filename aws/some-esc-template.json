@@ -1,0 +1,173 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Rx Powet ECS",
+  "Parameters": {
+    "AppVersion": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "VpcId": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "ACCOUNTID": {
+      "Type": "String",
+      "Description": "Account ID"
+    },
+    "SecurityGroup1": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId01": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId02": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    }
+  },
+  "Resources": {
+    "RxPowetECSCluster": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": "RxPowetECSCluster",
+        "CapacityProviders": [
+          "FARGATE",
+          "FARGATE_SPOT"
+        ],
+        "DefaultCapacityProviderStrategy": [
+          {
+            "CapacityProvider": "FARGATE",
+            "Weight": 1
+          },
+          {
+            "CapacityProvider": "FARGATE_SPOT",
+            "Weight": 1
+          }
+        ]
+      }
+    },
+    "RxPowetECSService": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "requiresCompatibilities": [
+          "FARGATE"
+        ],
+        "Cluster": {
+          "Ref": "RxPowetECSCluster"
+        },
+        "DesiredCount": 2,
+        "LaunchType": "FARGATE",
+        "networkConfiguration": {
+          "awsvpcConfiguration": {
+            "subnets": [
+              {"Fn::Sub": "${SubnetId01}, ${SubnetId02}"}
+            ],
+            "securityGroups": [
+              {"Fn::Sub": "${SecurityGroup1}"}
+            ],
+            "assignPublicIp": "DISABLED"
+          }
+        },
+        "LoadBalancers": [
+          {
+            "ContainerName": "rxpowet-emrys",
+            "ContainerPort": "9000",
+            "LoadBalancerName": "rxpowet-lb"
+          }
+        ],
+        "PlatformVersion": "1.4.0",
+        "Role": {
+          "Ref": "RxPowetECSRole"
+        },
+        "ServiceName": "rx-powet-ecs",
+        "TaskDefinition": {
+          "Ref": "RxPowetECSTaskDefinition"
+        }
+      }
+    },
+    "RxPowetLogsLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "-",
+            [
+              "ECSLogGroup",
+              {
+                "Ref": "AWS::StackName"
+              }
+            ]
+          ]
+        },
+        "RetentionInDays": 14
+      }
+    },
+    "RxPowetECSTaskDefinition": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "requiresCompatibilities": [
+          "FARGATE"
+        ],
+        "NetworkMode": "awsvpc",
+        "TaskRoleArn":{ "Fn::GetAtt" : [ "RxPowetECSRole", "Arn" ] },
+        "ContainerDefinitions": [
+          {
+            "Image": {
+              "Fn::Sub": "${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/rxpowet/emrys:${AppVersion}"
+            },
+            "Name": "rxpowet-emrys",
+            "Cpu": "10",
+            "Essential": "true",
+            "Memory": "1024",
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-group": {
+                  "Ref": "RxPowetLogsLogGroup"
+                },
+                "awslogs-region": {
+                  "Ref": "AWS::Region"
+                },
+                "awslogs-stream-prefix": "rx-powet"
+              }
+            },
+            "PortMappings": [
+              {
+                "ContainerPort": 80
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "RxPowetECSRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "ecs-tasks.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Description": "Rx Powet ECS role",
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+          "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilderECRContainerBuilds"
+        ]
+      }
+    }
+  },
+  "Outputs": {}
+}

@@ -1,0 +1,279 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "B2B Rx-Resource Quality",
+  "Parameters": {
+    "AppVersion": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    }
+  },
+  "Resources": {
+    "b2bRxResourceQual": {
+      "Type": "AWS::ElasticBeanstalk::Application",
+      "Properties": {
+        "ApplicationName": "b2bRxResourceQual",
+        "Description": "B2B Rx Resource Service App",
+        "ResourceLifecycleConfig": {
+          "VersionLifecycleConfig": {
+            "MaxCountRule": {
+              "DeleteSourceFromS3": true,
+              "Enabled": true,
+              "MaxCount": 4
+            }
+          },
+          "ServiceRole": {
+            "Fn::Join": [
+              ":",
+              [
+                "arn:aws:iam:",
+                {
+                  "Ref": "AWS::AccountId"
+                },
+                "role/elastic-beanstalk-service-role"
+              ]
+            ]
+          }
+        }
+      },
+      "DeletionPolicy": "Delete"
+    },
+    "b2bRxResourceConfigurationTemplate": {
+      "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+      "Properties": {
+        "ApplicationName": {
+          "Ref": "b2bRxResourceQual"
+        },
+        "OptionSettings": [
+          {
+            "OptionName": "environment",
+            "Namespace": "aws:elasticbeanstalk:application:environment",
+            "Value": "qa"
+          },
+          {
+            "OptionName": "EC2KeyName",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": "b2bKeyPair"
+          },
+          {
+            "OptionName": "Availability Zones",
+            "Namespace": "aws:autoscaling:asg",
+            "Value": "Any 2"
+          },
+          {
+            "OptionName": "MinSize",
+            "Namespace": "aws:autoscaling:asg",
+            "Value": 2
+          },
+          {
+            "OptionName": "MaxSize",
+            "Namespace": "aws:autoscaling:asg",
+            "Value": 5
+          },
+          {
+            "OptionName": "RollingUpdateEnabled",
+            "Namespace": "aws:autoscaling:updatepolicy:rollingupdate",
+            "Value": "True"
+          },
+          {
+            "OptionName": "RollingUpdateType",
+            "Namespace": "aws:autoscaling:updatepolicy:rollingupdate",
+            "Value": "Health"
+          },
+          {
+            "OptionName": "EnvironmentType",
+            "Namespace": "aws:elasticbeanstalk:environment",
+            "Value": "LoadBalanced"
+          },
+          {
+            "OptionName": "VPCId",
+            "Namespace": "aws:ec2:vpc",
+            "Value": "vpc-17517472"
+          },
+          {
+            "OptionName": "Subnets",
+            "Namespace": "aws:ec2:vpc",
+            "Value": "subnet-b78510ee, subnet-d6e25efd"
+          },
+          {
+            "OptionName": "ELBSubnets",
+            "Namespace": "aws:ec2:vpc",
+            "Value": "subnet-b78510ee, subnet-d6e25efd"
+          },
+          {
+            "OptionName": "ELBScheme",
+            "Namespace": "aws:ec2:vpc",
+            "Value": "internal"
+          },
+          {
+            "OptionName": "AssociatePublicIpAddress",
+            "Namespace": "aws:ec2:vpc",
+            "Value": false
+          },
+          {
+            "OptionName": "EnableSpot",
+            "Namespace": "aws:ec2:instances",
+            "Value": "True"
+          },
+          {
+            "OptionName": "InstanceTypes",
+            "Namespace": "aws:ec2:instances",
+            "Value": "t3.medium"
+          },
+          {
+            "OptionName": "SpotFleetOnDemandBase",
+            "Namespace": "aws:ec2:instances",
+            "Value": "1"
+          },
+          {
+            "OptionName": "SpotFleetOnDemandAboveBasePercentage",
+            "Namespace": "aws:ec2:instances",
+            "Value": "0"
+          },
+          {
+            "OptionName": "BatchSize",
+            "Namespace": "aws:elasticbeanstalk:command",
+            "Value": 50
+          },
+          {
+            "OptionName": "BatchSizeType",
+            "Namespace": "aws:elasticbeanstalk:command",
+            "Value": "Percentage"
+          },
+          {
+            "OptionName": "IamInstanceProfile",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": "b2b_ec2_instance_profile"
+          },
+          {
+            "OptionName": "SecurityGroups",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": {
+              "Fn::Join": [
+                ",",
+                [
+                  "sg-70fa0516",
+                  "sg-7efa0518",
+                  "sg-71fa0517"
+                ]
+              ]
+            }
+          },
+          {
+            "OptionName": "RootVolumeType",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": "gp2"
+          },
+          {
+            "OptionName": "RootVolumeSize",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": 8
+          },
+          {
+            "OptionName": "EC2KeyName",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": "b2bKeyPair"
+          },
+          {
+            "OptionName": "InstanceType",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": "t3.medium"
+          },
+          {
+            "OptionName": "ConnectionSettingIdleTimeout",
+            "Namespace": "aws:elb:policies",
+            "Value": 60
+          },
+          {
+            "OptionName": "ConnectionDrainingEnabled",
+            "Namespace": "aws:elb:policies",
+            "Value": "True"
+          },
+          {
+            "OptionName": "CrossZone",
+            "Namespace": "aws:elb:loadbalancer",
+            "Value": "True"
+          },
+          {
+            "OptionName": "MaxSize",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": 5,
+            "ResourceName": "ScheduledScaleDown"
+          },
+          {
+            "OptionName": "MinSize",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": "1",
+            "ResourceName": "ScheduledScaleDown"
+          },
+          {
+            "OptionName": "DesiredCapacity",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": "1",
+            "ResourceName": "ScheduledScaleDown"
+          },
+          {
+            "OptionName": "Recurrence",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": "0 1 * * *",
+            "ResourceName": "ScheduledScaleDown"
+          },
+          {
+            "OptionName": "MaxSize",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": 5,
+            "ResourceName": "ScheduledScaleUp"
+          },
+          {
+            "OptionName": "MinSize",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": 2,
+            "ResourceName": "ScheduledScaleUp"
+          },
+          {
+            "OptionName": "DesiredCapacity",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": 2,
+            "ResourceName": "ScheduledScaleUp"
+          },
+          {
+            "OptionName": "Recurrence",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": "0 12 * * *",
+            "ResourceName": "ScheduledScaleUp"
+          }
+        ],
+        "Description": "Default Configuration Version 1.0 - with SSH restrictions",
+        "SolutionStackName": "64bit Amazon Linux 2018.03 v2.27.2 running Multi-container Docker 20.10.7-ce (Generic)"
+      },
+      "DeletionPolicy": "Delete"
+    },
+    "b2bRxResourceQualEnv": {
+      "Type": "AWS::ElasticBeanstalk::Environment",
+      "Properties": {
+        "ApplicationName": {
+          "Ref": "b2bRxResourceQual"
+        },
+        "EnvironmentName": "b2bRxResourceQualEnv",
+        "VersionLabel": {
+          "Fn::Sub": "b2bRxResourceQual-${AppVersion}.zip"
+        },
+        "Description": "B2B Rx Resource Service App",
+        "TemplateName": {
+          "Ref": "b2bRxResourceConfigurationTemplate"
+        }
+      },
+      "DeletionPolicy": "Delete"
+    }
+  },
+  "Outputs": {
+    "AWSEBLoadBalancerURL": {
+      "Description": "URL of the AWS Elastic Beanstalk Environment",
+      "Value": {
+        "Fn::GetAtt": [
+          "b2bRxResourceQualEnv",
+          "EndpointURL"
+        ]
+      }
+    }
+  }
+}

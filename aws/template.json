@@ -1,0 +1,373 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Rx Powet",
+  "Parameters": {
+    "AppVersion": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "VpcId": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SecurityGroup1": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId01": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId02": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    }
+  },
+  "Resources": {
+    "RxPowetApplication": {
+      "Type": "AWS::ElasticBeanstalk::Application",
+      "Properties": {
+        "ApplicationName": "RxPowet",
+        "Description": "Rx Powet Service App",
+        "ResourceLifecycleConfig": {
+          "VersionLifecycleConfig": {
+            "MaxCountRule": {
+              "DeleteSourceFromS3": true,
+              "Enabled": true,
+              "MaxCount": 4
+            }
+          },
+          "ServiceRole": {
+            "Fn::Join": [
+              ":",
+              [
+                "arn:aws:iam:",
+                {
+                  "Ref": "AWS::AccountId"
+                },
+                "role/elastic-beanstalk-service-role"
+              ]
+            ]
+          }
+        }
+      },
+      "DeletionPolicy": "Delete"
+    },
+    "RxPowetApplicationVersion": {
+      "Type": "AWS::ElasticBeanstalk::ApplicationVersion",
+      "Properties": {
+        "ApplicationName": {
+          "Ref": "RxPowetApplication"
+        },
+        "SourceBundle": {
+          "S3Bucket": "rxpowet-bucket-01",
+          "S3Key": {
+            "Fn::Sub": "apps/deployments/RxPowet-${AppVersion}.zip"
+          }
+        }
+      }
+    },
+    "RxPowetConfigurationTemplate": {
+      "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+      "Properties": {
+        "ApplicationName": {
+          "Ref": "RxPowetApplication"
+        },
+        "OptionSettings": [
+          {
+            "OptionName": "EC2KeyName",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": "rxKeyPair"
+          },
+          {
+            "OptionName": "Availability Zones",
+            "Namespace": "aws:autoscaling:asg",
+            "Value": "Any 2"
+          },
+          {
+            "OptionName": "MinSize",
+            "Namespace": "aws:autoscaling:asg",
+            "Value": 2
+          },
+          {
+            "OptionName": "MaxSize",
+            "Namespace": "aws:autoscaling:asg",
+            "Value": 4
+          },
+          {
+            "Namespace": "aws:elb:healthcheck",
+            "OptionName": "Interval",
+            "Value": "10"
+          },
+          {
+            "OptionName": "RollingUpdateEnabled",
+            "Namespace": "aws:autoscaling:updatepolicy:rollingupdate",
+            "Value": "True"
+          },
+          {
+            "OptionName": "RollingUpdateType",
+            "Namespace": "aws:autoscaling:updatepolicy:rollingupdate",
+            "Value": "Health"
+          },
+          {
+            "OptionName": "EnvironmentType",
+            "Namespace": "aws:elasticbeanstalk:environment",
+            "Value": "LoadBalanced"
+          },
+          {
+            "OptionName": "VPCId",
+            "Namespace": "aws:ec2:vpc",
+            "Value": {
+              "Fn::Sub": "${VpcId}"
+            }
+          },
+          {
+            "OptionName": "Subnets",
+            "Namespace": "aws:ec2:vpc",
+            "Value": {
+              "Fn::Sub": "${SubnetId01}, ${SubnetId02}"
+            }
+          },
+          {
+            "OptionName": "ELBSubnets",
+            "Namespace": "aws:ec2:vpc",
+            "Value": {
+              "Fn::Sub": "${SubnetId01}, ${SubnetId02}"
+            }
+          },
+          {
+            "OptionName": "ELBScheme",
+            "Namespace": "aws:ec2:vpc",
+            "Value": "public "
+          },
+          {
+            "OptionName": "AssociatePublicIpAddress",
+            "Namespace": "aws:ec2:vpc",
+            "Value": true
+          },
+          {
+            "OptionName": "EnableSpot",
+            "Namespace": "aws:ec2:instances",
+            "Value": "True"
+          },
+          {
+            "OptionName": "InstanceTypes",
+            "Namespace": "aws:ec2:instances",
+            "Value": "t2.micro"
+          },
+          {
+            "OptionName": "SpotFleetOnDemandBase",
+            "Namespace": "aws:ec2:instances",
+            "Value": "1"
+          },
+          {
+            "OptionName": "SpotFleetOnDemandAboveBasePercentage",
+            "Namespace": "aws:ec2:instances",
+            "Value": "0"
+          },
+          {
+            "OptionName": "BatchSize",
+            "Namespace": "aws:elasticbeanstalk:command",
+            "Value": 50
+          },
+          {
+            "OptionName": "BatchSizeType",
+            "Namespace": "aws:elasticbeanstalk:command",
+            "Value": "Percentage"
+          },
+          {
+            "OptionName": "IamInstanceProfile",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": {
+              "Ref": "RxPowetInstanceProfile"
+            }
+          },
+          {
+            "OptionName": "SecurityGroups",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": {
+              "Fn::Sub": "${SecurityGroup1}"
+            }
+          },
+          {
+            "OptionName": "RootVolumeType",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": "gp2"
+          },
+          {
+            "OptionName": "RootVolumeSize",
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "Value": 8
+          },
+          {
+            "OptionName": "ConnectionSettingIdleTimeout",
+            "Namespace": "aws:elb:policies",
+            "Value": 3000
+          },
+          {
+            "OptionName": "ConnectionDrainingEnabled",
+            "Namespace": "aws:elb:policies",
+            "Value": "True"
+          },
+          {
+            "OptionName": "CrossZone",
+            "Namespace": "aws:elb:loadbalancer",
+            "Value": "True"
+          },
+          {
+            "OptionName": "MaxSize",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": 4,
+            "ResourceName": "ScheduledScaleDown"
+          },
+          {
+            "OptionName": "MinSize",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": "1",
+            "ResourceName": "ScheduledScaleDown"
+          },
+          {
+            "OptionName": "DesiredCapacity",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": "1",
+            "ResourceName": "ScheduledScaleDown"
+          },
+          {
+            "OptionName": "Recurrence",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": "0 1 * * *",
+            "ResourceName": "ScheduledScaleDown"
+          },
+          {
+            "OptionName": "MaxSize",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": 5,
+            "ResourceName": "ScheduledScaleUp"
+          },
+          {
+            "OptionName": "MinSize",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": 2,
+            "ResourceName": "ScheduledScaleUp"
+          },
+          {
+            "OptionName": "DesiredCapacity",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": 2,
+            "ResourceName": "ScheduledScaleUp"
+          },
+          {
+            "OptionName": "Recurrence",
+            "Namespace": "aws:autoscaling:scheduledaction",
+            "Value": "0 12 * * *",
+            "ResourceName": "ScheduledScaleUp"
+          },
+          {
+            "Namespace": "aws:elb:loadbalancer",
+            "OptionName": "LoadBalancerHTTPPort",
+            "Value": "80"
+          },
+          {
+            "Namespace": "aws:elb:loadbalancer",
+            "OptionName": "SecurityGroups",
+            "Value": {
+              "Fn::Sub": "${SecurityGroup1}"
+            }
+          },
+          {
+            "Namespace": "aws:elb:loadbalancer",
+            "OptionName": "ManagedSecurityGroup",
+            "Value": {
+              "Fn::Sub": "${SecurityGroup1}"
+            }
+          }
+        ],
+        "Description": "Default Configuration Version 1.0 - with SSH restrictions",
+        "SolutionStackName": "64bit Amazon Linux 2 v3.4.10 running Docker"
+      },
+      "DeletionPolicy": "Delete"
+    },
+    "RxPowetEnvironment": {
+      "Type": "AWS::ElasticBeanstalk::Environment",
+      "Properties": {
+        "ApplicationName": {
+          "Ref": "RxPowetApplication"
+        },
+        "EnvironmentName": "RxPowetEnvironment",
+        "VersionLabel": {
+          "Ref": "RxPowetApplicationVersion"
+        },
+        "Description": "Rx Powet Service App",
+        "TemplateName": {
+          "Ref": "RxPowetConfigurationTemplate"
+        }
+      },
+      "DeletionPolicy": "Delete"
+    },
+    "RxPowetElastiCache": {
+      "Type": "AWS::ElastiCache::CacheCluster",
+      "Properties": {
+        "ClusterName": "RxPowetElastiCache",
+        "Engine": "redis",
+        "EngineVersion": "6.2",
+        "CacheNodeType": "cache.t2.micro",
+        "Port": 6379,
+        "NumCacheNodes": 1,
+        "VpcSecurityGroupIds": [
+          {
+            "Fn::Sub": "${SecurityGroup1}"
+          }
+        ]
+      }
+    },
+    "RxPowetInstanceRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "ec2.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Description": "Beanstalk EC2 role",
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier",
+          "arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker",
+          "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier",
+          "arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilderECRContainerBuilds"
+        ]
+      }
+    },
+    "RxPowetInstanceProfile": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "RxPowetInstanceRole"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "AWSEBLoadBalancerURL": {
+      "Description": "URL of the AWS Elastic Beanstalk Environment",
+      "Value": {
+        "Fn::GetAtt": [
+          "RxPowetEnvironment",
+          "EndpointURL"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+kind: pipeline
+name: default
+
+type: docker
+steps:
+  - name: Deploy
+    image: maven:3-openjdk:11
+    commands:
+      - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+trigger:
+  branch:
+    - main

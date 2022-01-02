@@ -1,0 +1,64 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "AppVersion": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "VpcId": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SecurityGroup1": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId01": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId02": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    }
+  },
+  "Resources": {
+    "RxPowetSubscription": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "Region": "us-east-1",
+        "Protocol": "email"
+      }
+    },
+    "RxPowetRepository": {
+      "Type": "AWS::CodeCommit::Repository",
+      "Properties": {
+        "Code": {
+          "S3": {
+            "Bucket": "main",
+            "Key": {
+              "Fn::Sub": "apps/deployments/RxPowet-${AppVersion}.zip"
+            }
+          }
+        },
+        "RepositoryDescription": "rxpowet",
+        "RepositoryName": "rxpowet",
+        "Triggers": [
+          {
+            "Branches": [
+              "main"
+            ],
+
+            "DestinationArn": {
+              "Ref": "RxPowetSubscription"
+            },
+            "Events": [
+              "push"
+            ],
+            "Name": "Push"
+          }
+        ]
+      }
+    }
+  }
+}

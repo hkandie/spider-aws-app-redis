@@ -1,0 +1,52 @@
+version: '3.9'
+services:
+  mysql-server:
+    image: mysql:5.7
+    container_name: mysql-server
+    volumes:
+        - data-volume:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_USER: taifa
+      MYSQL_DATABASE: taifa
+      MYSQL_PASSWORD: taifa123*
+      MYSQL_ROOT_PASSWORD: taifa123*
+  redis-server:
+    image: redis:latest
+    container_name: redis-server
+    ports:
+      - "6379:6379"
+  nginx-proxy:
+    image: "nginx:alpine"
+    container_name: nginx-proxy
+    volumes:
+      - nginx-volume:/usr/share/nginx/html
+    ports:
+      - "80:80"
+  rxpowet-server-01:
+    image: "spider-walker/emrys:latest"
+    container_name: rxpowet-server-01
+    volumes:
+      - app-volume:/app/
+    ports:
+      - "9000:9000"
+  rxpowet-server-02:
+    image: "spider-walker/emrys:latest"
+    container_name: rxpowet-server-02
+    volumes:
+      - app-volume:/app/
+    ports:
+      - "9001:9000"
+  rxpowet-server-03:
+    image: "spider-walker/emrys:latest"
+    container_name: rxpowet-server-03
+    volumes:
+      - app-volume:/app/
+    ports:
+      - "9002:9000"
+volumes:
+  data-volume:
+  app-volume:
+  nginx-volume:

@@ -1,0 +1,4314 @@
+[
+  {
+    "productCode": 1001,
+    "productName": "Baking flour",
+    "unitcost": 0.13,
+    "retailPrice": 56.0,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1002,
+    "productName": "Sugar ${now} 3",
+    "unitcost": 0.06,
+    "retailPrice": 106.0,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking fat",
+    "unitcost": 0.06,
+    "retailPrice": 149.0,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.67,
+    "retailPrice": 0.14,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Vannila Flavour",
+    "unitcost": 0.17,
+    "retailPrice": 0.85,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1071,
+    "productName": "Label Rainbow Cookies 200g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 0.9,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.33,
+    "retailPrice": 0.38,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1004,
+    "productName": "Peanuts",
+    "unitcost": 11.86,
+    "retailPrice": 103.0,
+    "date": "2016-03-01T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 4.41,
+    "retailPrice": 0.12,
+    "date": "2016-03-01T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 2056,
+    "productName": "Crumbled Flour",
+    "unitcost": 0.03,
+    "retailPrice": 124.24,
+    "date": "2016-03-01T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 0.9,
+    "date": "2016-03-01T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.34,
+    "retailPrice": 0.35,
+    "date": "2016-03-01T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1066,
+    "productName": "Label Crumble Bite 250g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2016-03-01T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 2001,
+    "productName": "Muffins(English)1*6*300g  6 Pack",
+    "unitcost": 0.3,
+    "retailPrice": 166.83,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2002,
+    "productName": "Muffins(English)1*4*200g 4Pack",
+    "unitcost": 0.2,
+    "retailPrice": 169.4,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2003,
+    "productName": "Muffins(English)1*8*320g",
+    "unitcost": 0.32,
+    "retailPrice": 154.28,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2004,
+    "productName": "Muffins(Chocolate)1*6*300g  6 Pack",
+    "unitcost": 0.3,
+    "retailPrice": 166.9,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2005,
+    "productName": "Muffins(Chocolate)1*4*200g 4 Pack",
+    "unitcost": 0.2,
+    "retailPrice": 169.7,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2006,
+    "productName": "Queen Cakes 1*6*240g 6 Pack",
+    "unitcost": 0.24,
+    "retailPrice": 144.5,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2007,
+    "productName": "Queen Cakes 12 pack",
+    "unitcost": 0.48,
+    "retailPrice": 129.83,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2008,
+    "productName": " Small Queen Cakes 1*8*200g",
+    "unitcost": 0.2,
+    "retailPrice": 173.7,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2009,
+    "productName": "Tea Cake 1*1*100g",
+    "unitcost": 0.1,
+    "retailPrice": 135.0,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2010,
+    "productName": "Ring Cake 1*1*85g",
+    "unitcost": 0.09,
+    "retailPrice": 135.18,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2011,
+    "productName": "Ring Cake 1*3*260g",
+    "unitcost": 0.26,
+    "retailPrice": 125.27,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2012,
+    "productName": "Sweet Mandazi 1*1*180g",
+    "unitcost": 0.18,
+    "retailPrice": 77.17,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2013,
+    "productName": "Ring Cake 1*6*510g",
+    "unitcost": 0.51,
+    "retailPrice": 125.08,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2014,
+    "productName": "Mini-Madeira 1*1*500g",
+    "unitcost": 0.5,
+    "retailPrice": 125.42,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2015,
+    "productName": "Heart Madeira 1*1*500g",
+    "unitcost": 0.5,
+    "retailPrice": 125.18,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2016,
+    "productName": "Marble Heart 1*1*270g",
+    "unitcost": 0.27,
+    "retailPrice": 128.19,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2017,
+    "productName": "Marble Cake 1*1*500g",
+    "unitcost": 0.5,
+    "retailPrice": 124.22,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2018,
+    "productName": "Chocolate Heart 1*1*500g",
+    "unitcost": 0.5,
+    "retailPrice": 125.42,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2019,
+    "productName": "Chocolate Heart 1*1*150g",
+    "unitcost": 0.15,
+    "retailPrice": 142.07,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2020,
+    "productName": "Leaky Twins 1*1*150g",
+    "unitcost": 0.15,
+    "retailPrice": 148.27,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2021,
+    "productName": "Small Madeira 1*1*250g",
+    "unitcost": 0.25,
+    "retailPrice": 129.72,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2022,
+    "productName": "Leaky Madeira 1*1*350g",
+    "unitcost": 0.35,
+    "retailPrice": 126.63,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2023,
+    "productName": "Super Madeira 1*1*750g",
+    "unitcost": 0.75,
+    "retailPrice": 123.41,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2024,
+    "productName": "Sweet Heart 1*1* 750g",
+    "unitcost": 0.75,
+    "retailPrice": 123.41,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2026,
+    "productName": "Family Cake 1*1*750g",
+    "unitcost": 0.75,
+    "retailPrice": 123.41,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2032,
+    "productName": "Leaky Cookies 1*1*200g",
+    "unitcost": 0.2,
+    "retailPrice": 129.1,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2033,
+    "productName": "Tea Cookies(Vannilla) Long 1*1*225g",
+    "unitcost": 0.22,
+    "retailPrice": 114.76,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2034,
+    "productName": "Tea Cookies(Vannila)Round1*1*225g",
+    "unitcost": 0.22,
+    "retailPrice": 114.76,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2035,
+    "productName": "Tea Cookies(Chocolate)Long 1*1*225g",
+    "unitcost": 0.22,
+    "retailPrice": 114.76,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2036,
+    "productName": "Tea Cookies(Chocolate)Round 1*1*225g",
+    "unitcost": 0.22,
+    "retailPrice": 114.76,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2037,
+    "productName": "Rainbow Cookies 1*1*200g",
+    "unitcost": 0.2,
+    "retailPrice": 129.1,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2039,
+    "productName": "Coiled Buns",
+    "unitcost": 0.5,
+    "retailPrice": 77.04,
+    "date": "2012-10-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.03,
+    "retailPrice": 6.25,
+    "date": "2017-07-07T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.03,
+    "retailPrice": 49.1,
+    "date": "2016-03-01T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1004,
+    "productName": "Bakerite",
+    "unitcost": 1.0,
+    "retailPrice": 103.0,
+    "date": "2015-02-05T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking fat",
+    "unitcost": 1.0,
+    "retailPrice": 106.0,
+    "date": "2015-02-05T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1079,
+    "productName": "Label Round Buns",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 2.6,
+    "retailPrice": 0.03,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1011,
+    "productName": "Improver",
+    "unitcost": 1.04,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1009,
+    "productName": "Yeast",
+    "unitcost": 2.08,
+    "retailPrice": 0.52,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.02,
+    "retailPrice": 104.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1088,
+    "productName": "Calcium",
+    "unitcost": 0.52,
+    "retailPrice": 0.22,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.04,
+    "retailPrice": 104.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1019,
+    "productName": "Polythene Papers 10*12",
+    "unitcost": 1.0,
+    "retailPrice": 2.03,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 6.58,
+    "retailPrice": 0.03,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1011,
+    "productName": "Improver",
+    "unitcost": 5.26,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1009,
+    "productName": "Yeast",
+    "unitcost": 5.26,
+    "retailPrice": 0.52,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1088,
+    "productName": "Calcium",
+    "unitcost": 0.26,
+    "retailPrice": 0.22,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.13,
+    "retailPrice": 0.4,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1089,
+    "productName": "Label Yellow buns 600g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.5,
+    "retailPrice": 6.25,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.03,
+    "retailPrice": 104.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1090,
+    "productName": "Label Spring Buns 360g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.1,
+    "retailPrice": 0.4,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 4.81,
+    "retailPrice": 0.03,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1088,
+    "productName": "Calcium",
+    "unitcost": 0.19,
+    "retailPrice": 0.22,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1009,
+    "productName": "Yeast",
+    "unitcost": 3.85,
+    "retailPrice": 0.52,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1011,
+    "productName": "Improver",
+    "unitcost": 3.85,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.5,
+    "retailPrice": 6.25,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.01,
+    "retailPrice": 104.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 2.38,
+    "retailPrice": 0.03,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1011,
+    "productName": "Improver",
+    "unitcost": 1.9,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 5.0,
+    "retailPrice": 0.4,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1015,
+    "productName": "Polythene Papers 8*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.4,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1035,
+    "productName": "Sultanas",
+    "unitcost": 0.08,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1093,
+    "productName": "Varriarity",
+    "unitcost": 1.79,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1091,
+    "productName": "Label Fruit Buns 350g",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1088,
+    "productName": "Calcium",
+    "unitcost": 0.1,
+    "retailPrice": 0.22,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1009,
+    "productName": "Yeast",
+    "unitcost": 1.9,
+    "retailPrice": 0.52,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.5,
+    "retailPrice": 6.25,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1011,
+    "productName": "Improver",
+    "unitcost": 3.12,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1009,
+    "productName": "Yeast",
+    "unitcost": 6.25,
+    "retailPrice": 0.52,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.02,
+    "retailPrice": 104.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 3.12,
+    "retailPrice": 0.4,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1053,
+    "productName": "Label Twisted Bread 500g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 3.75,
+    "retailPrice": 0.03,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.5,
+    "retailPrice": 6.25,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1088,
+    "productName": "Calcium",
+    "unitcost": 0.1875,
+    "retailPrice": 0.22,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.0031,
+    "retailPrice": 104.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 1.5625,
+    "retailPrice": 0.03,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1011,
+    "productName": "Improver",
+    "unitcost": 0.625,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1009,
+    "productName": "Yeast",
+    "unitcost": 1.25,
+    "retailPrice": 0.52,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1014,
+    "productName": "Polythene Papers 7*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.28,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1094,
+    "productName": "Sim Sim",
+    "unitcost": 3.125,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.5,
+    "retailPrice": 6.25,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0031,
+    "retailPrice": 213.33,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1095,
+    "productName": "Label Leaky Sim Sim Buns 175g",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1088,
+    "productName": "Calcium",
+    "unitcost": 0.375,
+    "retailPrice": 0.22,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.0063,
+    "retailPrice": 104.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 3.125,
+    "retailPrice": 0.03,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1011,
+    "productName": "Improver",
+    "unitcost": 1.25,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1009,
+    "productName": "Yeast",
+    "unitcost": 2.5,
+    "retailPrice": 0.52,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0063,
+    "retailPrice": 213.33,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1096,
+    "productName": "Label Leaky Sim Sim Buns 350g",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1094,
+    "productName": "Sim Sim",
+    "unitcost": 6.25,
+    "retailPrice": 0.5,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.5,
+    "retailPrice": 6.25,
+    "date": "2018-10-09T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1023,
+    "productName": "Cases Size 95",
+    "unitcost": 9.0,
+    "retailPrice": 0.3,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1014,
+    "productName": "Polythene Papers 7*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.25,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.05,
+    "retailPrice": 149.0,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1108,
+    "productName": "Label Queen Cakes 9Pk",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.09,
+    "retailPrice": 0.85,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.0,
+    "retailPrice": 0.7,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 2.64,
+    "retailPrice": 0.14,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.05,
+    "retailPrice": 210.0,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.1,
+    "retailPrice": 6.25,
+    "date": "2017-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1014,
+    "productName": "Polythene Papers 7*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.25,
+    "date": "2017-04-25T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.08,
+    "retailPrice": 126.0,
+    "date": "2017-04-25T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.16,
+    "retailPrice": 0.85,
+    "date": "2017-04-25T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1023,
+    "productName": "Cases Size 95",
+    "unitcost": 8.0,
+    "retailPrice": 0.3,
+    "date": "2017-04-25T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.07,
+    "retailPrice": 210.0,
+    "date": "2017-04-25T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.05,
+    "retailPrice": 6.25,
+    "date": "2017-04-25T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 4.44,
+    "retailPrice": 0.14,
+    "date": "2017-04-25T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.27,
+    "retailPrice": 0.7,
+    "date": "2017-04-25T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1027,
+    "productName": "Vinegar",
+    "unitcost": 55.5555,
+    "retailPrice": 0.2,
+    "date": "2018-08-13T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1081,
+    "productName": "Food Colour",
+    "unitcost": 1.67,
+    "retailPrice": 0.8,
+    "date": "2018-05-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.15277,
+    "retailPrice": 213.33,
+    "date": "2018-05-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1028,
+    "productName": "Icing Sugar",
+    "unitcost": 0.6666,
+    "retailPrice": 136.97,
+    "date": "2018-05-01T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 2024,
+    "productName": "Sweet Heart 1*1* 750g",
+    "unitcost": 1.0,
+    "retailPrice": 86.39,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1029,
+    "productName": "Leakim Icing Sugar",
+    "unitcost": 0.15,
+    "retailPrice": 144.31,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1031,
+    "productName": "Polythene Papers 12*16",
+    "unitcost": 1.0,
+    "retailPrice": 3.6,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1041,
+    "productName": "Label Sweet Heart Deco 800g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1080,
+    "productName": "Ribbons",
+    "unitcost": 0.01,
+    "retailPrice": 200.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 2023,
+    "productName": "Super Madeira 1*1*750g",
+    "unitcost": 1.0,
+    "retailPrice": 85.97,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1029,
+    "productName": "Leakim Icing Sugar",
+    "unitcost": 0.15,
+    "retailPrice": 144.31,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1080,
+    "productName": "Ribbons",
+    "unitcost": 0.01,
+    "retailPrice": 200.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1073,
+    "productName": "Label Super Deco 800g",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1031,
+    "productName": "Polythene Papers 12*16",
+    "unitcost": 1.0,
+    "retailPrice": 3.6,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 2015,
+    "productName": "Heart Madeira 1*1*500g",
+    "unitcost": 1.0,
+    "retailPrice": 58.72,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1029,
+    "productName": "Leakim Icing Sugar",
+    "unitcost": 0.15,
+    "retailPrice": 144.31,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1052,
+    "productName": "Lable Heart Deco 500g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1019,
+    "productName": "Polythene Papers 10*12",
+    "unitcost": 1.0,
+    "retailPrice": 2.03,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1080,
+    "productName": "Ribbons",
+    "unitcost": 0.01,
+    "retailPrice": 200.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 2014,
+    "productName": "Mini-Madeira 1*1*500g",
+    "unitcost": 1.0,
+    "retailPrice": 58.72,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1029,
+    "productName": "Leakim Icing Sugar",
+    "unitcost": 0.15,
+    "retailPrice": 144.31,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1074,
+    "productName": "Label Mini Deco 500g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1019,
+    "productName": "Polythene Papers 10*12",
+    "unitcost": 1.0,
+    "retailPrice": 2.03,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1080,
+    "productName": "Ribbons",
+    "unitcost": 0.01,
+    "retailPrice": 200.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 2015,
+    "productName": "Heart Madeira 1*1*500g",
+    "unitcost": 1.0,
+    "retailPrice": 58.72,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1029,
+    "productName": "Leakim Icing Sugar",
+    "unitcost": 0.25,
+    "retailPrice": 144.31,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1019,
+    "productName": "Polythene Papers 10*12",
+    "unitcost": 1.0,
+    "retailPrice": 2.03,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1062,
+    "productName": "Label Full Deco 500g",
+    "unitcost": 1.0,
+    "retailPrice": 0.87,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1037,
+    "productName": "Cake Bases Heart/Round 0.5Kg",
+    "unitcost": 1.0,
+    "retailPrice": 19.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1080,
+    "productName": "Ribbons",
+    "unitcost": 0.01,
+    "retailPrice": 200.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 2024,
+    "productName": "Sweet Heart 1*1* 750g",
+    "unitcost": 1.0,
+    "retailPrice": 86.39,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1029,
+    "productName": "Leakim Icing Sugar",
+    "unitcost": 0.5,
+    "retailPrice": 144.31,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1036,
+    "productName": "Cake Bases Heart/Round 1Kg ",
+    "unitcost": 1.0,
+    "retailPrice": 22.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1032,
+    "productName": "Polythene Papers 14*16",
+    "unitcost": 0.6,
+    "retailPrice": 4.25,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1063,
+    "productName": "Label Full Deco 1Kg ",
+    "unitcost": 1.0,
+    "retailPrice": 0.87,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1080,
+    "productName": "Ribbons",
+    "unitcost": 0.01,
+    "retailPrice": 200.0,
+    "date": "2018-12-27T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.06,
+    "retailPrice": 104.0,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.666,
+    "retailPrice": 0.15,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.16666,
+    "retailPrice": 0.85,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.33333,
+    "retailPrice": 0.4,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.01,
+    "retailPrice": 6.25,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1077,
+    "productName": "Label Leaky Cookies 200g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.06,
+    "retailPrice": 104.0,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.6666,
+    "retailPrice": 0.15,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.16666,
+    "retailPrice": 0.85,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.3333,
+    "retailPrice": 0.4,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1078,
+    "productName": "Label Tea Cookies V/Long 225g",
+    "unitcost": 1.0,
+    "retailPrice": 0.87,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.01,
+    "retailPrice": 6.25,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.06,
+    "retailPrice": 104.0,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.6667,
+    "retailPrice": 0.15,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.1667,
+    "retailPrice": 0.85,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.3333,
+    "retailPrice": 0.4,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.01,
+    "retailPrice": 6.25,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1051,
+    "productName": "Label T/Cookies V/round 225g",
+    "unitcost": 1.0,
+    "retailPrice": 0.87,
+    "date": "2018-11-28T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.06333,
+    "retailPrice": 104.0,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.66667,
+    "retailPrice": 0.15,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.16667,
+    "retailPrice": 0.85,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.33333,
+    "retailPrice": 0.26,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.01,
+    "retailPrice": 6.25,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1049,
+    "productName": "Label T/ Cookies Choco.Long 225g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.06,
+    "retailPrice": 104.0,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.6666,
+    "retailPrice": 0.15,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.16667,
+    "retailPrice": 0.85,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.33333,
+    "retailPrice": 0.26,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1047,
+    "productName": "Label T.Cookies Choc.Round 225g",
+    "unitcost": 1.0,
+    "retailPrice": 0.87,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.01,
+    "retailPrice": 6.25,
+    "date": "2019-01-31T06:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.875,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.18,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1006,
+    "productName": "Cinnamon",
+    "unitcost": 0.0488,
+    "retailPrice": 0.8,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.01,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1057,
+    "productName": "Label Sweet Mandazi 180g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.3902,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 7.22222,
+    "retailPrice": 0.17,
+    "date": "2018-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 9.375,
+    "retailPrice": 0.02,
+    "date": "2018-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.4688,
+    "retailPrice": 0.53,
+    "date": "2018-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1107,
+    "productName": "Soy Lecithin",
+    "unitcost": 1.5625,
+    "retailPrice": 0.15,
+    "date": "2018-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1106,
+    "productName": "Glycerine",
+    "unitcost": 17.0625,
+    "retailPrice": 0.13,
+    "date": "2018-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.0047,
+    "retailPrice": 163.89,
+    "date": "2018-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1003,
+    "productName": "Cooking Fat/Bakerite",
+    "unitcost": 0.9375,
+    "retailPrice": 125.0,
+    "date": "2018-04-24T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 6.0164,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0103,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.7534,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.137,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.3425,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0411,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1022,
+    "productName": "Cases Size 110",
+    "unitcost": 6.0,
+    "retailPrice": 0.34,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1045,
+    "productName": "Labels Eng. Muffin 300g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1015,
+    "productName": "Polythene Papers 8*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.137,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.0959,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 3.5616,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0685,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0685,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0274,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00685,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.5046,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 4.1284,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0459,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0459,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 2.3853,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.7339,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.0917,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1044,
+    "productName": "Labels Eng. Muffin 200g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1022,
+    "productName": "Cases Size 110",
+    "unitcost": 4.0,
+    "retailPrice": 0.34,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0275,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.2294,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0917,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0069,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0275,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00459,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0104,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.7639,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.1389,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.3472,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0417,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1046,
+    "productName": "Labels Eng. Muffin 320g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.1389,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.1111,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 3.6111,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0694,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1023,
+    "productName": "Cases Size 95",
+    "unitcost": 8.0,
+    "retailPrice": 0.3,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0694,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 6.25,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00694,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 6.1644,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0103,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.7534,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.137,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.3425,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0411,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1022,
+    "productName": "Cases Size 110",
+    "unitcost": 6.0,
+    "retailPrice": 0.34,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1042,
+    "productName": "Label Chocolate Muffins 300g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1015,
+    "productName": "Polythene Papers 8*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.137,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.0959,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 3.5616,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0685,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0685,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.137,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00685,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 4.1284,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0069,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.5046,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0917,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.2294,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0275,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1040,
+    "productName": "Label Chocolate Muffins 200g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1022,
+    "productName": "Cases Size 110",
+    "unitcost": 4.0,
+    "retailPrice": 0.34,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.0917,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.7339,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0275,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 2.3853,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0459,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0459,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.0902,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00459,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0071,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.5189,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0943,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0283,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1014,
+    "productName": "Polythene Papers 7*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.28,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1058,
+    "productName": "Label Queen Cake 240g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1023,
+    "productName": "Cases Size 95",
+    "unitcost": 6.0,
+    "retailPrice": 0.3,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0283,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.0943,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.7547,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 2.4528,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0472,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0472,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 4.2453,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.2359,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00472,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.082,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.082,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 4.2623,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.3115,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.1639,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0246,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1067,
+    "productName": "Label Queen Cake 12 Pack",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1015,
+    "productName": "Polythene Papers 8*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1023,
+    "productName": "Cases Size 95",
+    "unitcost": 12.0,
+    "retailPrice": 0.3,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.1639,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.9016,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0123,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 7.377,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0492,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.4098,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.0082,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0068,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.5,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0909,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.2273,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0273,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1014,
+    "productName": "Polythene Papers 7*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.28,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1030,
+    "productName": "Cases Size 85",
+    "unitcost": 8.0,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1060,
+    "productName": "Label S/Q.Cake 200g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0273,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.7273,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 2.3636,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0455,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0455,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 4.0909,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00454,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.003,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.22,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.04,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.1,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.012,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1013,
+    "productName": "Polythene Papers 5*6",
+    "unitcost": 1.0,
+    "retailPrice": 1.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1065,
+    "productName": "Label T.Cake 100g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.04,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.32,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.04,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.02,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.02,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 1.8,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.002,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 1.4107,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0024,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.1724,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0314,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.0784,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0094,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1076,
+    "productName": "Label Ring Cake 85g",
+    "unitcost": 1.0,
+    "retailPrice": 0.87,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1013,
+    "productName": "Polythene Papers 5*6",
+    "unitcost": 1.0,
+    "retailPrice": 1.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.0314,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.2508,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 0.8151,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0157,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0157,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.0314,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00157,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.0943,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0189,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0071,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.5189,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0943,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.2359,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0283,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1039,
+    "productName": "Label Ring Cake 260g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.0943,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.7547,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 2.4528,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0472,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0472,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 4.2453,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00472,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 8.4906,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0141,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 1.0377,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.1887,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.4717,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1038,
+    "productName": "Label Ring Cake 510g ",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0566,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0283,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.1887,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.5094,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 4.9057,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0943,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0943,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.1887,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00943,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.1754,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 7.8947,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.9649,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.1754,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.4386,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0526,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1056,
+    "productName": "Label Mini Madeira 500g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0263,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.1754,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.4035,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 4.5614,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0877,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0877,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0132,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00877,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0132,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.9649,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0263,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.1754,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.1754,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.4386,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0526,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.1754,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.4035,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0877,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0877,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 7.8947,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1061,
+    "productName": "Label Heart Madeira 500g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 4.5614,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00877,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 4.2056,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.007,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.514,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0935,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.2336,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1014,
+    "productName": "Polythene Papers 7*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.28,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1064,
+    "productName": "Label Marble Heart 270g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.028,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.0935,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.028,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.7477,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 2.4299,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0467,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0467,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.0952,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00467,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.1754,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 7.8947,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0132,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.1754,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.4386,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1075,
+    "productName": "Label Marble Cake 500g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.4035,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0877,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0263,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0526,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.1754,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 0.2662,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0877,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00877,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.1754,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0132,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.9649,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.1754,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.4386,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0526,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1059,
+    "productName": "Label Choco Heart 500g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.1754,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.4035,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0263,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 4.5614,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0877,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0877,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 7.8947,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00877,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 2.5,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.3055,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0556,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.1389,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0167,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1048,
+    "productName": "Label Choco.Heart 150g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0222,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.0556,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.4444,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.4444,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0278,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0278,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.0556,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00278,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0044,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.3216,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0585,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.1462,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0175,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1054,
+    "productName": "Label Leaky Twins 150g ",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.0585,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.4678,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0222,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 1.5205,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0292,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0292,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 2.6316,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00292,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.0439,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.0439,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 2.2807,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1020,
+    "productName": "Polythene Papers 6*9",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0263,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.2193,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.4825,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0066,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 3.9474,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.0952,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.7017,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0219,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1050,
+    "productName": "Label S.Madeira 250g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.0877,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00472,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.01,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.6707,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1021,
+    "productName": "Caramel/Black Jack",
+    "unitcost": 0.125,
+    "retailPrice": 0.26,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.061,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.061,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 3.1707,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.9756,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.122,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.0366,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1069,
+    "productName": "Label Leaky  Madeira 350g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1015,
+    "productName": "Polythene Papers 8*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.0369,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.122,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0092,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 5.4878,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.0061,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 11.8421,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0197,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 1.4474,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.2632,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.6579,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.079,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1055,
+    "productName": "Label S. Madeira 750g",
+    "unitcost": 0.2632,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.2632,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 2.1053,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 6.8421,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.1316,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.1316,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0395,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1019,
+    "productName": "Polythene Papers 10*12",
+    "unitcost": 1.0,
+    "retailPrice": 2.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.01316,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0197,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 1.4447,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.2632,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.6579,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.079,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1019,
+    "productName": "Polythene Papers 10*12",
+    "unitcost": 1.0,
+    "retailPrice": 2.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1043,
+    "productName": "Label Sweet Heart 750g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 2.1053,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0395,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 6.8421,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.1316,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.1316,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 11.8421,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.01316,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.0197,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 1.4474,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.2632,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.6579,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.079,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.0395,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 2.1053,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 6.8421,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.1316,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.1316,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 11.8421,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1019,
+    "productName": "Polythene Papers 10*12",
+    "unitcost": 1.0,
+    "retailPrice": 2.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1072,
+    "productName": "Label Family Cake 750g",
+    "unitcost": 1.0,
+    "retailPrice": 0.87,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.01316,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.05882,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.05882,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 3.05882,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.00824,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.29412,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 0.94118,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 5.29412,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.11765,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.64706,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.11765,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.35294,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1014,
+    "productName": "Polythene Papers 7*10",
+    "unitcost": 1.0,
+    "retailPrice": 1.28,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1082,
+    "productName": "Label Leaky Heart 300g",
+    "unitcost": 1.0,
+    "retailPrice": 1.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1033,
+    "productName": "Cellotape",
+    "unitcost": 0.02353,
+    "retailPrice": 6.25,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00588,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1026,
+    "productName": "Eggs",
+    "unitcost": 0.08772,
+    "retailPrice": 213.33,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1111,
+    "productName": "Leaky Croma",
+    "unitcost": 0.08772,
+    "retailPrice": 116.29,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1007,
+    "productName": "Baking powder",
+    "unitcost": 4.5614,
+    "retailPrice": 0.15,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1112,
+    "productName": "Leaky Invert",
+    "unitcost": 0.01316,
+    "retailPrice": 47.16,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1101,
+    "productName": "Ascorbic Acid ",
+    "unitcost": 0.4386,
+    "retailPrice": 1.2,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1010,
+    "productName": "Sobat",
+    "unitcost": 1.40351,
+    "retailPrice": 0.5,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1103,
+    "productName": "Food Emulsifier(Cake Gel)",
+    "unitcost": 7.89474,
+    "retailPrice": 0.27,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1102,
+    "productName": "Citric Acid",
+    "unitcost": 0.17544,
+    "retailPrice": 0.17,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1017,
+    "productName": "Salt",
+    "unitcost": 0.96491,
+    "retailPrice": 0.03,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1012,
+    "productName": "Orange Flavour",
+    "unitcost": 0.17544,
+    "retailPrice": 0.85,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1025,
+    "productName": "Egg Yellow Powder",
+    "unitcost": 0.05263,
+    "retailPrice": 0.4,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1016,
+    "productName": "Polythene Papers 9*13",
+    "unitcost": 1.0,
+    "retailPrice": 1.97,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1084,
+    "productName": "Label Leaky Heart 450g",
+    "unitcost": 1.0,
+    "retailPrice": 0.75,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  },
+  {
+    "productCode": 1034,
+    "productName": "Salad Oil",
+    "unitcost": 0.00877,
+    "retailPrice": 150.0,
+    "date": "2019-04-15T05:00:00.000+00:00"
+  }
+]
