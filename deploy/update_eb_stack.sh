@@ -2,7 +2,8 @@
 
 APPVERSION=$1
 
-sh v2_create_app_version.sh ${APPVERSION}
+sh create_app_version.sh ${APPVERSION}
+sh create_ecr_repo.sh ${APPVERSION}
 
 aws s3 cp ../aws/template.json s3://rxpowet-bucket-01/cf/template.json
 

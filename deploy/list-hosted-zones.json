@@ -1,0 +1,14 @@
+{
+    "HostedZones": [
+        {
+            "Id": "/hostedzone/Z068892338UWF2XSD2NVA",
+            "Name": "cmcloudlab742.info.",
+            "CallerReference": "cmcloudlab742.info2020-05-05 19:39:36.432700",
+            "Config": {
+                "Comment": "",
+                "PrivateZone": false
+            },
+            "ResourceRecordSetCount": 2
+        }
+    ]
+}
