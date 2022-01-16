@@ -2,7 +2,7 @@
 AppVersion=1
 sh create_app_version.sh "${AppVersion}"
 
-aws s3 cp ../aws/template.json s3://rxpowet-bucket-01/cf/template.json
+aws s3 cp ../aws/template.json s3://rxpo2wet-bucket-0/cf/template.json
 
 aws cloudformation delete-stack \
     --stack-name rx-powet-stack
@@ -17,7 +17,7 @@ SUBNETID01=`cat ./temp/subnetid01`
 SUBNETID02=`cat ./temp/subnetid02`
 
 aws cloudformation create-stack --stack-name rx-powet-stack \
---template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/template.json \
+--template-url https://rxpo2wet-bucket-0.s3.amazonaws.com/cf/template.json \
 --on-failure DO_NOTHING \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \

@@ -1,10 +1,18 @@
 {
   "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "nginx-proxy-conf",
+      "host": {
+        "sourcePath": "/var/app/current/conf.d"
+      }
+    }
+  ],
   "containerDefinitions": [
     {
       "name": "rxpowet",
       "essential": true,
-      "image": "ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:0.0.1",
+      "image": "ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:0.0.4",
       "memory": 512,
       "portMappings": [
         {
@@ -17,7 +25,7 @@
       "name": "nginx-proxy",
       "image": "nginx",
       "essential": true,
-      "memory": 128,
+      "memoryReservation": 128,
       "portMappings": [
         {
           "hostPort": 80,
@@ -26,6 +34,13 @@
       ],
       "links": [
         "rxpowet"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "nginx-proxy-conf",
+          "containerPath": "/etc/nginx/conf.d",
+          "readOnly": true
+        }
       ]
     }
   ]
