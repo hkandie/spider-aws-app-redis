@@ -4,7 +4,7 @@
     {
       "name": "nginx-proxy-conf",
       "host": {
-        "sourcePath": "/var/app/current/conf.d"
+        "sourcePath": "/var/app/current/proxy/conf.d"
       }
     }
   ],
@@ -16,7 +16,6 @@
       "memory": 512,
       "portMappings": [
         {
-          "hostPort": 9000,
           "containerPort": 9000
         }
       ]
@@ -25,7 +24,7 @@
       "name": "nginx-proxy",
       "image": "nginx",
       "essential": true,
-      "memoryReservation": 128,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
