@@ -14,15 +14,18 @@
       ]
     },
     {
-      "name": "rxpowet",
+      "name": "nginx-proxy",
+      "image": "nginx",
       "essential": true,
-      "image": "ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:0.0.1",
-      "memory": 512,
+      "memory": 128,
       "portMappings": [
         {
-          "hostPort": 9000,
-          "containerPort": 9000
+          "hostPort": 80,
+          "containerPort": 80
         }
+      ],
+      "links": [
+        "rxpowet"
       ]
     }
   ]
