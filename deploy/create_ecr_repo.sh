@@ -9,7 +9,7 @@ aws ecr create-repository \
     --repository-name spider-walker/emrys \
     --image-tag-mutability MUTABLE
 
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 182468307776.dkr.ecr.us-east-1.amazonaws.com
 
 docker tag spider-walker/emrys:${VERSION} ${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:${VERSION}
 
