@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "B2B Map Layer Service Elasticache Redis Cluster",
+    "Description": "RX Elasticache Redis Cluster",
     "Parameters": {
         "VpcId": {
             "Type": "String",

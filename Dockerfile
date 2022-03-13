@@ -1,6 +1,5 @@
 FROM amazoncorretto:11-alpine
 WORKDIR /app
-COPY target/emrys-0.0.4.jar /app/emrys-0.0.4.jar
-COPY application.properties /app/application.properties
+COPY target/spider-redis-0.0.1.jar /app/emrys-0.0.1.jar
 EXPOSE 9000
-ENTRYPOINT ["java","-jar","/app/emrys-0.0.4.jar"]
+ENTRYPOINT ["java","-jar","/app/emrys-0.0.1.jar"]

@@ -2,7 +2,7 @@ version: '2.4'
 services:
   php-app:
     container_name: "rxpowet"
-    image: "ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:0.0.4"
+    image: "ACCOUNTID.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:0.0.1"
     mem_limit: 512m
     ports:
       - "80:9000"
