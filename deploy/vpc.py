@@ -32,3 +32,22 @@ f.close()
 f = open("temp/subnetid02", "a")
 f.write(SubnetId02)
 f.close()
+
+
+with open('temp/list-hosted-zones.json') as f:
+    data = json.load(f)
+
+HostedZones = (data['HostedZones'][0]['Name'])
+
+f = open("temp/HostedZones", "a")
+f.write(HostedZones)
+f.close()
+
+with open('temp/secrets.json') as f:
+    data = json.load(f)
+
+HostedZones = (data['ARN'])
+
+f = open("temp/secretsarns", "a")
+f.write(HostedZones)
+f.close()

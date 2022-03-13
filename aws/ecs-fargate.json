@@ -52,8 +52,7 @@
       "Default": "/health-check"
     },
     "HostedZoneName": {
-      "Type": "String",
-      "Default": "cmcloudlab886.info"
+      "Type": "String"
     },
     "Subdomain": {
       "Type": "String",
@@ -61,11 +60,11 @@
     },
     "MinContainers": {
       "Type": "Number",
-      "Default": 2
+      "Default": 3
     },
     "MaxContainers": {
       "Type": "Number",
-      "Default": 3
+      "Default": 4
     },
     "AutoScalingTargetValue": {
       "Type": "Number",
@@ -108,8 +107,8 @@
         "RequiresCompatibilities": [
           "FARGATE"
         ],
-        "Cpu": 256,
-        "Memory": "0.5GB",
+        "Cpu": 512,
+        "Memory": "1GB",
         "ExecutionRoleArn": {
           "Ref": "ExecutionRole"
         },
@@ -356,11 +355,11 @@
     "TargetGroup": {
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
       "Properties": {
-        "HealthCheckIntervalSeconds": 10,
+        "HealthCheckIntervalSeconds": 300,
         "HealthCheckPath": {
           "Ref": "HealthCheckPath"
         },
-        "HealthCheckTimeoutSeconds": 5,
+        "HealthCheckTimeoutSeconds": 120,
         "UnhealthyThresholdCount": 2,
         "HealthyThresholdCount": 2,
         "Name": {
@@ -493,7 +492,7 @@
     "S3Bucket": {
       "Type" : "AWS::S3::Bucket",
       "Properties" : {
-        "BucketName" : "rxpowet-bucket-02-logs"
+        "BucketName" : "rxpowet-bucket-01-logs"
       }
     },
     "LoadBalancer": {
@@ -556,8 +555,7 @@
             [
               {
                 "Ref": "HostedZoneName"
-              },
-              "."
+              }
             ]
           ]
         },
@@ -571,8 +569,7 @@
               ".",
               {
                 "Ref": "HostedZoneName"
-              },
-              "."
+              }
             ]
           ]
         },

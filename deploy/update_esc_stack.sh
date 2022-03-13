@@ -6,6 +6,7 @@ ACCOUNTID=`cat ./temp/accountid`
 SECURITYGROUP1=`cat ./temp/securitygroup1`
 SUBNETID01=`cat ./temp/subnetid01`
 SUBNETID02=`cat ./temp/subnetid02`
+HostedZones=`cat ./temp/HostedZones`
 
 aws s3 cp ../aws/ecs-template.json s3://rxpowet-bucket-02/cf/ecs-template.json
 
@@ -15,6 +16,7 @@ aws cloudformation update-stack --stack-name rx-powet-ecs-stack \
 --parameters \
 ParameterKey=AppVersion,ParameterValue=0.0.1 \
 ParameterKey=VpcId,ParameterValue=${VPCID} \
+ParameterKey=HostedZoneName,ParameterValue=${HostedZones} \
 ParameterKey=SecurityGroup1,ParameterValue=${SECURITYGROUP1} \
 ParameterKey=SubnetId01,ParameterValue=${SUBNETID01} \
 ParameterKey=SubnetId02,ParameterValue=${SUBNETID02} \

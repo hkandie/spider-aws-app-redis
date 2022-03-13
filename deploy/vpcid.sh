@@ -1,7 +1,7 @@
 #!/bin/sh
 rm -rf ./temp/*
 mkdir temp
-
+aws route53 list-hosted-zones > temp/list-hosted-zones.json
 aws ec2 describe-subnets > temp/subnets.json
 aws ec2 describe-security-groups > temp/security-groups.json
 

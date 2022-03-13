@@ -1,5 +1,6 @@
 #!/bin/sh
 
+aws s3 rm s3://rxpowet-bucket-02-logs --recursive
 
 aws cloudformation delete-stack \
     --stack-name rx-powet-ecs-stack
@@ -15,6 +16,8 @@ ACCOUNTID=`cat ./temp/accountid`
 SECURITYGROUP1=`cat ./temp/securitygroup1`
 SUBNETID01=`cat ./temp/subnetid01`
 SUBNETID02=`cat ./temp/subnetid02`
+HostedZones=`cat ./temp/HostedZones`
+SECRETARN=`cat ./temp/secretsarns`
 
 aws cloudformation create-stack --stack-name rx-powet-ecs-stack \
 --template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/ecs-fargate.json \
@@ -23,7 +26,9 @@ aws cloudformation create-stack --stack-name rx-powet-ecs-stack \
 --parameters \
 ParameterKey=AppVersion,ParameterValue=0.0.1 \
 ParameterKey=VPC,ParameterValue=${VPCID} \
+ParameterKey=HostedZoneName,ParameterValue=${HostedZones} \
 ParameterKey=SubnetA,ParameterValue=${SUBNETID01} \
+ParameterKey=SECRETARN,ParameterValue=${SECRETARN} \
 ParameterKey=SubnetB,ParameterValue=${SUBNETID02} \
 ParameterKey=ACCOUNTID,ParameterValue=${ACCOUNTID}
 

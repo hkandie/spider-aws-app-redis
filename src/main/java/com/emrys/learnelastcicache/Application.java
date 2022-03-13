@@ -13,8 +13,6 @@ import java.util.concurrent.TimeUnit;
 @SpringBootApplication
 public class Application {
     public static Logger logger = LogManager.getLogger(Application.class);
-    @Value("${spring.datasource.url}")
-    private static String springDatasourceUrl;
 
     public static void main(String[] args) {
         logger.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
