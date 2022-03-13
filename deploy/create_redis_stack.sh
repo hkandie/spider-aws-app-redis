@@ -1,8 +1,8 @@
 #!/bin/sh
 AppVersion=1 
 
-aws s3 cp ../aws/rx-redis-template.json s3://rxpowet-bucket-01/cf/rx-redis-template.json
-aws s3 cp ../aws/rxlambda.zip s3://rxpowet-bucket-01/cf/rxlambda.zip
+aws s3 cp ../aws/rx-redis-template.json s3://rxpowet-bucket-02/cf/rx-redis-template.json
+aws s3 cp ../aws/rxlambda.zip s3://rxpowet-bucket-02/cf/rxlambda.zip
 
 aws cloudformation delete-stack \
     --stack-name rx-redis-stack
@@ -18,7 +18,7 @@ SUBNETID02=`cat ./temp/subnetid02`
 HostedZoneIdParameter=`cat ./temp/HostedZoneIdParameter`
 
 aws cloudformation create-stack --stack-name rx-redis-stack \
---template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/rx-redis-template.json \
+--template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/rx-redis-template.json \
 --on-failure DO_NOTHING \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \

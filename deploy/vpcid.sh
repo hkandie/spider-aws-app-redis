@@ -22,4 +22,11 @@ aws ec2 authorize-security-group-ingress \
     --cidr 0.0.0.0/0
 
 
+aws ec2 authorize-security-group-ingress \
+    --group-id "${SECURITYGROUP1}" \
+    --protocol tcp \
+    --port 5432 \
+    --cidr 0.0.0.0/0
+
+
 
