@@ -26,6 +26,10 @@
       "Type": "String",
       "Description": "Account ID"
     },
+    "SECRETARN": {
+      "Type": "String",
+      "Description": "Secrets Arn"
+    },
     "VPC": {
       "Type": "AWS::EC2::VPC::Id"
     },
@@ -141,7 +145,37 @@
                 },
                 "awslogs-stream-prefix": "ecs"
               }
-            }
+            },
+            "Secrets": [
+              {
+                "Name": "AR_READ_ONLY_USER",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "SECRETARN"
+                      },
+                      ":username::"
+                    ]
+                  ]
+                }
+              },
+              {
+                "Name": "AR_READ_ONLY_PASS",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "SECRETARN"
+                      },
+                      ":password::"
+                    ]
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -198,6 +232,29 @@
                 "Service": "ecs-tasks.amazonaws.com"
               },
               "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+      }
+    },
+    "MyAWSSecretsManagerResourcePolicy": {
+      "Type" : "AWS::SecretsManager::ResourcePolicy",
+      "Properties" : {
+        "BlockPublicPolicy" : "True",
+        "SecretId": "SPIDER/WALKER/FWSECRETS/",
+        "ResourcePolicy": {
+
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Resource": "*",
+              "Action": "secretsmanager:DeleteSecret",
+              "Effect": "Deny",
+              "Principal": {
+                "AWS": {
+                  "Fn::Sub": "arn:aws:iam::${ACCOUNTID}:root"
+                }
+              }
             }
           ]
         }
@@ -492,7 +549,7 @@
     "S3Bucket": {
       "Type" : "AWS::S3::Bucket",
       "Properties" : {
-        "BucketName" : "rxpowet-bucket-01-logs"
+        "BucketName" : "rxpowet-bucket-02-logs"
       }
     },
     "LoadBalancer": {
