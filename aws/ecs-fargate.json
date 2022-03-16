@@ -1,0 +1,731 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "An example CloudFormation template for Fargate.",
+  "Outputs": {
+    "Endpoint": {
+      "Description": "Endpoint",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "http://",
+            {
+              "Ref": "DNSRecord"
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "Parameters": {
+    "AppVersion": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "ACCOUNTID": {
+      "Type": "String",
+      "Description": "Account ID"
+    },
+    "SECRETARN": {
+      "Type": "String",
+      "Description": "Secrets Arn"
+    },
+    "VPC": {
+      "Type": "AWS::EC2::VPC::Id"
+    },
+    "SubnetA": {
+      "Type": "AWS::EC2::Subnet::Id"
+    },
+    "SubnetB": {
+      "Type": "AWS::EC2::Subnet::Id"
+    },
+    "ServiceName": {
+      "Type": "String",
+      "Default": "MyService"
+    },
+    "ContainerPort": {
+      "Type": "Number",
+      "Default": 9000
+    },
+    "LoadBalancerPort": {
+      "Type": "Number",
+      "Default": 80
+    },
+    "HealthCheckPath": {
+      "Type": "String",
+      "Default": "/health-check"
+    },
+    "HostedZoneName": {
+      "Type": "String"
+    },
+    "Subdomain": {
+      "Type": "String",
+      "Default": "rx-powet-prod"
+    },
+    "MinContainers": {
+      "Type": "Number",
+      "Default": 3
+    },
+    "MaxContainers": {
+      "Type": "Number",
+      "Default": 4
+    },
+    "AutoScalingTargetValue": {
+      "Type": "Number",
+      "Default": 50
+    }
+  },
+  "Resources": {
+    "Cluster": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "Cluster"
+            ]
+          ]
+        }
+      }
+    },
+    "TaskDefinition": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "DependsOn": "LogGroup",
+      "Properties": {
+        "Family": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "TaskDefinition"
+            ]
+          ]
+        },
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": [
+          "FARGATE"
+        ],
+        "Cpu": 512,
+        "Memory": "1GB",
+        "ExecutionRoleArn": {
+          "Ref": "ExecutionRole"
+        },
+        "TaskRoleArn": {
+          "Ref": "TaskRole"
+        },
+        "ContainerDefinitions": [
+          {
+            "Name": {
+              "Ref": "ServiceName"
+            },
+            "Image": {
+              "Fn::Sub": "${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:${AppVersion}"
+            },
+            "PortMappings": [
+              {
+                "ContainerPort": {
+                  "Ref": "ContainerPort"
+                }
+              }
+            ],
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-region": {
+                  "Ref": "AWS::Region"
+                },
+                "awslogs-group": {
+                  "Ref": "LogGroup"
+                },
+                "awslogs-stream-prefix": "ecs"
+              }
+            },
+            "Secrets": [
+              {
+                "Name": "AR_READ_ONLY_USER",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "SECRETARN"
+                      },
+                      ":username::"
+                    ]
+                  ]
+                }
+              },
+              {
+                "Name": "AR_READ_ONLY_PASS",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "SECRETARN"
+                      },
+                      ":password::"
+                    ]
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "ExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "ExecutionRole"
+            ]
+          ]
+        },
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+          {
+            "Ref": "MyAWSIAMManagedPolicy"
+          }
+        ]
+      }
+    },
+    "MyAWSIAMManagedPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "secretsmanager:GetSecretValue"
+              ],
+              "Resource": "*"
+            }
+          ]
+        }
+      }
+    },
+    "TaskRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "TaskRole"
+            ]
+          ]
+        },
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        }
+      }
+    },
+    "AutoScalingRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "AutoScalingRole"
+            ]
+          ]
+        },
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole"
+        ]
+      }
+    },
+    "ContainerSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "ContainerSecurityGroup"
+            ]
+          ]
+        },
+        "VpcId": {
+          "Ref": "VPC"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": {
+              "Ref": "ContainerPort"
+            },
+            "ToPort": {
+              "Ref": "ContainerPort"
+            },
+            "SourceSecurityGroupId": {
+              "Ref": "LoadBalancerSecurityGroup"
+            }
+          }
+        ]
+      }
+    },
+    "LoadBalancerSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "LoadBalancerSecurityGroup"
+            ]
+          ]
+        },
+        "VpcId": {
+          "Ref": "VPC"
+        },
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": {
+              "Ref": "LoadBalancerPort"
+            },
+            "ToPort": {
+              "Ref": "LoadBalancerPort"
+            },
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      }
+    },
+    "Service": {
+      "Type": "AWS::ECS::Service",
+      "DependsOn": [
+        "ListenerHTTPS"
+      ],
+      "Properties": {
+        "ServiceName": {
+          "Ref": "ServiceName"
+        },
+        "Cluster": {
+          "Ref": "Cluster"
+        },
+        "TaskDefinition": {
+          "Ref": "TaskDefinition"
+        },
+        "DeploymentConfiguration": {
+          "MinimumHealthyPercent": 100,
+          "MaximumPercent": 200
+        },
+        "DesiredCount": 2,
+        "HealthCheckGracePeriodSeconds": 30,
+        "LaunchType": "FARGATE",
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "ENABLED",
+            "Subnets": [
+              {
+                "Ref": "SubnetA"
+              },
+              {
+                "Ref": "SubnetB"
+              }
+            ],
+            "SecurityGroups": [
+              {
+                "Ref": "ContainerSecurityGroup"
+              }
+            ]
+          }
+        },
+        "LoadBalancers": [
+          {
+            "ContainerName": {
+              "Ref": "ServiceName"
+            },
+            "ContainerPort": {
+              "Ref": "ContainerPort"
+            },
+            "TargetGroupArn": {
+              "Ref": "TargetGroup"
+            }
+          }
+        ]
+      }
+    },
+    "TargetGroup": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "HealthCheckIntervalSeconds": 300,
+        "HealthCheckPath": {
+          "Ref": "HealthCheckPath"
+        },
+        "HealthCheckTimeoutSeconds": 120,
+        "UnhealthyThresholdCount": 2,
+        "HealthyThresholdCount": 2,
+        "Name": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "TargetGroup"
+            ]
+          ]
+        },
+        "Port": {
+          "Ref": "ContainerPort"
+        },
+        "Protocol": "HTTP",
+        "TargetGroupAttributes": [
+          {
+            "Key": "deregistration_delay.timeout_seconds",
+            "Value": 60
+          }
+        ],
+        "TargetType": "ip",
+        "VpcId": {
+          "Ref": "VPC"
+        }
+      }
+    },
+    "ListenerHTTPS": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "Properties": {
+        "DefaultActions": [
+          {
+            "TargetGroupArn": {
+              "Ref": "TargetGroup"
+            },
+            "Type": "forward"
+          }
+        ],
+        "LoadBalancerArn": {
+          "Ref": "LoadBalancer"
+        },
+        "Port": {
+          "Ref": "LoadBalancerPort"
+        },
+        "Protocol": "HTTP"
+      }
+    },
+    "S3LogsBucketPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "S3Bucket"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Sub": "arn:aws:iam::127311923021:root"
+                }
+              },
+              "Action": "s3:PutObject",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "S3Bucket"
+                    },
+                    {
+                      "Fn::Sub": "/elblogs/AWSLogs/${ACCOUNTID}/*"
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "delivery.logs.amazonaws.com"
+              },
+              "Action": "s3:GetBucketAcl",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "S3Bucket"
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "delivery.logs.amazonaws.com"
+              },
+              "Action": "s3:PutObject",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "S3Bucket"
+                    },
+                    {
+                      "Fn::Sub": "/elblogs/AWSLogs/${ACCOUNTID}/*"
+                    }
+                  ]
+                ]
+              },
+              "Condition": {
+                "StringEquals": {
+                  "s3:x-amz-acl": "bucket-owner-full-control"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "S3Bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "rxpowet-bucket-02-logs"
+      }
+    },
+    "LoadBalancer": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "DependsOn": "S3LogsBucketPolicy",
+      "Properties": {
+        "LoadBalancerAttributes": [
+          {
+            "Key": "idle_timeout.timeout_seconds",
+            "Value": 60
+          },
+          {
+            "Key": "access_logs.s3.enabled",
+            "Value": true
+          },
+          {
+            "Key": "access_logs.s3.prefix",
+            "Value": "elblogs"
+          },
+          {
+            "Key": "access_logs.s3.bucket",
+            "Value": {
+              "Ref": "S3Bucket"
+            }
+          }
+        ],
+        "Name": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "LoadBalancer"
+            ]
+          ]
+        },
+        "Scheme": "internet-facing",
+        "SecurityGroups": [
+          {
+            "Ref": "LoadBalancerSecurityGroup"
+          }
+        ],
+        "Subnets": [
+          {
+            "Ref": "SubnetA"
+          },
+          {
+            "Ref": "SubnetB"
+          }
+        ]
+      }
+    },
+    "DNSRecord": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "HostedZoneName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "HostedZoneName"
+              }
+            ]
+          ]
+        },
+        "Name": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "Subdomain"
+              },
+              ".",
+              {
+                "Ref": "HostedZoneName"
+              }
+            ]
+          ]
+        },
+        "Type": "A",
+        "AliasTarget": {
+          "DNSName": {
+            "Fn::GetAtt": [
+              "LoadBalancer",
+              "DNSName"
+            ]
+          },
+          "HostedZoneId": {
+            "Fn::GetAtt": [
+              "LoadBalancer",
+              "CanonicalHostedZoneID"
+            ]
+          }
+        }
+      }
+    },
+    "LogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": {
+          "Fn::Join": [
+            "",
+            [
+              "/ecs/",
+              {
+                "Ref": "ServiceName"
+              },
+              "TaskDefinition"
+            ]
+          ]
+        }
+      }
+    },
+    "AutoScalingTarget": {
+      "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
+      "Properties": {
+        "MinCapacity": {
+          "Ref": "MinContainers"
+        },
+        "MaxCapacity": {
+          "Ref": "MaxContainers"
+        },
+        "ResourceId": {
+          "Fn::Join": [
+            "/",
+            [
+              "service",
+              {
+                "Ref": "Cluster"
+              },
+              {
+                "Fn::GetAtt": [
+                  "Service",
+                  "Name"
+                ]
+              }
+            ]
+          ]
+        },
+        "ScalableDimension": "ecs:service:DesiredCount",
+        "ServiceNamespace": "ecs",
+        "RoleARN": {
+          "Fn::GetAtt": [
+            "AutoScalingRole",
+            "Arn"
+          ]
+        }
+      }
+    },
+    "AutoScalingPolicy": {
+      "Type": "AWS::ApplicationAutoScaling::ScalingPolicy",
+      "Properties": {
+        "PolicyName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "ServiceName"
+              },
+              "AutoScalingPolicy"
+            ]
+          ]
+        },
+        "PolicyType": "TargetTrackingScaling",
+        "ScalingTargetId": {
+          "Ref": "AutoScalingTarget"
+        },
+        "TargetTrackingScalingPolicyConfiguration": {
+          "PredefinedMetricSpecification": {
+            "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+          },
+          "ScaleInCooldown": 10,
+          "ScaleOutCooldown": 10,
+          "TargetValue": {
+            "Ref": "AutoScalingTargetValue"
+          }
+        }
+      }
+    }
+  }
+}

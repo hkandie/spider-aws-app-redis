@@ -1,92 +1,60 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "B2B Map Layer Service Elasticache Redis Cluster",
-    "Parameters": {
-        "VpcId": {
-            "Type": "String",
-            "Description": "Supplied by drone-cloudformation-deploy plugin"
-        },
-        "AppVersion": {
-            "Type": "String",
-            "Description": "Supplied by drone-cloudformation-deploy plugin"
-        },
-        "SecurityGroup1": {
-            "Type": "String",
-            "Description": "Supplied by drone-cloudformation-deploy plugin"
-        },
-        "SubnetId01": {
-            "Type": "String",
-            "Description": "Supplied by drone-cloudformation-deploy plugin"
-        },
-        "SubnetId02": {
-            "Type": "String",
-            "Description": "Supplied by drone-cloudformation-deploy plugin"
-        },
-        "HostedZoneIdParameter": {
-            "Type": "String",
-            "Description": "Supplied by drone-cloudformation-deploy plugin"
-        }
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "RX Elasticache Redis Cluster",
+  "Parameters": {
+    "VpcId": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
     },
-    "Resources": {
-        "RxAWSSQSQueue": {
-            "Type": "AWS::SQS::Queue",
-            "Properties": {
-                "QueueName": "RxAWSSQSQueue"
-            }
-        },
-        "RxAWSSNSSubscription": {
-            "Type": "AWS::SNS::Subscription",
-            "Properties": {
-                "Protocol": "sqs",
-                "SubscriptionRoleArn": {
-                    "Ref": "RxLowImpairedAnotherAccount"
-                }
-            }
-        },
-        "RxLowImpairedAnotherAccount": {
-            "Type": "AWS::SNS::Topic",
-            "Properties": {
-                "TopicName": "Rx-LowImpaired-AnotherAccount"
-            }
-        },
-        "RxCacheCluster": {
-            "Type": "AWS::ElastiCache::CacheCluster",
-            "Properties": {
-                "VpcSecurityGroupIds": [
-                    {
-                        "Fn::Sub": "${SecurityGroup1}"
-                    }
-                ],
-                "EngineVersion": "3.2.4",
-                "AZMode": "single-az",
-                "NotificationTopicArn": {
-                    "Ref": "RxLowImpaired"
-                },
-                "CacheNodeType": "cache.t2.micro",
-                "Engine": "redis",
-                "ClusterName": "Rx-Cluster",
-                "AutoMinorVersionUpgrade": false,
-                "NumCacheNodes": 1,
-                "CacheSubnetGroupName": {
-                    "Ref": "RxCacheSubnetGroup"
-                }
-            },
-            "DeletionPolicy": "Delete"
-        },
-        "RxCacheSubnetGroup": {
-            "Type": "AWS::ElastiCache::SubnetGroup",
-            "Properties": {
-                "SubnetIds": [
-                    {
-                        "Fn::Sub": "${SubnetId02}"
-                    },
-                    {
-                        "Fn::Sub": "${SubnetId01}"
-                    }
-                ],
-                "Description": "Subnet group for B2B Elasticache"
-            },
-            "DeletionPolicy": "Delete"
-        }
+    "SecurityGroup1": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId01": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
+    },
+    "SubnetId02": {
+      "Type": "String",
+      "Description": "Supplied by drone-cloudformation-deploy plugin"
     }
+  },
+  "Resources": {
+    "RxCacheCluster": {
+      "Type": "AWS::ElastiCache::CacheCluster",
+      "Properties": {
+        "VpcSecurityGroupIds": [
+          {
+            "Fn::Sub": "${SecurityGroup1}"
+          }
+        ],
+        "EngineVersion": "3.2.4",
+        "AZMode": "single-az",
+        "CacheNodeType": "cache.t2.micro",
+        "Engine": "redis",
+        "ClusterName": "Rx-Cluster",
+        "AutoMinorVersionUpgrade": false,
+        "NumCacheNodes": 1,
+        "CacheSubnetGroupName": {
+          "Ref": "RxCacheSubnetGroup"
+        }
+      },
+      "DeletionPolicy": "Delete"
+    },
+    "RxCacheSubnetGroup": {
+      "Type": "AWS::ElastiCache::SubnetGroup",
+      "Properties": {
+        "SubnetIds": [
+          {
+            "Fn::Sub": "${SubnetId02}"
+          },
+          {
+            "Fn::Sub": "${SubnetId01}"
+          }
+        ],
+        "Description": "Subnet group for Elasticache"
+      },
+      "DeletionPolicy": "Delete"
+    }
+  }
 }

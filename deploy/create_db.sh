@@ -13,13 +13,13 @@ aws rds create-db-instance \
     --db-instance-identifier emrys-01 \
     --db-name taifa \
     --db-instance-class db.t2.micro \
-    --engine mysql \
+    --engine postgres \
     --master-username taifa \
     --master-user-password taifa123* \
     --allocated-storage 20 \
     --vpc-security-group-ids "${SECURITYGROUP1}" \
     --backup-retention-period 0 \
-    --engine-version 5.6.51
+    --engine-version 11
 
 aws rds wait db-instance-available \
     --db-instance-identifier emrys-01

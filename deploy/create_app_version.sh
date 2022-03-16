@@ -7,7 +7,7 @@ EB_APP="RxPowet"
 DESCRIPTION="RxPowet Is theapp"
 
 APP_VER_NAME="${EB_APP}"-"${APPVERSION}".zip
-S3_BUCKET=rxpowet-bucket-01
+S3_BUCKET=rxpowet-bucket-02
 S3_KEY=apps/deployments/"${APP_VER_NAME}"
 ACCOUNTID=`cat ./temp/accountid`
 
