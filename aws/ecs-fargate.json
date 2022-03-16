@@ -145,7 +145,37 @@
                 },
                 "awslogs-stream-prefix": "ecs"
               }
-            }
+            },
+            "Secrets": [
+              {
+                "Name": "AR_READ_ONLY_USER",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "SECRETARN"
+                      },
+                      ":username::"
+                    ]
+                  ]
+                }
+              },
+              {
+                "Name": "AR_READ_ONLY_PASS",
+                "ValueFrom": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Ref": "SECRETARN"
+                      },
+                      ":password::"
+                    ]
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -176,8 +206,28 @@
           ]
         },
         "ManagedPolicyArns": [
-          "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+          "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+          {
+            "Ref": "MyAWSIAMManagedPolicy"
+          }
         ]
+      }
+    },
+    "MyAWSIAMManagedPolicy": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "secretsmanager:GetSecretValue"
+              ],
+              "Resource": "*"
+            }
+          ]
+        }
       }
     },
     "TaskRole": {
@@ -430,7 +480,7 @@
                 }
               },
               "Action": "s3:PutObject",
-              "Resource":{
+              "Resource": {
                 "Fn::Join": [
                   "",
                   [
@@ -494,9 +544,9 @@
       }
     },
     "S3Bucket": {
-      "Type" : "AWS::S3::Bucket",
-      "Properties" : {
-        "BucketName" : "rxpowet-bucket-02-logs"
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "rxpowet-bucket-02-logs"
       }
     },
     "LoadBalancer": {

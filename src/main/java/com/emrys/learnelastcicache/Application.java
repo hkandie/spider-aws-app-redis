@@ -33,8 +33,8 @@ public class Application {
         logger.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         logger.info("Successfully started");
         logger.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        logger.info("{}", env.getProperty("AR_READ_ONLY_USER"));
-        logger.info("{}", env.getProperty("AR_READ_ONLY_PASS"));
+        logger.info("AR_READ_ONLY_USER: {}", System.getProperty("AR_READ_ONLY_USER"));
+        logger.info("AR_READ_ONLY_PASS: {}", System.getProperty("AR_READ_ONLY_PASS"));
 
     }
 

@@ -24,7 +24,7 @@ aws cloudformation create-stack --stack-name rx-powet-ecs-stack \
 --capabilities CAPABILITY_NAMED_IAM \
 --on-failure DO_NOTHING \
 --parameters \
-ParameterKey=AppVersion,ParameterValue=0.0.1 \
+ParameterKey=AppVersion,ParameterValue=0.0.3 \
 ParameterKey=VPC,ParameterValue=${VPCID} \
 ParameterKey=HostedZoneName,ParameterValue=${HostedZones} \
 ParameterKey=SubnetA,ParameterValue=${SUBNETID01} \
