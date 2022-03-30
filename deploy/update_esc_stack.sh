@@ -14,7 +14,7 @@ aws cloudformation update-stack --stack-name rx-powet-ecs-stack \
 --template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/ecs-template.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \
-ParameterKey=AppVersion,ParameterValue=0.0.3 \
+ParameterKey=AppVersion,ParameterValue=0.0.1 \
 ParameterKey=VpcId,ParameterValue=${VPCID} \
 ParameterKey=HostedZoneName,ParameterValue=${HostedZones} \
 ParameterKey=SecurityGroup1,ParameterValue=${SECURITYGROUP1} \
