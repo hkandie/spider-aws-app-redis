@@ -3,14 +3,14 @@
 SECURITYGROUP1=`cat ./temp/securitygroup1`
 
 #aws rds delete-db-instance \
-#--db-instance-identifier emrys-01 \
+#--db-instance-identifier emrys-rds-01 \
 #--skip-final-snapshot
 #
 #aws rds wait db-instance-deleted \
-#    --db-instance-identifier emrys-01
+#    --db-instance-identifier emrys-rds-01
 
 aws rds create-db-instance \
-    --db-instance-identifier emrys-01 \
+    --db-instance-identifier emrys-rds-01 \
     --db-name taifa \
     --db-instance-class db.t2.micro \
     --engine postgres \
@@ -22,4 +22,4 @@ aws rds create-db-instance \
     --engine-version 11
 
 aws rds wait db-instance-available \
-    --db-instance-identifier emrys-01
+    --db-instance-identifier emrys-rds-01
