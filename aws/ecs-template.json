@@ -69,7 +69,7 @@
         },
         "LaunchType": "FARGATE",
         "DesiredCount": 4,
-        "HealthCheckGracePeriodSeconds": 90,
+        "HealthCheckGracePeriodSeconds": 180,
         "LoadBalancers": [
           {
             "ContainerName": "rxpowet",

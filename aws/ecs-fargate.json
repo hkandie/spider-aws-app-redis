@@ -60,7 +60,7 @@
     },
     "MinContainers": {
       "Type": "Number",
-      "Default": 3
+      "Default": 4
     },
     "MaxContainers": {
       "Type": "Number",
@@ -337,7 +337,7 @@
           "MaximumPercent": 200
         },
         "DesiredCount": 2,
-        "HealthCheckGracePeriodSeconds": 30,
+        "HealthCheckGracePeriodSeconds": 90,
         "LaunchType": "FARGATE",
         "NetworkConfiguration": {
           "AwsvpcConfiguration": {
@@ -512,7 +512,7 @@
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-01-logs"
+        "BucketName": "rxpowet-bucket-03-logs"
       }
     },
     "LoadBalancer": {

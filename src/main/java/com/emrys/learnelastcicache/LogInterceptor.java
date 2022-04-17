@@ -2,8 +2,8 @@ package com.emrys.learnelastcicache;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author HKandie
  */
-public class LogInterceptor extends HandlerInterceptorAdapter {
+public class LogInterceptor implements HandlerInterceptor {
 
     public static Logger logger = LogManager.getLogger(LogInterceptor.class);
 
