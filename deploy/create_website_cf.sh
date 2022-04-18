@@ -1,5 +1,7 @@
 #!/bin/sh
 
+aws s3 rm s3://rxpowet-bucket-website --recursive
+
 aws cloudformation delete-stack \
     --stack-name rx-powet-website-template-stack
 
