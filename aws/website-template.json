@@ -39,7 +39,13 @@
                 }
             }
         },
-        "BucketPolicy": {
+        "S3BucketLogs": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": "rxpowet-cloudfront-logs"
+            }
+        },
+        "BucketPolicyLogs": {
             "Type": "AWS::S3::BucketPolicy",
             "Properties": {
                 "PolicyDocument": {
@@ -49,7 +55,7 @@
                         {
                             "Effect": "Allow",
                             "Principal": {
-                                "AWS":{
+                                "AWS": {
                                     "Fn::Join": [
                                         "",
                                         [
@@ -62,7 +68,56 @@
                                             }
                                         ]
                                     ]
-                                } 
+                                }
+                            },
+                            "Action": [
+                                "s3:GetObject",
+                                "s3:PutObject"
+                            ],
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        "arn:aws:s3:::",
+                                        {
+                                            "Ref": "S3BucketLogs"
+                                        },
+                                        "/*"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "Bucket": {
+                    "Ref": "S3BucketLogs"
+                }
+            }
+        },
+        "BucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+                "PolicyDocument": {
+                    "Id": "MyPolicy",
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ",
+                                            {
+                                                "Fn::GetAtt": [
+                                                    "RxCloudFrontOriginAccessIdentity",
+                                                    "Id"
+                                                ]
+                                            }
+                                        ]
+                                    ]
+                                }
                             },
                             "Action": [
                                 "s3:GetObject",
