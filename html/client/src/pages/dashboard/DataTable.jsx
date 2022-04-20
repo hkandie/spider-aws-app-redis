@@ -1,0 +1,140 @@
+const data = [
+    [
+        "1,001",
+        "random",
+        "data",
+        "placeholder",
+        "text"
+    ],
+    [
+        "1,002",
+        "placeholder",
+        "irrelevant",
+        "visual",
+        "layout"
+    ],
+    [
+        "1,003",
+        "data",
+        "rich",
+        "dashboard",
+        "tabular"
+    ],
+    [
+        "1,003",
+        "information",
+        "placeholder",
+        "illustrative",
+        "data"
+    ],
+    [
+        "1,004",
+        "text",
+        "random",
+        "layout",
+        "dashboard"
+    ],
+    [
+        "1,005",
+        "dashboard",
+        "irrelevant",
+        "text",
+        "placeholder"
+    ],
+    [
+        "1,006",
+        "dashboard",
+        "illustrative",
+        "rich",
+        "data"
+    ],
+    [
+        "1,007",
+        "placeholder",
+        "tabular",
+        "information",
+        "irrelevant"
+    ],
+    [
+        "1,008",
+        "random",
+        "data",
+        "placeholder",
+        "text"
+    ],
+    [
+        "1,009",
+        "placeholder",
+        "irrelevant",
+        "visual",
+        "layout"
+    ],
+    [
+        "1,010",
+        "data",
+        "rich",
+        "dashboard",
+        "tabular"
+    ],
+    [
+        "1,011",
+        "information",
+        "placeholder",
+        "illustrative",
+        "data"
+    ],
+    [
+        "1,012",
+        "text",
+        "placeholder",
+        "layout",
+        "dashboard"
+    ],
+    [
+        "1,013",
+        "dashboard",
+        "irrelevant",
+        "text",
+        "visual"
+    ],
+    [
+        "1,014",
+        "dashboard",
+        "illustrative",
+        "rich",
+        "data"
+    ],
+    [
+        "1,015",
+        "random",
+        "tabular",
+        "information",
+        "text"
+    ]
+];
+const DataTable = () => {
+    return (
+        <table className="table table-striped table-sm">
+            <thead>
+                <tr>
+                    {['#', 'Header', 'Header', 'Header', 'Header'].map((h, i) => {
+                        return (
+                            <th scope="col" key={i}>{h}</th>)
+                    })}
+                </tr>
+            </thead>
+            <tbody>
+                {data.map((tr, k) => {
+                    return (
+                        <tr key={k}>
+                            {tr.map((td,l)=>{
+                                return <td key={l}>{td}</td>
+                            })}
+                        </tr>
+                    )
+                })}
+            </tbody>
+        </table>)
+}
+
+export default DataTable;

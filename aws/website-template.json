@@ -32,7 +32,6 @@
             "Type": "AWS::S3::Bucket",
             "Properties": {
                 "BucketName": "rxpowet-bucket-website",
-                "AccessControl": "PublicRead",
                 "WebsiteConfiguration": {
                     "IndexDocument": "index.html",
                     "ErrorDocument": "error.html"
@@ -135,24 +134,6 @@
                                     ]
                                 ]
                             }
-                        },
-                        {
-                            "Sid": "PublicReadForGetBucketObjects",
-                            "Effect": "Allow",
-                            "Principal": "*",
-                            "Action": "s3:GetObject",
-                            "Resource": {
-                                "Fn::Join": [
-                                    "",
-                                    [
-                                        "arn:aws:s3:::",
-                                        {
-                                            "Ref": "S3Bucket"
-                                        },
-                                        "/*"
-                                    ]
-                                ]
-                            }
                         }
                     ]
                 },
@@ -168,34 +149,91 @@
                     "Comment": "Origin One"
                 }
             }
+        },
+        "RxPowetDistribution": {
+            "Type": "AWS::CloudFront::Distribution",
+            "Properties": {
+                "DistributionConfig": {
+                    "Origins": [
+                        {
+                            "Id": "myS3Origin",
+                            "DomainName": {
+                                "Fn::GetAtt": [
+                                    "S3Bucket",
+                                    "DomainName"
+                                ]
+                            },
+                            "S3OriginConfig": {
+                                "OriginAccessIdentity": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "origin-access-identity/cloudfront/",
+                                            {
+                                                "Fn::GetAtt": [
+                                                    "RxCloudFrontOriginAccessIdentity",
+                                                    "Id"
+                                                ]
+                                            }
+                                        ]
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "Enabled": "true",
+                    "Comment": "Some comment",
+                    "DefaultRootObject": "index.html",
+                    "Logging": {
+                        "IncludeCookies": "true",
+                        "Bucket": {
+                            "Fn::GetAtt": [
+                                "S3BucketLogs",
+                                "DomainName"
+                            ]
+                        },
+                        "Prefix": "myprefix"
+                    },
+                    "DefaultCacheBehavior": {
+                        "AllowedMethods": [
+                            "DELETE",
+                            "GET",
+                            "HEAD",
+                            "OPTIONS",
+                            "PATCH",
+                            "POST",
+                            "PUT"
+                        ],
+                        "TargetOriginId": "myS3Origin",
+                        "ForwardedValues": {
+                            "QueryString": "false",
+                            "Cookies": {
+                                "Forward": "none"
+                            }
+                        },
+                        "ViewerProtocolPolicy": "allow-all"
+                    }
+                }
+            }
         }
     },
-    "Outputs": {
-        "WebsiteURL": {
-            "Value": {
-                "Fn::GetAtt": [
-                    "S3Bucket",
-                    "WebsiteURL"
-                ]
-            },
-            "Description": "URL for website hosted on S3"
-        },
-        "S3BucketSecureURL": {
+    "Outputs": {        
+        "DistributionDomainName": {
             "Value": {
                 "Fn::Join": [
                     "",
                     [
-                        "https://",
+                        "http://",
                         {
                             "Fn::GetAtt": [
-                                "S3Bucket",
+                                "RxPowetDistribution",
                                 "DomainName"
                             ]
                         }
                     ]
                 ]
             },
-            "Description": "Name of S3 bucket to hold website content"
+            "Description": "Distribution domain name for website content"
         }
     }
 }
