@@ -34,7 +34,7 @@
                 "BucketName": "rxpowet-bucket-website",
                 "WebsiteConfiguration": {
                     "IndexDocument": "index.html",
-                    "ErrorDocument": "error.html"
+                    "ErrorDocument": "index.html"
                 }
             }
         },
@@ -212,28 +212,109 @@
                             }
                         },
                         "ViewerProtocolPolicy": "allow-all"
+                    },
+                    "CustomErrorResponses": [
+                        {
+                            "ErrorCachingMinTTL": 1,
+                            "ErrorCode": 403,
+                            "ResponseCode": 200,
+                            "ResponsePagePath": "/index.html"
+                        }
+                    ],
+                    "WebACLId": {
+                        "Fn::GetAtt": [
+                            "WebACL",
+                            "Arn"
+                        ]
                     }
                 }
             }
         }
     },
-    "Outputs": {        
-        "DistributionDomainName": {
-            "Value": {
-                "Fn::Join": [
-                    "",
-                    [
-                        "http://",
-                        {
-                            "Fn::GetAtt": [
-                                "RxPowetDistribution",
-                                "DomainName"
-                            ]
-                        }
-                    ]
-                ]
+    "Rule001": {
+        "Type": "AWS::WAFv2::RegexPatternSet",
+        "Properties": {
+            "Description": "block using regex",
+            "Name": "Rule001",
+            "RegularExpressionList": [
+                "^/$",
+                "^/dashboard"
+            ],
+            "Scope": "CLOUDFRONT"
+        }
+    },
+    "WebACL": {
+        "Type": "AWS::WAFv2::WebACL",
+        "Properties": {
+            "DefaultAction": {
+                "Allow": {}
             },
-            "Description": "Distribution domain name for website content"
+            "Description": "Rx Powet Firewall",
+            "Name": "rx-powet-website-acl",
+            "Rules": [
+                {
+                    "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
+                    "Priority": 0,
+                    "Statement": {
+                        "ManagedRuleGroupStatement": {
+                            "VendorName": "AWS",
+                            "Name": "AWSManagedRulesKnownBadInputsRuleSet"
+                        }
+                    },
+                    "OverrideAction": {
+                        "None": {}
+                    },
+                    "VisibilityConfig": {
+                        "SampledRequestsEnabled": true,
+                        "CloudWatchMetricsEnabled": true,
+                        "MetricName": "AWS-AWSManagedRulesKnownBadInputsRuleSet"
+                    }
+                },
+                {
+                    "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
+                    "Priority": 1,
+                    "Statement": {
+                        "ManagedRuleGroupStatement": {
+                            "VendorName": "AWS",
+                            "Name": "AWSManagedRulesAmazonIpReputationList"
+                        }
+                    },
+                    "OverrideAction": {
+                        "None": {}
+                    },
+                    "VisibilityConfig": {
+                        "SampledRequestsEnabled": true,
+                        "CloudWatchMetricsEnabled": true,
+                        "MetricName": "AWS-AWSManagedRulesAmazonIpReputationList"
+                    }
+                }
+            ],
+            "Scope": "CLOUDFRONT",
+            "VisibilityConfig": {
+                "CloudWatchMetricsEnabled": false,
+                "MetricName": "count-rx-powet-website-acl",
+                "SampledRequestsEnabled": true
+            }
         }
     }
+},
+"Outputs": {
+    "DistributionDomainName": {
+        "Value": {
+            "Fn::Join": [
+                "",
+                [
+                    "http://",
+                    {
+                        "Fn::GetAtt": [
+                            "RxPowetDistribution",
+                            "DomainName"
+                        ]
+                    }
+                ]
+            ]
+        },
+        "Description": "Distribution domain name for website content"
+    }
+}
 }

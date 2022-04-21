@@ -22,5 +22,4 @@ ParameterKey=ACCOUNTID,ParameterValue=${ACCOUNTID}
 aws cloudformation wait stack-update-complete \
     --stack-name rx-powet-cloudfront-template-stack
 
-
-aws s3 sync ../html/dashboard s3://rxpowet-bucket-website/    
+aws s3 sync .../html/client/build/ s3://rxpowet-bucket-website/   
