@@ -233,7 +233,7 @@
         "RxPowetRegexPatternSet": {
             "Type": "AWS::WAFv2::RegexPatternSet",
             "Properties": {
-                "Name": "RxPowet-Regex-Pattern-Set",
+                "Name": "RxPowetRegexPatternSet",
                 "Scope": "CLOUDFRONT",
                 "Description": "This is an example RegexPatternSet",
                 "RegularExpressionList": [
@@ -288,28 +288,23 @@
                         }
                     },
                     {
-                        "Action": {
-                            "Allow": {}
-                        },
                         "Name": "allowed-list",
-                        "OverrideAction": {
-                            "None": {}
-                        },
                         "Priority": 2,
                         "Statement": {
                             "RegexPatternSetReferenceStatement": {
-                                "Arn": "arn:aws:wafv2:us-east-1:605618857277:global/regexpatternset/RxPowet-Regex-Pattern-Set/353fbb0b-ea81-4371-8d09-8f48e5bad9aa",
                                 "FieldToMatch": {
                                     "UriPath": {}
                                 },
+                                "Arn": "arn:aws:wafv2:us-east-1:605618857277:global/regexpatternset/RxPowet-Regex-Pattern-Set/353fbb0b-ea81-4371-8d09-8f48e5bad9aa",
                                 "TextTransformations": [
                                     {
-                                        "Priority": 0,
-                                        "Type": "NONE"
+                                        "Type": "NONE",
+                                        "Priority": 0
                                     }
                                 ]
                             }
                         },
+                        
                         "VisibilityConfig": {
                             "SampledRequestsEnabled": true,
                             "CloudWatchMetricsEnabled": false,
