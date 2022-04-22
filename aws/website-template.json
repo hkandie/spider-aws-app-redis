@@ -233,8 +233,8 @@
         "RxPowetRegexPatternSet": {
             "Type": "AWS::WAFv2::RegexPatternSet",
             "Properties": {
-                "Name": "ExampleRegexPatternSet1",
-                "Scope": "REGIONAL",
+                "Name": "RxPowet-Regex-Pattern-Set",
+                "Scope": "CLOUDFRONT",
                 "Description": "This is an example RegexPatternSet",
                 "RegularExpressionList": [
                     "^foobar$",
@@ -246,7 +246,7 @@
             "Type": "AWS::WAFv2::WebACL",
             "Properties": {
                 "DefaultAction": {
-                    "Allow": {}
+                    "Block": {}
                 },
                 "Description": "Rx Powet Firewall",
                 "Name": "rx-powet-website-acl",
@@ -285,6 +285,35 @@
                             "SampledRequestsEnabled": true,
                             "CloudWatchMetricsEnabled": false,
                             "MetricName": "AWS-AWSManagedRulesAmazonIpReputationList"
+                        }
+                    },
+                    {
+                        "Action": {
+                            "Allow": {}
+                        },
+                        "Name": "allowed-list",
+                        "OverrideAction": {
+                            "None": {}
+                        },
+                        "Priority": 2,
+                        "Statement": {
+                            "RegexPatternSetReferenceStatement": {
+                                "Arn": "arn:aws:wafv2:us-east-1:605618857277:global/regexpatternset/RxPowet-Regex-Pattern-Set/353fbb0b-ea81-4371-8d09-8f48e5bad9aa",
+                                "FieldToMatch": {
+                                    "UriPath": {}
+                                },
+                                "TextTransformations": [
+                                    {
+                                        "Priority": 0,
+                                        "Type": "NONE"
+                                    }
+                                ]
+                            }
+                        },
+                        "VisibilityConfig": {
+                            "SampledRequestsEnabled": true,
+                            "CloudWatchMetricsEnabled": false,
+                            "MetricName": "count-allowed-list"
                         }
                     }
                 ],
