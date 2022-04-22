@@ -229,92 +229,91 @@
                     }
                 }
             }
-        }
-    },
-    "Rule001": {
-        "Type": "AWS::WAFv2::RegexPatternSet",
-        "Properties": {
-            "Description": "block using regex",
-            "Name": "Rule001",
-            "RegularExpressionList": [
-                "^/$",
-                "^/dashboard"
-            ],
-            "Scope": "CLOUDFRONT"
-        }
-    },
-    "WebACL": {
-        "Type": "AWS::WAFv2::WebACL",
-        "Properties": {
-            "DefaultAction": {
-                "Allow": {}
-            },
-            "Description": "Rx Powet Firewall",
-            "Name": "rx-powet-website-acl",
-            "Rules": [
-                {
-                    "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
-                    "Priority": 0,
-                    "Statement": {
-                        "ManagedRuleGroupStatement": {
-                            "VendorName": "AWS",
-                            "Name": "AWSManagedRulesKnownBadInputsRuleSet"
-                        }
-                    },
-                    "OverrideAction": {
-                        "None": {}
-                    },
-                    "VisibilityConfig": {
-                        "SampledRequestsEnabled": true,
-                        "CloudWatchMetricsEnabled": true,
-                        "MetricName": "AWS-AWSManagedRulesKnownBadInputsRuleSet"
-                    }
+        },
+        "RxPowetRegexPatternSet": {
+            "Type": "AWS::WAFv2::RegexPatternSet",
+            "Properties": {
+                "Name": "ExampleRegexPatternSet1",
+                "Scope": "REGIONAL",
+                "Description": "This is an example RegexPatternSet",
+                "RegularExpressionList": [
+                    "^foobar$",
+                    "^example$"
+                ]
+            }
+        },
+        "WebACL": {
+            "Type": "AWS::WAFv2::WebACL",
+            "Properties": {
+                "DefaultAction": {
+                    "Allow": {}
                 },
-                {
-                    "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
-                    "Priority": 1,
-                    "Statement": {
-                        "ManagedRuleGroupStatement": {
-                            "VendorName": "AWS",
-                            "Name": "AWSManagedRulesAmazonIpReputationList"
+                "Description": "Rx Powet Firewall",
+                "Name": "rx-powet-website-acl",
+                "Rules": [
+                    {
+                        "Name": "AWS-AWSManagedRulesKnownBadInputsRuleSet",
+                        "Priority": 0,
+                        "Statement": {
+                            "ManagedRuleGroupStatement": {
+                                "VendorName": "AWS",
+                                "Name": "AWSManagedRulesKnownBadInputsRuleSet"
+                            }
+                        },
+                        "OverrideAction": {
+                            "None": {}
+                        },
+                        "VisibilityConfig": {
+                            "SampledRequestsEnabled": true,
+                            "CloudWatchMetricsEnabled": false,
+                            "MetricName": "AWS-AWSManagedRulesKnownBadInputsRuleSet"
                         }
                     },
-                    "OverrideAction": {
-                        "None": {}
-                    },
-                    "VisibilityConfig": {
-                        "SampledRequestsEnabled": true,
-                        "CloudWatchMetricsEnabled": true,
-                        "MetricName": "AWS-AWSManagedRulesAmazonIpReputationList"
+                    {
+                        "Name": "AWS-AWSManagedRulesAmazonIpReputationList",
+                        "Priority": 1,
+                        "Statement": {
+                            "ManagedRuleGroupStatement": {
+                                "VendorName": "AWS",
+                                "Name": "AWSManagedRulesAmazonIpReputationList"
+                            }
+                        },
+                        "OverrideAction": {
+                            "None": {}
+                        },
+                        "VisibilityConfig": {
+                            "SampledRequestsEnabled": true,
+                            "CloudWatchMetricsEnabled": false,
+                            "MetricName": "AWS-AWSManagedRulesAmazonIpReputationList"
+                        }
                     }
+                ],
+                "Scope": "CLOUDFRONT",
+                "VisibilityConfig": {
+                    "CloudWatchMetricsEnabled": false,
+                    "MetricName": "count-rx-powet-website-acl",
+                    "SampledRequestsEnabled": true
                 }
-            ],
-            "Scope": "CLOUDFRONT",
-            "VisibilityConfig": {
-                "CloudWatchMetricsEnabled": false,
-                "MetricName": "count-rx-powet-website-acl",
-                "SampledRequestsEnabled": true
             }
         }
-    }
-},
-"Outputs": {
-    "DistributionDomainName": {
-        "Value": {
-            "Fn::Join": [
-                "",
-                [
-                    "http://",
-                    {
-                        "Fn::GetAtt": [
-                            "RxPowetDistribution",
-                            "DomainName"
-                        ]
-                    }
+    },
+    "Outputs": {
+        "DistributionDomainName": {
+            "Value": {
+                "Fn::Join": [
+                    "",
+                    [
+                        "http://",
+                        {
+                            "Fn::GetAtt": [
+                                "RxPowetDistribution",
+                                "DomainName"
+                            ]
+                        }
+                    ]
                 ]
-            ]
-        },
-        "Description": "Distribution domain name for website content"
+            },
+            "Description": "Distribution domain name for website content"
+        }
     }
-}
 }
