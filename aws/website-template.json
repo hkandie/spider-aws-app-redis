@@ -25,23 +25,23 @@
         "Subdomain": {
             "Type": "String",
             "Default": "rx-powet-cf"
+        }        ,
+        "RegexPatternSetsName": {
+            "Type": "String",
+            "Default": "RxPowetRegexPatternSet"
         }
     },
     "Resources": {
         "S3Bucket": {
             "Type": "AWS::S3::Bucket",
             "Properties": {
-                "BucketName": "rxpowet-bucket-website",
-                "WebsiteConfiguration": {
-                    "IndexDocument": "index.html",
-                    "ErrorDocument": "index.html"
-                }
+                "BucketName": "rxpowet-bucket-01-bucket-website"
             }
         },
         "S3BucketLogs": {
             "Type": "AWS::S3::Bucket",
             "Properties": {
-                "BucketName": "rxpowet-cloudfront-logs"
+                "BucketName": "rxpowet-bucket-01-cloudfront-logs"
             }
         },
         "BucketPolicyLogs": {
@@ -233,12 +233,14 @@
         "RxPowetRegexPatternSet": {
             "Type": "AWS::WAFv2::RegexPatternSet",
             "Properties": {
-                "Name": "RxPowetRegexPatternSet",
+                "Name": {
+                    "Ref":"RegexPatternSetsName"
+                },
                 "Scope": "CLOUDFRONT",
                 "Description": "This is an example RegexPatternSet",
                 "RegularExpressionList": [
-                    "^foobar$",
-                    "^example$"
+                    "^\/static.*css$",
+                    "^\/static.*js$"
                 ]
             }
         },
@@ -292,23 +294,50 @@
                         "Priority": 2,
                         "Statement": {
                             "RegexPatternSetReferenceStatement": {
+                                "Arn": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:wafv2:",
+                                            {
+                                                "Ref":"AWS::Region"
+                                            },
+                                            ":",
+                                            {
+                                                "Ref":"AWS::AccountId"
+                                            },
+                                            ":global/regexpatternset/",
+                                            {
+                                                "Ref":"RegexPatternSetsName"
+                                            },
+                                            "/",
+                                            {
+                                                "Fn::GetAtt": [
+                                                    "RxPowetRegexPatternSet",
+                                                    "Id"
+                                                ]
+                                            }
+                                        ]
+                                    ]
+                                },
                                 "FieldToMatch": {
                                     "UriPath": {}
                                 },
-                                "Arn": "arn:aws:wafv2:us-east-1:605618857277:global/regexpatternset/RxPowet-Regex-Pattern-Set/353fbb0b-ea81-4371-8d09-8f48e5bad9aa",
                                 "TextTransformations": [
                                     {
-                                        "Type": "NONE",
-                                        "Priority": 0
+                                        "Priority": 0,
+                                        "Type": "NONE"
                                     }
                                 ]
                             }
                         },
-                        
+                        "Action": {
+                            "Allow": {}
+                        },
                         "VisibilityConfig": {
                             "SampledRequestsEnabled": true,
                             "CloudWatchMetricsEnabled": false,
-                            "MetricName": "count-allowed-list"
+                            "MetricName": "count_allowed_list"
                         }
                     }
                 ],

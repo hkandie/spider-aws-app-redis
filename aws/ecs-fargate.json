@@ -512,7 +512,7 @@
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-03-logs"
+        "BucketName": "rxpowet-bucket-01-logs"
       }
     },
     "LoadBalancer": {
