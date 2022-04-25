@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Orders from "../pages/orders/Orders"; 
+import Products from "../pages/products";
 import SideMenu from "./SideMenu";
-
-
 
 const MainPage = () => {
 
@@ -18,7 +17,7 @@ const MainPage = () => {
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/orders" element={<Orders />} />
-                        <Route path="/products" element={<Orders />} />
+                        <Route path="/products" element={<Products />} />
                         <Route path="/customers" element={<Orders />} />
                         <Route path="/reports" element={<Orders />} />
                         <Route path="/integrations" element={<Orders />} />
