@@ -9,7 +9,7 @@ aws cloudformation delete-stack \
 aws cloudformation wait stack-delete-complete \
     --stack-name rx-powet-website-template-stack
 
-aws s3 cp ../aws/website-template.json s3://rxpowet-bucket-01/cf/website-template.json
+aws s3 cp ../aws/website-template.json s3://rxpowet-bucket-02/cf/website-template.json
 
 
 VPCID=`cat ./temp/vpcid`
@@ -20,7 +20,7 @@ SUBNETID02=`cat ./temp/subnetid02`
 HostedZones=`cat ./temp/HostedZones`
 
 aws cloudformation create-stack --stack-name rx-powet-website-template-stack \
---template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/website-template.json \
+--template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/website-template.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --on-failure DO_NOTHING \
 --parameters \
@@ -33,4 +33,4 @@ ParameterKey=ACCOUNTID,ParameterValue=${ACCOUNTID}
 aws cloudformation wait stack-create-complete \
     --stack-name rx-powet-website-template-stack
 
-aws s3 sync ../html/client/build/ s3://rxpowet-bucket-01-bucket-website/    
+sh website_deploy.sh
