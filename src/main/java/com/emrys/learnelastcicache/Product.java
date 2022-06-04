@@ -5,9 +5,6 @@
  */
 package com.emrys.learnelastcicache;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -17,8 +14,6 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "products")
-@Getter
-@Setter
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,4 +33,43 @@ public class Product implements Serializable {
     public Product() {
     }
 
+    public Integer getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(Integer productCode) {
+        this.productCode = productCode;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Double getUnitcost() {
+        return unitcost;
+    }
+
+    public void setUnitcost(Double unitcost) {
+        this.unitcost = unitcost;
+    }
+
+    public Double getRetailPrice() {
+        return retailPrice;
+    }
+
+    public void setRetailPrice(Double retailPrice) {
+        this.retailPrice = retailPrice;
+    }
+
+    public String getTaxratecode() {
+        return taxratecode;
+    }
+
+    public void setTaxratecode(String taxratecode) {
+        this.taxratecode = taxratecode;
+    }
 }

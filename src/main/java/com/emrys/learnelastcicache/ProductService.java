@@ -34,13 +34,14 @@ public class ProductService {
     public void createProduct( List<Product> patch) {
         DateTime start = new DateTime();
         patch.stream().forEach((k)->{
-            logger.info("Took By ID: " + k);
+            k.setTaxratecode("A");
+            logger.info("Took By ID: " + k.getProductCode());
             Product n = productDao.save(k);
             DateTime end = new DateTime();
             Duration duration = new Duration(start, end);
             logger.info("Took By ID: " + duration.getMillis());
-            productDao.invalidateProducts();
-        });
+
+        });productDao.invalidateProducts();
     }
 
     public List<Product> getProducts() {
