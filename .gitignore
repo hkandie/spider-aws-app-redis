@@ -48,3 +48,4 @@ RxPowet-1.zip
 deploy/deployments
 deploy/temp
 deploy/deployments/rxKeyPair.pem
+/html/node_modules

@@ -35,13 +35,13 @@
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-02-bucket-website"
+        "BucketName": "rxpowet-bucket-01-bucket-website"
       }
     },
     "S3BucketLogs": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-02-cloudfront-logs"
+        "BucketName": "rxpowet-bucket-01-cloudfront-logs"
       }
     },
     "BucketPolicyLogs": {
@@ -163,29 +163,27 @@
       }
     },
     "ApiCachePolicy": {
-      "Type" : "AWS::CloudFront::CachePolicy",
-      "Properties" : {
-        "CachePolicyConfig" : {
-          "Comment" : "This an api cache policy comment",
-          "DefaultTTL" : 0,
-          "MaxTTL" : 0,
-          "MinTTL" : 0,
-          "Name" : "rx-dynamic-cache-policy",
-          "ParametersInCacheKeyAndForwardedToOrigin" : {
-            "EnableAcceptEncodingBrotli" : true,
-            "EnableAcceptEncodingGzip" : true,
-            "CookiesConfig" : {
-              "CookieBehavior" : "all",
-              "Cookies" : ["*"]
+      "Type": "AWS::CloudFront::CachePolicy",
+      "Properties": {
+        "CachePolicyConfig": {
+          "Comment": "This an api cache policy comment",
+          "DefaultTTL": 0,
+          "MaxTTL": 0,
+          "MinTTL": 0,
+          "Name": "cloudfront-origin-request-policy",
+          "ParametersInCacheKeyAndForwardedToOrigin": {
+            "EnableAcceptEncodingBrotli": false,
+            "EnableAcceptEncodingGzip": false,
+            "CookiesConfig": {
+              "CookieBehavior": "none"
             },
-            "HeadersConfig" : {
-              "HeaderBehavior" : "none"
+            "HeadersConfig": {
+              "HeaderBehavior": "none"
             },
-            "QueryStringsConfig" : {
-              "QueryStringBehavior" : "all",
-              "QueryStrings" : [ "*"]
+            "QueryStringsConfig": {
+              "QueryStringBehavior": "none"
             }
-          }c
+          }
         }
       }
     },
@@ -259,11 +257,11 @@
               "DefaultTTL": 0,
               "MaxTTL": 0,
               "MinTTL": 0,
-              "ForwardedValues": {
-                "QueryString": "true",
-                "Cookies": {
-                  "Forward": "all"
-                }
+              "CachePolicyId": {
+                "Fn::GetAtt": [
+                  "ApiCachePolicy",
+                  "Id"
+                ]
               },
               "PathPattern": "/api/*",
               "TargetOriginId": "dynamic",

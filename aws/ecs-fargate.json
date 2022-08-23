@@ -60,11 +60,11 @@
     },
     "MinContainers": {
       "Type": "Number",
-      "Default": 4
+      "Default": 0
     },
     "MaxContainers": {
       "Type": "Number",
-      "Default": 4
+      "Default": 0
     },
     "AutoScalingTargetValue": {
       "Type": "Number",
@@ -141,7 +141,13 @@
                 },
                 "awslogs-stream-prefix": "ecs"
               }
-            }
+            },
+            "Environment": [
+              {
+                "Name": "env",
+                "Value": "prod"
+              }
+            ]
           }
         ]
       }
@@ -336,7 +342,7 @@
           "MinimumHealthyPercent": 100,
           "MaximumPercent": 200
         },
-        "DesiredCount": 2,
+        "DesiredCount": 0,
         "HealthCheckGracePeriodSeconds": 90,
         "LaunchType": "FARGATE",
         "NetworkConfiguration": {

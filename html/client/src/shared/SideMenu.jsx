@@ -4,6 +4,7 @@ const SideMenu = () => {
     const mp1 = [
         { icon: "home", name: 'Dashboard' },
         { icon: "file", name: 'Orders' },
+        { icon: "layers", name: 'WorkType' },
         { icon: "shopping-cart", name: 'Products' },
         { icon: "users", name: 'Customers' },
         { icon: "bar-chart-2", name: 'Reports' },

@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Orders from "../pages/orders/Orders"; 
 import Products from "../pages/products";
+import WorkType from "../pages/worktype";
 import SideMenu from "./SideMenu";
 
 const MainPage = () => {
@@ -21,6 +22,7 @@ const MainPage = () => {
                         <Route path="/customers" element={<Orders />} />
                         <Route path="/reports" element={<Orders />} />
                         <Route path="/integrations" element={<Orders />} />
+                        <Route path="/worktype" element={<WorkType />} />
                     </Routes>
                 </main>
             </div>
