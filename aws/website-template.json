@@ -35,13 +35,13 @@
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-01-bucket-website"
+        "BucketName": "rxpowet-bucket-02-bucket-website"
       }
     },
     "S3BucketLogs": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-01-cloudfront-logs"
+        "BucketName": "rxpowet-bucket-02-cloudfront-logs"
       }
     },
     "BucketPolicyLogs": {

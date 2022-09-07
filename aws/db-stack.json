@@ -2,9 +2,6 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "Rx Powet Database",
   "Parameters": {
-    "Name": {
-      "Type": "String"
-    },
     "InstanceIdentifier": {
       "Type": "String"
     },
@@ -15,31 +12,26 @@
       "Type": "String",
       "Default": "Spider/rx-powet/database"
     },
-    "RdsKmsKey": {
-      "Type": "String"
-    },
-    "FunctionalArea": {
-      "Type": "String"
-    },
     "VPCSecurityGroups": {
       "Type": "CommaDelimitedList"
     },
     "DBSnapshotIdentifier": {
       "Type": "String"
     },
-    "SubnetIds": {
-      "Type": "CommaDelimitedList"
-    },
-    "HostedZoneId": {
+    "SubnetA": {
       "Type": "String"
     },
-    "Endpoint": {
+    "SubnetB": {
       "Type": "String"
-    }
-  },
-  "Conditions": {
-    "IsSnapshotEmpty":  {
-      "Fn::Equals" : ["", {"Ref": "DBSnapshotIdentifier"}]
+    },
+    "HostedZoneName": {
+      "Type": "String"
+    },
+    "VPC": {
+      "Type": "String"
+    },
+    "ACCOUNTID": {
+      "Type": "String"
     }
   },
   "Resources": {
@@ -59,20 +51,13 @@
         "VPCSecurityGroups": {
           "Ref": "VPCSecurityGroups"
         },
-        "KmsKeyId": {
-          "Ref": "RdsKmsKey"
-        },
-        "StorageEncrypted": true,
+        "StorageEncrypted": false,
         "AllocatedStorage": 20,
         "EngineVersion": 11.13,
-        "DBSnapshotIdentifier": {
-          "Fn::If": [
-            "IsSnapshotEmpty",
-            {"Ref": "AWS::NoValue"},
-            {"Ref": "DBSnapshotIdentifier"}
-          ]},
-        "CopyTagsToSnapshot": true,
-        "DBInstanceClass": "db.m5.large",
+        "DBInstanceClass": "db.t2.micro",
+        "DBName" : {
+          "Ref": "DbUsername"
+        },
         "DBSubnetGroupName": {
           "Ref": "RxPowetDBSubnetGroup"
         },
@@ -80,37 +65,20 @@
           "Ref": "InstanceIdentifier"
         }
       },
-      "DeletionPolicy": "Snapshot"
+      "DeletionPolicy": "Delete"
     },
     "RxPowetDBSubnetGroup": {
       "Type": "AWS::RDS::DBSubnetGroup",
       "Properties": {
-        "SubnetIds": {
-          "Ref": "SubnetIds"
-        },
-        "DBSubnetGroupDescription": "RDS subnet group"
-      },
-      "DeletionPolicy": "Delete"
-    },
-    "rdsRoute53Record": {
-      "Type": "AWS::Route53::RecordSet",
-      "Properties": {
-        "HostedZoneId": {
-          "Ref": "HostedZoneId"
-        },
-        "TTL": "300",
-        "Type": "CNAME",
-        "Name": {
-          "Ref": "Endpoint"
-        },
-        "ResourceRecords": [
+        "SubnetIds": [
           {
-            "Fn::GetAtt": [
-              "RxPowetDB",
-              "Endpoint.Address"
-            ]
+            "Ref": "SubnetA"
+          },
+          {
+            "Ref": "SubnetB"
           }
-        ]
+        ],
+        "DBSubnetGroupDescription": "RDS subnet group"
       },
       "DeletionPolicy": "Delete"
     }

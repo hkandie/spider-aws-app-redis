@@ -58,13 +58,17 @@
       "Type": "String",
       "Default": "rx-powet-prod"
     },
-    "MinContainers": {
+    "MinTaskCount": {
       "Type": "Number",
-      "Default": 0
+      "Default": 2
     },
-    "MaxContainers": {
+    "MaxTaskCount": {
       "Type": "Number",
-      "Default": 0
+      "Default": 3
+    },
+    "AutoScalingTargetValue": {
+      "Type": "Number",
+      "Default": 50
     },
     "DBSecrets": {
       "Type": "String",
@@ -524,7 +528,7 @@
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-01-logs"
+        "BucketName": "rxpowet-bucket-02-logs"
       }
     },
     "LoadBalancer": {
@@ -643,10 +647,10 @@
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
       "Properties": {
         "MinCapacity": {
-          "Ref": "MinContainers"
+          "Ref": "MinTaskCount"
         },
         "MaxCapacity": {
-          "Ref": "MaxContainers"
+          "Ref": "MaxTaskCount"
         },
         "ResourceId": {
           "Fn::Join": [
