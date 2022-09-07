@@ -3,12 +3,12 @@
 aws s3 rm s3://rxpowet-bucket-01-logs --recursive
 
 aws cloudformation delete-stack \
-    --stack-name rx-powet-ecs-stack
+    --stack-name rx-powet-db-stack
 
 aws cloudformation wait stack-delete-complete \
-    --stack-name rx-powet-ecs-stack
+    --stack-name rx-powet-db-stack
 
-aws s3 cp ../aws/ecs-fargate.json s3://rxpowet-bucket-01/cf/ecs-fargate.json
+aws s3 cp ../aws/db-tack.json s3://rxpowet-bucket-01/cf/db-tack.json
 
 
 VPCID=`cat ./temp/vpcid`
@@ -18,8 +18,8 @@ SUBNETID01=`cat ./temp/subnetid01`
 SUBNETID02=`cat ./temp/subnetid02`
 HostedZones=`cat ./temp/HostedZones`
 
-aws cloudformation create-stack --stack-name rx-powet-ecs-stack \
---template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/ecs-fargate.json \
+aws cloudformation create-stack --stack-name rx-powet-db-stack \
+--template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/db-tack.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --on-failure DO_NOTHING \
 --parameters \
@@ -31,4 +31,4 @@ ParameterKey=SubnetB,ParameterValue=${SUBNETID02} \
 ParameterKey=ACCOUNTID,ParameterValue=${ACCOUNTID}
 
 aws cloudformation wait stack-create-complete \
-    --stack-name rx-powet-ecs-stack
+    --stack-name rx-powet-db-stack

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ACCOUNTID=`cat ./temp/accountid`
-VERSION=0.0.2
+VERSION=0.0.1
 
 docker build -t spider-walker/emrys:${VERSION} ../
 

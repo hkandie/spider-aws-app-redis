@@ -1,4 +1,4 @@
 aws secretsmanager create-secret \
-    --name SPIDER/WALKER/FWSECRETS/ \
+    --name Spider/rx-powet/database \
     --description "My test secret created with the CLI." \
-    --secret-string "{\"username\":\"AR_READ_ONLY_USER\",\"password\":\"P@$$w0rd\"}"
+    --secret-string "{\"username\":\"taifa\",\"password\":\"Taifa133*\"}"

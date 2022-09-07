@@ -66,9 +66,9 @@
       "Type": "Number",
       "Default": 0
     },
-    "AutoScalingTargetValue": {
-      "Type": "Number",
-      "Default": 50
+    "DBSecrets": {
+      "Type": "String",
+      "Default":"Spider/rx-powet/database"
     }
   },
   "Resources": {
@@ -146,6 +146,12 @@
               {
                 "Name": "env",
                 "Value": "prod"
+              },
+              {
+                "Name": "DB_PASS",
+                "Value":{
+                  "Fn::Sub": "{{resolve:secretsmanager:${DBSecrets}:SecretString:password}}"
+                }
               }
             ]
           }

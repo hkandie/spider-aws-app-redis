@@ -1,0 +1,152 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Rx Powet Database",
+  "Parameters": {
+    "Name": {
+      "Type": "String"
+    },
+    "InstanceIdentifier": {
+      "Type": "String"
+    },
+    "DbUsername": {
+      "Type": "String"
+    },
+    "DbPasswordSecret": {
+      "Type": "String",
+      "Default": "Spider/rx-powet/database"
+    },
+    "RdsKmsKey": {
+      "Type": "String"
+    },
+    "FunctionalArea": {
+      "Type": "String"
+    },
+    "VPCSecurityGroups": {
+      "Type": "CommaDelimitedList"
+    },
+    "DBSnapshotIdentifier": {
+      "Type": "String"
+    },
+    "SubnetIds": {
+      "Type": "CommaDelimitedList"
+    },
+    "HostedZoneId": {
+      "Type": "String"
+    },
+    "Endpoint": {
+      "Type": "String"
+    }
+  },
+  "Conditions": {
+    "IsSnapshotEmpty":  {
+      "Fn::Equals" : ["", {"Ref": "DBSnapshotIdentifier"}]
+    }
+  },
+  "Resources": {
+    "RxPowetDB": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "Engine": "postgres",
+        "DBParameterGroupName": "default.postgres11",
+        "MultiAZ": false,
+        "AllowMajorVersionUpgrade": true,
+        "DeletionProtection": true,
+        "StorageType": "gp2",
+        "MasterUsername": {
+          "Ref": "DbUsername"
+        },
+        "MasterUserPassword": { "Fn::Sub": "{{resolve:secretsmanager:${DbPasswordSecret}:SecretString:password}}" },
+        "VPCSecurityGroups": {
+          "Ref": "VPCSecurityGroups"
+        },
+        "KmsKeyId": {
+          "Ref": "RdsKmsKey"
+        },
+        "StorageEncrypted": true,
+        "AllocatedStorage": 20,
+        "EngineVersion": 11.13,
+        "DBSnapshotIdentifier": {
+          "Fn::If": [
+            "IsSnapshotEmpty",
+            {"Ref": "AWS::NoValue"},
+            {"Ref": "DBSnapshotIdentifier"}
+          ]},
+        "CopyTagsToSnapshot": true,
+        "DBInstanceClass": "db.m5.large",
+        "DBSubnetGroupName": {
+          "Ref": "RxPowetDBSubnetGroup"
+        },
+        "DBInstanceIdentifier": {
+          "Ref": "InstanceIdentifier"
+        }
+      },
+      "DeletionPolicy": "Snapshot"
+    },
+    "RxPowetDBSubnetGroup": {
+      "Type": "AWS::RDS::DBSubnetGroup",
+      "Properties": {
+        "SubnetIds": {
+          "Ref": "SubnetIds"
+        },
+        "DBSubnetGroupDescription": "RDS subnet group"
+      },
+      "DeletionPolicy": "Delete"
+    },
+    "rdsRoute53Record": {
+      "Type": "AWS::Route53::RecordSet",
+      "Properties": {
+        "HostedZoneId": {
+          "Ref": "HostedZoneId"
+        },
+        "TTL": "300",
+        "Type": "CNAME",
+        "Name": {
+          "Ref": "Endpoint"
+        },
+        "ResourceRecords": [
+          {
+            "Fn::GetAtt": [
+              "RxPowetDB",
+              "Endpoint.Address"
+            ]
+          }
+        ]
+      },
+      "DeletionPolicy": "Delete"
+    }
+  },
+  "Outputs": {
+    "JDBCConnectionString": {
+      "Description": "JDBC connection string for database",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "jdbc:postgresql://",
+            {
+              "Fn::GetAtt": [
+                "RxPowetDB",
+                "Endpoint.Address"
+              ]
+            },
+            ":",
+            {
+              "Fn::GetAtt": [
+                "RxPowetDB",
+                "Endpoint.Port"
+              ]
+            },
+            "/",
+            "RxPowetDB"
+          ]
+        ]
+      }
+    },
+    "EventSubscriptionDBInstanceIdentifier": {
+      "Description": "An id to use with AWS::RDS::EventSubscription.",
+      "Value": {
+        "Ref": "RxPowetDB"
+      }
+    }
+  }
+}
