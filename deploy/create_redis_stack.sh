@@ -1,6 +1,8 @@
 #!/bin/sh
 AppVersion=1 
 
+
+
 aws s3 cp ../aws/rx-redis-template.json s3://rxpowet-bucket-02/cf/rx-redis-template.json
 
 aws cloudformation delete-stack \

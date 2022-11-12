@@ -44,7 +44,7 @@
             "Image": {
               "Fn::Sub": "${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/rxpowet/emrys:${AppVersion}"
             },
-            "Cpu": ,
+            "Cpu":"1024" ,
             "PortMappings": [
               {
                 "ContainerPort": 9000,
@@ -69,7 +69,7 @@
         },
         "LaunchType": "FARGATE",
         "DesiredCount": 4,
-        "HealthCheckGracePeriodSeconds": 90,
+        "HealthCheckGracePeriodSeconds": 180,
         "LoadBalancers": [
           {
             "ContainerName": "rxpowet",

@@ -26,10 +26,6 @@
       "Type": "String",
       "Description": "Account ID"
     },
-    "SECRETARN": {
-      "Type": "String",
-      "Description": "Secrets Arn"
-    },
     "VPC": {
       "Type": "AWS::EC2::VPC::Id"
     },
@@ -62,17 +58,21 @@
       "Type": "String",
       "Default": "rx-powet-prod"
     },
-    "MinContainers": {
+    "MinTaskCount": {
+      "Type": "Number",
+      "Default": 2
+    },
+    "MaxTaskCount": {
       "Type": "Number",
       "Default": 3
-    },
-    "MaxContainers": {
-      "Type": "Number",
-      "Default": 4
     },
     "AutoScalingTargetValue": {
       "Type": "Number",
       "Default": 50
+    },
+    "DBSecrets": {
+      "Type": "String",
+      "Default":"Spider/rx-powet/database"
     }
   },
   "Resources": {
@@ -146,33 +146,15 @@
                 "awslogs-stream-prefix": "ecs"
               }
             },
-            "Secrets": [
+            "Environment": [
               {
-                "Name": "AR_READ_ONLY_USER",
-                "ValueFrom": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Ref": "SECRETARN"
-                      },
-                      ":username::"
-                    ]
-                  ]
-                }
+                "Name": "env",
+                "Value": "prod"
               },
               {
-                "Name": "AR_READ_ONLY_PASS",
-                "ValueFrom": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Ref": "SECRETARN"
-                      },
-                      ":password::"
-                    ]
-                  ]
+                "Name": "DB_PASS",
+                "Value":{
+                  "Fn::Sub": "{{resolve:secretsmanager:${DBSecrets}:SecretString:password}}"
                 }
               }
             ]
@@ -370,8 +352,8 @@
           "MinimumHealthyPercent": 100,
           "MaximumPercent": 200
         },
-        "DesiredCount": 2,
-        "HealthCheckGracePeriodSeconds": 30,
+        "DesiredCount": 0,
+        "HealthCheckGracePeriodSeconds": 90,
         "LaunchType": "FARGATE",
         "NetworkConfiguration": {
           "AwsvpcConfiguration": {
@@ -546,7 +528,7 @@
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-01-logs"
+        "BucketName": "rxpowet-bucket-02-logs"
       }
     },
     "LoadBalancer": {
@@ -665,10 +647,10 @@
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
       "Properties": {
         "MinCapacity": {
-          "Ref": "MinContainers"
+          "Ref": "MinTaskCount"
         },
         "MaxCapacity": {
-          "Ref": "MaxContainers"
+          "Ref": "MaxTaskCount"
         },
         "ResourceId": {
           "Fn::Join": [

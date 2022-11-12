@@ -17,8 +17,8 @@ GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO read_only_group;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO read_only_group;
 
 -- Create a final user with password
-CREATE USER ${AR_READ_ONLY_USER} WITH PASSWORD ${AR_READ_ONLY_PASS};
-GRANT read_only_group TO ${AR_READ_ONLY_USER};
+ CREATE USER ${AR_READ_ONLY_USER} WITH PASSWORD ${AR_READ_ONLY_PASS};
+ GRANT read_only_group TO ${AR_READ_ONLY_USER};
 
 -- Clean up scripts incase needed
 -- -- DROP OWNED BY read_only_user;

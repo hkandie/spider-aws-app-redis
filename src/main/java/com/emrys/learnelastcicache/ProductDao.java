@@ -27,7 +27,7 @@ public class ProductDao {
     public void invalidateProducts() {
     }
 
-//    @CachePut(value = "product", key = "#product.productCode")
+    @CachePut(value = "product", key = "#product.productCode")
     public Product save(Product product) {
         return productRepository.save(product);
     }

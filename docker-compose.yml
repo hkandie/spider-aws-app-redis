@@ -1,18 +1,18 @@
 version: '3.9'
 services:
-  mysql-server:
-    image: mysql:5.7
-    container_name: mysql-server
+  postgres-server:
+    image: postgres:latest
+    container_name: postgres-server
     volumes:
-        - data-volume:/var/lib/mysql
+        - data-volume:/var/lib/postgres
+        - tmp-volume:/var/lib/postgresql/data
     ports:
-      - "3306:3306"
+      - "5432:5432"
     environment:
-      MYSQL_HOST: localhost
-      MYSQL_USER: taifa
-      MYSQL_DATABASE: taifa
-      MYSQL_PASSWORD: taifa123*
-      MYSQL_ROOT_PASSWORD: taifa123*
+      POSTGRES_HOST: localhost
+      POSTGRES_USER: taifa
+      POSTGRES_PASSWORD: taifa123*
+      PGDATA: /var/lib/postgresql/data/pgdata
   redis-server:
     image: redis:latest
     container_name: redis-server
@@ -50,3 +50,4 @@ volumes:
   data-volume:
   app-volume:
   nginx-volume:
+  tmp-volume:
