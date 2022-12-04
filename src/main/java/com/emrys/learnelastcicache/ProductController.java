@@ -7,6 +7,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,10 +24,11 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody
-    List<Product> index() {
-        return productService.getProducts();
+    @RequestMapping(value = "/products", method = RequestMethod.GET,
+            produces = "application/json")
+    @PreAuthorize("hasAuthority('SCOPE_api://products:read')")
+    public ResponseEntity<List<Product>> index() {
+        return ResponseEntity.ok(productService.getProducts());
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.POST, produces = "application/json")

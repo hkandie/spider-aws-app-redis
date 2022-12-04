@@ -27,7 +27,7 @@
         <Logger name="RollingFileLogger">
             <AppenderRef ref="RollingFileAppender" />
         </Logger>
-        <Logger name="org.springframework.cache" level="trace">
+        <Logger name="org.springframework.cache" level="info">
             <AppenderRef ref="Console"/>
         </Logger>
         <Logger name="logging.level.org.springframework.web" level="trace">

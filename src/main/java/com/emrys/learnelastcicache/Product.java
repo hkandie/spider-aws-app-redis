@@ -24,11 +24,11 @@ public class Product implements Serializable {
     @Column(name = "productname")
     private String productName;
     @Column(name = "unitcost")
-    private Double unitcost;
+    private Double unitCost;
     @Column(name = "prodrprice")
     private Double retailPrice;
     @Column(name = "taxratecode")
-    private String taxratecode;
+    private String taxRateCode;
 
     public Product() {
     }
@@ -49,12 +49,12 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-    public Double getUnitcost() {
-        return unitcost;
+    public Double getUnitCost() {
+        return unitCost;
     }
 
-    public void setUnitcost(Double unitcost) {
-        this.unitcost = unitcost;
+    public void setUnitCost(Double unitCost) {
+        this.unitCost = unitCost;
     }
 
     public Double getRetailPrice() {
@@ -65,11 +65,11 @@ public class Product implements Serializable {
         this.retailPrice = retailPrice;
     }
 
-    public String getTaxratecode() {
-        return taxratecode;
+    public String getTaxRateCode() {
+        return taxRateCode;
     }
 
-    public void setTaxratecode(String taxratecode) {
-        this.taxratecode = taxratecode;
+    public void setTaxRateCode(String taxRateCode) {
+        this.taxRateCode = taxRateCode;
     }
 }

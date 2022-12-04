@@ -34,7 +34,7 @@ public class ProductService {
     public void createProduct( List<Product> patch) {
         DateTime start = new DateTime();
         patch.stream().forEach((k)->{
-            k.setTaxratecode("A");
+            k.setTaxRateCode("A");
             logger.info("Took By ID: " + k.getProductCode());
             Product n = productDao.save(k);
             DateTime end = new DateTime();

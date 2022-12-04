@@ -1,0 +1,35 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://auth-server:3001/oauth2/jwks
+  flyway:
+    placeholders:
+      AR_READ_ONLY_PASS: '''ReadOnlyUser123!'''
+      AR_READ_ONLY_USER: read_only_user
+    baseline:
+      on-migrate: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+    prefix: 'x3'
+  application:
+    name: 'Taifa'
+  profiles:
+    active: local
+  datasource:
+    password: taifa123*
+    username: taifa-01
+    url: jdbc:postgresql://localhost:5432/taifa?allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false
+    poolSize: 3
+  cache:
+    type: redis
+server:
+  port: 3010
+NetworkTimeout: 2000
