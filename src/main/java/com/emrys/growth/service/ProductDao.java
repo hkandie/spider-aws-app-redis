@@ -1,5 +1,7 @@
-package com.emrys.learnelastcicache;
+package com.emrys.growth.service;
 
+import com.emrys.growth.models.Product;
+import com.emrys.growth.db.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

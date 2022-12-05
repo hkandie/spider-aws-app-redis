@@ -3,7 +3,7 @@
  
   .
  */
-package com.emrys.learnelastcicache;
+package com.emrys.growth.models;
 
 import javax.persistence.*;
 import java.io.Serializable;

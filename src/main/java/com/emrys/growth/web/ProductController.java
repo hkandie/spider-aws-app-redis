@@ -1,10 +1,12 @@
-package com.emrys.learnelastcicache;
+package com.emrys.growth.web;
 
 
+import com.emrys.growth.config.CloudConfig;
+import com.emrys.growth.models.Message;
+import com.emrys.growth.models.Product;
+import com.emrys.growth.service.ProductService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.joda.time.DateTime;
-import org.joda.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -23,6 +25,15 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
+    @Autowired
+    CloudConfig configuration;
+
+    @RequestMapping(value = "/endpoint", method = RequestMethod.GET,
+            produces = "application/json")
+    @PreAuthorize("hasAuthority('SCOPE_api://products:read')")
+    public ResponseEntity<Message> retrieveLimits() {
+        return ResponseEntity.ok(Message.builder().message(configuration.getMessage()).build());
+    }
 
     @RequestMapping(value = "/products", method = RequestMethod.GET,
             produces = "application/json")
@@ -32,7 +43,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<String> create( @RequestBody List<Product> patch) {
+    public ResponseEntity<String> create(@RequestBody List<Product> patch) {
         productService.createProduct(patch);
         return ResponseEntity.ok("");
     }

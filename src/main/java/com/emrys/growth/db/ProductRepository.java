@@ -1,6 +1,7 @@
-package com.emrys.learnelastcicache;
+package com.emrys.growth.db;
 
 
+import com.emrys.growth.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,5 +1,6 @@
-package com.emrys.learnelastcicache;
+package com.emrys.growth.config;
 
+import com.emrys.growth.error.CustomCacheErrorHandler;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.interceptor.CacheErrorHandler;
 import org.springframework.context.annotation.Configuration;

@@ -20,7 +20,7 @@ spring:
     port: 6379
     prefix: 'x3'
   application:
-    name: 'Taifa'
+    name: 'database'
   profiles:
     active: local
   datasource:
@@ -30,6 +30,9 @@ spring:
     poolSize: 3
   cache:
     type: redis
+  config:
+    import: 'optional:configserver:http://localhost:8888'
 server:
   port: 3010
 NetworkTimeout: 2000
+
