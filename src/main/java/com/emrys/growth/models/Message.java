@@ -7,6 +7,7 @@ package com.emrys.growth.models;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,5 +20,7 @@ import java.util.List;
 @Data
 @Builder
 public class Message{
-    private List<String> message;
+    String username;
+    String password;
+    String challenge;
 }

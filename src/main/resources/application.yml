@@ -31,8 +31,13 @@ spring:
   cache:
     type: redis
   config:
-    import: 'optional:configserver:http://localhost:8888'
+    import: aws-secretsmanager:/secret/rxpowet/${spring.application.name}/test-secret
+    use-legacy-processing: false
 server:
   port: 3010
 NetworkTimeout: 2000
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh

@@ -32,7 +32,11 @@ public class ProductController {
             produces = "application/json")
     @PreAuthorize("hasAuthority('SCOPE_api://products:read')")
     public ResponseEntity<Message> retrieveLimits() {
-        return ResponseEntity.ok(Message.builder().message(configuration.getMessage()).build());
+        return ResponseEntity.ok(Message.builder()
+            .username(configuration.getUsername())
+            .password(configuration.getPassword())
+            .challenge(configuration.getChallenge())
+            .build());
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.GET,
