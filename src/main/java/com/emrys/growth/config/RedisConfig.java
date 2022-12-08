@@ -46,13 +46,13 @@ public class RedisConfig {
     @Primary
     @Bean(name = "cacheManager") // Default cache manager is infinite
     public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
-        return RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(RedisCacheConfiguration.defaultCacheConfig().prefixKeysWith(redisPrefix)).build();
+        return RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(RedisCacheConfiguration.defaultCacheConfig().prefixCacheNameWith(redisPrefix)).build();
     }
 
     @Bean(name = "cacheManager1Hour")
     public CacheManager cacheManager1Hour(RedisConnectionFactory redisConnectionFactory) {
         Duration expiration = Duration.ofHours(1);
         return RedisCacheManager.builder(redisConnectionFactory)
-                .cacheDefaults(RedisCacheConfiguration.defaultCacheConfig().prefixKeysWith(redisPrefix).entryTtl(expiration)).build();
+                .cacheDefaults(RedisCacheConfiguration.defaultCacheConfig().prefixCacheNameWith(redisPrefix).entryTtl(expiration)).build();
     }
 }

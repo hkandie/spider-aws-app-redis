@@ -23,16 +23,16 @@ spring:
     name: 'database'
   profiles:
     active: local
+  config:
+    import: aws-secretsmanager:/secret/rxpowet/${spring.application.name}/test-secret
+    use-legacy-processing: false
   datasource:
-    password: taifa123*
-    username: taifa-01
+    username: ${db-username}
+    password: ${db-password}
     url: jdbc:postgresql://localhost:5432/taifa?allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false
     poolSize: 3
   cache:
     type: redis
-  config:
-    import: aws-secretsmanager:/secret/rxpowet/${spring.application.name}/test-secret
-    use-legacy-processing: false
 server:
   port: 3010
 NetworkTimeout: 2000
