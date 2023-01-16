@@ -28,11 +28,12 @@
             "Fn::Sub": "${SecurityGroup1}"
           }
         ],
-        "EngineVersion": "3.2.4",
+        "EngineVersion": "6.2",
+        "TransitEncryptionEnabled": true,
         "AZMode": "single-az",
         "CacheNodeType": "cache.t2.micro",
         "Engine": "redis",
-        "ClusterName": "Rx-Cluster",
+        "ClusterName": "rx-cluster",
         "AutoMinorVersionUpgrade": false,
         "NumCacheNodes": 1,
         "CacheSubnetGroupName": {
@@ -40,6 +41,23 @@
         }
       },
       "DeletionPolicy": "Delete"
+    },
+    "RxCacheReplicationGroup": {
+      "Type": "AWS::ElastiCache::ReplicationGroup",
+      "Properties": {
+        "ReplicationGroupDescription": "my description",
+        "NumCacheClusters": "2",
+        "Engine": "redis",
+        "CacheNodeType": "cache.t2.micro",
+        "AutomaticFailoverEnabled": "true",
+        "CacheSubnetGroupName": {
+          "Ref": "RxCacheSubnetGroup"
+        },
+        "EngineVersion": "6.2",
+        "PreferredMaintenanceWindow": "wed:09:25-wed:22:30",
+        "SnapshotRetentionLimit": "4",
+        "SnapshotWindow": "03:30-05:30"
+      }
     },
     "RxCacheSubnetGroup": {
       "Type": "AWS::ElastiCache::SubnetGroup",
