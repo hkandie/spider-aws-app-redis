@@ -13,7 +13,7 @@ export class EcsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, `${id}-dev`, props);
 
-    const vpc = ec2.Vpc.fromLookup(this, `${id}-dev`, { vpcId: 'vpc-091f09ec4511fb3f1' });
+    const vpc = ec2.Vpc.fromLookup(this, `${id}-dev`, { vpcId: 'vpc-0e10fccc3ce943c1d' });
 
     const cluster = new ecs.Cluster(this, "MyCluster", {
       vpc: vpc,
@@ -36,7 +36,7 @@ export class EcsStack extends cdk.Stack {
         image: ecs.ContainerImage.fromEcrRepository(repository),
         environment: {
           env: 'prod',
-          'DB_PASS': dbPass.secretValueFromJson('password').toString()
+//           'DB_PASS': dbPass.secretValueFromJson('password').toString()
         }
       },
       memoryLimitMiB: 2048, // Default is 512
