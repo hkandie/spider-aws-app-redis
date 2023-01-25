@@ -1,6 +1,6 @@
-FROM amazoncorretto:11-alpine
+FROM amazoncorretto:17-alpine
 WORKDIR /app
-COPY target/spider-redis-0.0.2.jar /app/emrys-0.0.2.jar
+COPY target/spider-redis-0.0.3.jar /app/app.jar
 COPY flyway.conf /app/flyway.conf
-EXPOSE 9000
-ENTRYPOINT ["java","-jar","/app/emrys-0.0.2.jar"]
+EXPOSE 8443
+ENTRYPOINT ["java","-jar","/app/app.jar"]

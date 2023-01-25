@@ -1,0 +1,25 @@
+server:
+  ssl:
+    enabled: false
+#    key-store: classpath:springboot.p12
+#    key-store-password: password
+#    key-store-type: pkcs12
+#    key-alias: springboot
+#    key-password: password
+  port: 8443
+
+spring:
+  redis:
+    port: 6379
+    password: 123pwd
+    sentinel:
+      master: masterredis
+      nodes:
+        - localhost
+    lettuce:
+      shutdown-timeout: 200ms
+  cache:
+    type: redis
+logging:
+  level:
+    root: info

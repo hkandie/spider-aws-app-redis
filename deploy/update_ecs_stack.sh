@@ -13,7 +13,7 @@ aws cloudformation update-stack --stack-name rx-powet-ecs-stack \
 --template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/ecs-fargate.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \
-ParameterKey=AppVersion,ParameterValue=0.0.2 \
+ParameterKey=AppVersion,ParameterValue=0.0.3 \
 ParameterKey=VPC,ParameterValue=${VPCID} \
 ParameterKey=SubnetA,ParameterValue=${SUBNETID01} \
 ParameterKey=HostedZoneName,ParameterValue=${HostedZones} \

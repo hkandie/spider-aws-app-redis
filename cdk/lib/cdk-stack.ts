@@ -10,10 +10,10 @@ import { SecurityGroup } from 'aws-cdk-lib/aws-ec2';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class EcsStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props?: any) {
     super(scope, `${id}-dev`, props);
 
-    const vpc = ec2.Vpc.fromLookup(this, `${id}-dev`, { vpcId: 'vpc-0e10fccc3ce943c1d' });
+    const vpc = ec2.Vpc.fromLookup(this, `${id}-dev`, { vpcId: props.vpcId });
 
     const cluster = new ecs.Cluster(this, "MyCluster", {
       vpc: vpc,
@@ -27,26 +27,36 @@ export class EcsStack extends cdk.Stack {
       allowAllOutbound: true,
       vpc
     })
+    const fargateTaskDefinition = new ecs.FargateTaskDefinition(this, 'TaskDef', {
+      memoryLimitMiB: 512,
+      cpu: 256,
+    });
+    
+    const container = fargateTaskDefinition.addContainer("WebContainer", {
+      image: ecs.ContainerImage.fromEcrRepository(repository),
+      environment: {
+        env: 'prod'
+        'spring.profiles.active': 'prod'
+      },
+      portMappings: [
+        {
+          containerPort: 8443
+         }
+      ]
+    });
     // Create a load-balanced Fargate service and make it public
     const service = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "MyFargateService", {
       cluster: cluster, // Required
       cpu: 512, // Default is 256
       desiredCount: 1, // Default is 1
-      taskImageOptions: {
-        image: ecs.ContainerImage.fromEcrRepository(repository),
-        environment: {
-          env: 'prod',
-//           'DB_PASS': dbPass.secretValueFromJson('password').toString()
-        }
-      },
       memoryLimitMiB: 2048, // Default is 512
       publicLoadBalancer: true, // Default is false
-      assignPublicIp: true,
+      assignPublicIp: true,      
       circuitBreaker: {
         rollback: true
       },
-      securityGroups: [sg]
-      
+      securityGroups: [sg],
+      taskDefinition: fargateTaskDefinition
     });
 
     service.targetGroup.configureHealthCheck({

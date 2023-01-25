@@ -1,0 +1,25 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    container_name: redis
+#    command: /bin/sh -c "redis-server --requirepass Milk1234"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+#      - REDIS_PASSWORD:Milk1234
+#      - HTTP_USER:redis
+#      - HTTP_PASSWORD:Milk1234
+    ports:
+      - "8081:8081"
+volumes:
+  redis-data:
