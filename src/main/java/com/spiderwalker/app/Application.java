@@ -15,8 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class Application {
 
     public static void main(String[] args) {
-        log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        System.setProperty("spring.profiles.active", "dev");
+        log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, {}",System.getProperty("SPRING_PROFILES_ACTIVE","local"));
         SpringApplication application = new SpringApplication(Application.class);
         application.addListeners((ApplicationListener<ContextClosedEvent>) event -> {
             log.info("Shutdown process initiated...");

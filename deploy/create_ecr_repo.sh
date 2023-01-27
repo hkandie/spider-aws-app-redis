@@ -1,9 +1,11 @@
 #!/bin/sh
 
 ACCOUNTID=`cat ./temp/accountid`
-VERSION=0.0.3
+VERSION=0.0.5
 cd ../
-source  build-container.sh
+./mvnw clean package
+docker build -t spider-walker/emrys:${VERSION} -t spider-walker/emrys:latest .
+
 docker build -t spider-walker/emrys:${VERSION} -t spider-walker/emrys:latest
 
 aws ecr create-repository \

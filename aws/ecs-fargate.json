@@ -41,7 +41,7 @@
     },
     "ContainerPort": {
       "Type": "Number",
-      "Default": 9000
+      "Default": 8443
     },
     "LoadBalancerPort": {
       "Type": "Number",
@@ -72,7 +72,7 @@
     },
     "DBSecrets": {
       "Type": "String",
-      "Default":"Spider/rx-powet/database"
+      "Default":"Spider/rx-powet/db-normal-user-secret"
     }
   },
   "Resources": {
@@ -150,6 +150,10 @@
               {
                 "Name": "env",
                 "Value": "prod"
+              },
+              {
+                "Name": "SPRING_PROFILES_ACTIVE",
+                "Value": "dev"
               },
               {
                 "Name": "DB_PASS",
@@ -405,7 +409,7 @@
               {
                 "Ref": "ServiceName"
               },
-              "TargetGroup"
+              "TargetGroupV2"
             ]
           ]
         },

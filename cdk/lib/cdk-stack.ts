@@ -7,6 +7,7 @@ import { Construct } from 'constructs';
 import { Duration } from 'aws-cdk-lib';
 import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
 import { SecurityGroup } from 'aws-cdk-lib/aws-ec2';
+import { LogGroup } from 'aws-cdk-lib/aws-logs';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class EcsStack extends cdk.Stack {
@@ -20,8 +21,7 @@ export class EcsStack extends cdk.Stack {
       clusterName: `${id}-cluster`
     });
     const repository = ecr.Repository.fromRepositoryName(this, `${id}-erc-repo`, 'spider-walker/emrys');
-    const dbPass= secretsmanager.Secret.fromSecretNameV2(this, `${id}-db-normal-user-secret`, 'Spider/rx-powet/db-normal-user-secret' )
-
+   
     const sg = new SecurityGroup(this, `${id}-sg-01`, {
       securityGroupName: `${id}-sg-01`,
       allowAllOutbound: true,
@@ -32,17 +32,16 @@ export class EcsStack extends cdk.Stack {
       cpu: 256,
     });
     
-    const container = fargateTaskDefinition.addContainer("WebContainer", {
+    
+    const container = fargateTaskDefinition.addContainer("rx-powet-container", {
       image: ecs.ContainerImage.fromEcrRepository(repository),
       environment: {
-        env: 'prod'
-        'spring.profiles.active': 'prod'
+        env: 'prod',
+        SPRING_PROFILE: 'prod'
       },
-      portMappings: [
-        {
+      portMappings: [{
           containerPort: 8443
-         }
-      ]
+         } ]
     });
     // Create a load-balanced Fargate service and make it public
     const service = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "MyFargateService", {
@@ -50,13 +49,11 @@ export class EcsStack extends cdk.Stack {
       cpu: 512, // Default is 256
       desiredCount: 1, // Default is 1
       memoryLimitMiB: 2048, // Default is 512
-      publicLoadBalancer: true, // Default is false
-      assignPublicIp: true,      
-      circuitBreaker: {
-        rollback: true
-      },
+      publicLoadBalancer: false, // Default is false
+      assignPublicIp: true,    
       securityGroups: [sg],
-      taskDefinition: fargateTaskDefinition
+      taskDefinition: fargateTaskDefinition,
+      loadBalancerName: 'rx-alb'
     });
 
     service.targetGroup.configureHealthCheck({
