@@ -46,9 +46,9 @@ export class ElasticCacheStack extends cdk.Stack {
       replicationGroupDescription: 'RX Elasticache Redis Cluster',
     
       // the properties below are optional
-      authToken: "Milk1234Milk1234Milk1234Milk1234<?",
-      atRestEncryptionEnabled: true,
-      transitEncryptionEnabled: true,
+      // authToken: "Milk1234Milk1234Milk1234Milk1234<?",
+      atRestEncryptionEnabled: false,
+      transitEncryptionEnabled: false,
       automaticFailoverEnabled: false,
       autoMinorVersionUpgrade: false,
       cacheNodeType: 'cache.t2.micro',

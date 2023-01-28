@@ -9,8 +9,8 @@ server:
   port: 8443
 redis:
   port: 6379
-  password: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
-  host: localhost
+#  password: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+  host: ${REDIS_HOST:localhost}
 spring:
   profiles:
       active: ${SPRING_PROFILES_ACTIVE}
@@ -19,3 +19,7 @@ spring:
 logging:
   level:
     root: info
+management:
+  health:
+    redis:
+      enabled: false

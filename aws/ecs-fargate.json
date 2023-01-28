@@ -49,7 +49,7 @@
     },
     "HealthCheckPath": {
       "Type": "String",
-      "Default": "/health-check"
+      "Default": "/actuator/health"
     },
     "HostedZoneName": {
       "Type": "String"
@@ -60,7 +60,7 @@
     },
     "MinTaskCount": {
       "Type": "Number",
-      "Default": 2
+      "Default": 1
     },
     "MaxTaskCount": {
       "Type": "Number",
@@ -125,7 +125,7 @@
               "Ref": "ServiceName"
             },
             "Image": {
-              "Fn::Sub": "${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:${AppVersion}"
+              "Fn::Sub": "${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:latest"
             },
             "PortMappings": [
               {
@@ -156,10 +156,8 @@
                 "Value": "dev"
               },
               {
-                "Name": "DB_PASS",
-                "Value":{
-                  "Fn::Sub": "{{resolve:secretsmanager:${DBSecrets}:SecretString:password}}"
-                }
+                "Name": "REDIS_HOST",
+                "Value": "rxr40zxxeirfsfs.urxqec.ng.0001.use1.cache.amazonaws.com"
               }
             ]
           }
@@ -650,12 +648,8 @@
     "AutoScalingTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
       "Properties": {
-        "MinCapacity": {
-          "Ref": "MinTaskCount"
-        },
-        "MaxCapacity": {
-          "Ref": "MaxTaskCount"
-        },
+        "MinCapacity": 1,
+        "MaxCapacity": 3,
         "ResourceId": {
           "Fn::Join": [
             "/",

@@ -6,13 +6,14 @@ import { ElasticCacheStack } from '../lib/elastic-cache-stack';
 import { ApiGateWayStack } from '../lib/api-gateway-stack';
 
 const app = new cdk.App();
-const vpcId= 'vpc-0314c7e213d823c1d';
-const account= '051367950628';
-new EcsStack(app, 'rx-powet-stack', {
-   env: { account: account, region: 'us-east-1'},
-   vpcId
+const vpcId= process.env.AWS_VPC_ID;
+const account= process.env.AWS_ACCOUNT;
+console.log(`Deploying to ${process.env.AWS_ACCOUNT}`);
+// new EcsStack(app, 'rx-powet-stack', {
+//    env: { account: account, region: 'us-east-1'},
+//    vpcId
 
-});
+// });
 new ElasticCacheStack(app, 'rx-powet-redis-stack', {
   env: { account: account, region: 'us-east-1' },
   vpcId
