@@ -23,13 +23,18 @@ export class ElasticCacheStack extends cdk.Stack {
       allowAllOutbound: true,
       vpc
     });
+    const containerSG = SecurityGroup.fromSecurityGroupId(this, 'conntainer-sg', 'sg-04bf25ecc06cc40cb')
+    const port = 6379;
+    sg.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(port), 'Redis');
+    sg.connections.allowFrom(containerSG, ec2.Port.tcp(port), 'Ingress SSH from Redis sg');
 
     const logGroup = new LogGroup(this, `${id}-log-group-01`, {
       logGroupName: `${id}-log-group-01`
     });
 
     const subnet_idA = vpc.selectSubnets().subnetIds[0]
-    const subnet_idB = vpc.selectSubnets().subnetIds[1]
+    const subnet_idB = vpc.selectSubnets().subnetIds[1];
+    
 
     const cfnSubnetGroup = new elasticache.CfnSubnetGroup(this, 'MyCfnSubnetGroup', {
       description: 'description',
@@ -40,15 +45,15 @@ export class ElasticCacheStack extends cdk.Stack {
         value: 'value',
       }],
     });
-    const port = 6379;
+    
 
     const cfnReplicationGroup = new elasticache.CfnReplicationGroup(this, 'RXElasticacheRedisCluster', {
       replicationGroupDescription: 'RX Elasticache Redis Cluster',
     
       // the properties below are optional
-      // authToken: "Milk1234Milk1234Milk1234Milk1234<?",
-      atRestEncryptionEnabled: false,
-      transitEncryptionEnabled: false,
+      authToken: "Milk1234Milk1234Milk1234Milk1234<?",
+      atRestEncryptionEnabled: true,
+      transitEncryptionEnabled: true,
       automaticFailoverEnabled: false,
       autoMinorVersionUpgrade: false,
       cacheNodeType: 'cache.t2.micro',
@@ -65,6 +70,16 @@ export class ElasticCacheStack extends cdk.Stack {
         destinationType: 'cloudwatch-logs',
         logFormat: 'text',
         logType: 'slow-log',
+      },
+      {
+        destinationDetails: {
+          cloudWatchLogsDetails: {
+            logGroup: logGroup.logGroupName,
+          },
+        },
+        destinationType: 'cloudwatch-logs',
+        logFormat: 'text',
+        logType: 'engine-log',
       }],
       multiAzEnabled: false,
       numCacheClusters: 1,

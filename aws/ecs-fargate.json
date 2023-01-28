@@ -156,8 +156,12 @@
                 "Value": "dev"
               },
               {
+                "Name": "REDIS_PASSWORD",
+                "Value": "Milk1234Milk1234Milk1234Milk1234<?"
+              },
+              {
                 "Name": "REDIS_HOST",
-                "Value": "rxr40zxxeirfsfs.urxqec.ng.0001.use1.cache.amazonaws.com"
+                "Value": "master.rxruu2w6ndcwzvb.oav0bj.use1.cache.amazonaws.com"
               }
             ]
           }
@@ -354,7 +358,7 @@
           "MinimumHealthyPercent": 100,
           "MaximumPercent": 200
         },
-        "DesiredCount": 0,
+        "DesiredCount": 1,
         "HealthCheckGracePeriodSeconds": 90,
         "LaunchType": "FARGATE",
         "NetworkConfiguration": {

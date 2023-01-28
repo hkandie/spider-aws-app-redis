@@ -6,16 +6,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextClosedEvent;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @SpringBootApplication
 @EnableCaching
+@EnableScheduling
 public class Application {
 
     public static void main(String[] args) {
-        log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, {}",System.getProperty("SPRING_PROFILES_ACTIVE","local"));
         SpringApplication application = new SpringApplication(Application.class);
         application.addListeners((ApplicationListener<ContextClosedEvent>) event -> {
             log.info("Shutdown process initiated...");

@@ -26,7 +26,7 @@ export class EcsStack extends cdk.Stack {
       securityGroupName: `${id}-sg-01`,
       allowAllOutbound: true,
       vpc
-    })
+    });
     const fargateTaskDefinition = new ecs.FargateTaskDefinition(this, 'TaskDef', {
       memoryLimitMiB: 512,
       cpu: 256,
