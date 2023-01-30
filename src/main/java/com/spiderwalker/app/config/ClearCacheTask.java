@@ -16,7 +16,7 @@ public class ClearCacheTask {
     @Scheduled(fixedRate = 60 * 1000 * 10) // reset cache every hr, with delay of 1hr after app start
     public void reportCurrentTime() {
         log.info("Cleaning up cache");
-        cacheManager.getCacheNames()
-                .parallelStream().forEach(name -> cacheManager.getCache(name).clear());
+//        cacheManager.getCacheNames()
+//                .parallelStream().forEach(name -> cacheManager.getCache(name).clear());
     }
 }

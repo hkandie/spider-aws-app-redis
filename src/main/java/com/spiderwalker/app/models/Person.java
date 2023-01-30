@@ -1,4 +1,4 @@
-package com.spiderwalker.app.service;
+package com.spiderwalker.app.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.AllArgsConstructor;

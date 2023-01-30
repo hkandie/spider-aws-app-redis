@@ -1,18 +1,1 @@
-server:
-  ssl:
-    enabled: false
-#    key-store: classpath:springboot.p12
-#    key-store-password: password
-#    key-store-type: pkcs12
-#    key-alias: springboot
-#    key-password: password
-  port: 8443
-redis:
-  port: 6379
-  host: rxrgnbsppos3ddw-001.rxrgnbsppos3ddw.02zrpt.use1.cache.amazonaws.com
-spring:
-  cache:
-    type: redis
-logging:
-  level:
-    root: info
+

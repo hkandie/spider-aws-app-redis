@@ -1,6 +1,7 @@
-package com.spiderwalker.app.service;
+package com.spiderwalker.app.repository;
 
 import com.github.javafaker.Faker;
+import com.spiderwalker.app.models.Person;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

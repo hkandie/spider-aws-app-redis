@@ -6,7 +6,7 @@ aws cloudformation delete-stack \
 aws cloudformation wait stack-delete-complete \
     --stack-name rx-powet-cloudfront-stack
 
-aws s3 cp ../aws/cloudfront-template.json s3://rxpowet-bucket-02/cf/cloudfront-template.json
+aws s3 cp ../aws/cloudfront-template.json s3://rxpowet-bucket-01/cf/cloudfront-template.json
 
 
 VPCID=`cat ./temp/vpcid`
@@ -17,7 +17,7 @@ SUBNETID02=`cat ./temp/subnetid02`
 HostedZones=`cat ./temp/HostedZones`
 
 aws cloudformation create-stack --stack-name rx-powet-cloudfront-template-stack \
---template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/cloudfront-template.json \
+--template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/cloudfront-template.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --on-failure DO_NOTHING \
 --parameters \

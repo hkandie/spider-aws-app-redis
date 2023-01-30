@@ -4,11 +4,11 @@ import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as ecr from 'aws-cdk-lib/aws-ecr';
 import * as ecs_patterns from 'aws-cdk-lib/aws-ecs-patterns';
 import { Construct } from 'constructs';
-import { Duration } from 'aws-cdk-lib';
+import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
 import { SecurityGroup } from 'aws-cdk-lib/aws-ec2';
 import { aws_elasticache as elasticache } from 'aws-cdk-lib';
-import { LogGroup } from 'aws-cdk-lib/aws-logs';
+import { LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 
 import * as ssm from 'aws-cdk-lib/aws-ssm';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
@@ -23,13 +23,16 @@ export class ElasticCacheStack extends cdk.Stack {
       allowAllOutbound: true,
       vpc
     });
-    const containerSG = SecurityGroup.fromSecurityGroupId(this, 'conntainer-sg', 'sg-04bf25ecc06cc40cb')
+    const containerSG1 = SecurityGroup.fromSecurityGroupId(this, 'conntainer-sg-01', 'sg-0832611a1bf013c0b');
+    const containerSG2 = SecurityGroup.fromSecurityGroupId(this, 'conntainer-sg-02', 'sg-09e1d468568072b14');
     const port = 6379;
-    sg.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(port), 'Redis');
-    sg.connections.allowFrom(containerSG, ec2.Port.tcp(port), 'Ingress SSH from Redis sg');
+    sg.connections.allowFrom(containerSG1, ec2.Port.tcp(port), 'Ingress SSH from Redis sg 1');
+    sg.connections.allowFrom(containerSG2, ec2.Port.tcp(port), 'Ingress SSH from Redis sg 2');
 
-    const logGroup = new LogGroup(this, `${id}-log-group-01`, {
-      logGroupName: `${id}-log-group-01`
+    const logGroup = new LogGroup(this, `${id}-log-group-02`, {
+      logGroupName: `${id}-log-group-02`,
+      retention: RetentionDays.ONE_DAY,
+      removalPolicy: RemovalPolicy.DESTROY
     });
 
     const subnet_idA = vpc.selectSubnets().subnetIds[0]

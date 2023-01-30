@@ -3,10 +3,7 @@
 ACCOUNTID=`cat ./temp/accountid`
 VERSION=0.0.5
 cd ../
-./mvnw clean package
-docker build -t spider-walker/emrys:${VERSION} -t spider-walker/emrys:latest .
-
-docker build -t spider-walker/emrys:${VERSION} -t spider-walker/emrys:latest
+./mvnw compile jib:dockerBuild
 
 aws ecr create-repository \
     --repository-name spider-walker/emrys \
@@ -19,3 +16,5 @@ docker tag spider-walker/emrys:latest ${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.c
 
 docker push ${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:${VERSION}
 docker push ${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:latest
+
+aws ecs update-service --cluster MyServiceCluster --service MyService --force-new-deployment

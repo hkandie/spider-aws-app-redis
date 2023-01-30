@@ -56,7 +56,7 @@
     },
     "Subdomain": {
       "Type": "String",
-      "Default": "rx-powet-prod"
+      "Default": "api"
     },
     "MinTaskCount": {
       "Type": "Number",
@@ -161,7 +161,7 @@
               },
               {
                 "Name": "REDIS_HOST",
-                "Value": "master.rxruu2w6ndcwzvb.oav0bj.use1.cache.amazonaws.com"
+                "Value": "master.rxr8bldylsoeh3p.zqlpfa.use1.cache.amazonaws.com"
               }
             ]
           }
@@ -411,14 +411,14 @@
               {
                 "Ref": "ServiceName"
               },
-              "TargetGroupV2"
+              "target-group-v4"
             ]
           ]
         },
         "Port": {
           "Ref": "ContainerPort"
         },
-        "Protocol": "HTTP",
+        "Protocol": "HTTPS",
         "TargetGroupAttributes": [
           {
             "Key": "deregistration_delay.timeout_seconds",
@@ -534,7 +534,7 @@
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-02-logs"
+        "BucketName": "rxpowet-bucket-01-logs"
       }
     },
     "LoadBalancer": {
