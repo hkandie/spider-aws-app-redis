@@ -10,7 +10,6 @@ import * as secretsmanager from 'aws-cdk-lib/aws-secretsmanager';
 import { SecurityGroup, Subnet, SubnetFilter } from 'aws-cdk-lib/aws-ec2';
 import { LogGroup } from 'aws-cdk-lib/aws-logs';
 import { ApplicationProtocol } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class EcsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: any) {
@@ -73,7 +72,8 @@ export class EcsStack extends cdk.Stack {
       maxHealthyPercent: 200,
       minHealthyPercent: 100,
       domainName: `ecs.${props.domainName}`,
-      domainZone: zone
+      domainZone: zone,
+      securityGroups: []
     });
        
 
@@ -84,8 +84,6 @@ export class EcsStack extends cdk.Stack {
       path: '/actuator/health',
     });
     service.loadBalancer.addSecurityGroup(loadBalancerSG);
-    
-    
-
+    container.node.
   }
 }
