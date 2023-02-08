@@ -15,7 +15,7 @@ partners of Organization A. An Organization B can give permission to Organizatio
 - When a user is created they belong to an account, and they are staff of that organization. 
 
 
-Simple Tasks:
+# Simple Tasks:
 Hint: You can use local storage to store data
 
 1. Create a simple form to manage organizations with properties
