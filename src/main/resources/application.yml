@@ -27,6 +27,7 @@ spring:
 logging:
   level:
     root: info
+
 management:
   health:
     redis:

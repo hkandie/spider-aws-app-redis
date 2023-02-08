@@ -6,16 +6,21 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Collection;
+import java.util.Enumeration;
+
 @Slf4j
 public class LogInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
         throws Exception {
-        String requestIp = request.getRemoteHost();        // Comment from here
-
-
-        log.info("INCOMING REQUEST URI: [{}] Token[{}]  [{}] ", requestIp, request.getRequestURI(), request.getContextPath());
+        log.info("START REQUEST: {} {} {}", request.getMethod(), request.getRequestURI() ,request.getHttpServletMapping());
+        Enumeration<String> c= request.getParameterNames();
+        while (c.hasMoreElements()){
+            String a=c.nextElement();
+            log.info("{}",a);
+        }
 
         return true;
     }
@@ -28,6 +33,8 @@ public class LogInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, //
                                 Object handler, Exception ex) throws Exception {
+
+        log.info("END REQUEST: {} {} {}  ", request.getMethod(), request.getRequestURI(), response.getStatus());
 
     }
 

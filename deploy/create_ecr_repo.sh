@@ -17,4 +17,4 @@ docker tag spider-walker/emrys:latest ${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.c
 docker push ${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:${VERSION}
 docker push ${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:latest
 
-aws ecs update-service --cluster MyServiceCluster --service MyService --force-new-deployment
+aws ecs update-service --cluster rx-powet-ecs-cluster-stack-cluster --service rx-powet-ecs-cluster-stack-service --force-new-deployment

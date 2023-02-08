@@ -17,14 +17,14 @@ new EcsStack(app, 'rx-powet-ecs-cluster-stack', {
   env: { account: account, region: 'us-east-1' },
   vpcId, domainName,subnetA,subnetB
 });
- new ElasticCacheStack(app, 'rx-powet-redis-stack', {
-   env: { account: account, region: 'us-east-1' },
-   vpcId
- });
- new RxAppRunnerStack(app, 'rx-powet-app-runner-stack', {
-  env: { account: account, region: 'us-east-1' },
-  vpcId, domainName,subnetA,subnetB
-});
+//  new ElasticCacheStack(app, 'rx-powet-redis-stack', {
+//    env: { account: account, region: 'us-east-1' },
+//    vpcId
+//  });
+//  new RxAppRunnerStack(app, 'rx-powet-app-runner-stack', {
+//   env: { account: account, region: 'us-east-1' },
+//   vpcId, domainName,subnetA,subnetB
+// });
 
 // new ApiGateWayStack(app, 'rx-powet-redis-stack', {
 //   env: { account: account, region: 'us-east-1' },

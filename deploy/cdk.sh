@@ -18,10 +18,10 @@ export AWS_SUBNET_B=${AWS_SUBNET_B}
 cd ../cdk
 cdk bootstrap
 cdk deploy --all --require-approval never
-aws elasticache modify-replication-group \
---replication-group-id authtestgroup \
---auth-token This-is-the-rotated-token \
---auth-token-update-strategy ROTATE \
---apply-immediately
+#aws elasticache modify-replication-group \
+#--replication-group-id authtestgroup \
+#--auth-token This-is-the-rotated-token \
+#--auth-token-update-strategy ROTATE \
+#--apply-immediately
 
 #aws elasticache describe-events --source-type cache-cluster --duration 1440

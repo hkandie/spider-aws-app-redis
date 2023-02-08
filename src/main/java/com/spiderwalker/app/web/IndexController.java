@@ -4,23 +4,34 @@ import com.spiderwalker.app.models.Person;
 import com.spiderwalker.app.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
+import java.util.random.RandomGenerator;
 
 @RestController
 public class IndexController {
     @Autowired
     PersonService personService;
-    @RequestMapping(value = "/person", method = RequestMethod.GET, produces = "application/json")
+    @GetMapping(value = "/person", produces = "application/json")
     public ResponseEntity<List<Person>> health(@RequestParam String id) {
 
         return ResponseEntity.ok(personService.listPeople(id));
     }
-    @RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
+
+    @GetMapping(value = "/person/{id}/me", produces = "application/json")
+    public ResponseEntity<List<Person>> health100() throws SQLException {
+
+        return ResponseEntity.ok(personService.giveMe());
+    }
+
+    @GetMapping(value = "/person/{id}",  produces = "application/json")
+    public ResponseEntity health503(@PathVariable String id) {
+
+        return ResponseEntity.status(RandomGenerator.getDefault().nextInt(400,599)).build();
+    }
+    @GetMapping(value = "/",  produces = "application/json")
     public ResponseEntity<String> index() {
         return ResponseEntity.ok("You have reached a working system");
     }
