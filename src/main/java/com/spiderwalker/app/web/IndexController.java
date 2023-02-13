@@ -2,6 +2,8 @@ package com.spiderwalker.app.web;
 
 import com.spiderwalker.app.models.Person;
 import com.spiderwalker.app.service.PersonService;
+import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +31,7 @@ public class IndexController {
     @GetMapping(value = "/person/{id}",  produces = "application/json")
     public ResponseEntity health503(@PathVariable String id) {
 
-        return ResponseEntity.status(RandomGenerator.getDefault().nextInt(400,599)).build();
+        return ResponseEntity.status(RandomUtils.nextInt(400,599)).build();
     }
     @GetMapping(value = "/",  produces = "application/json")
     public ResponseEntity<String> index() {

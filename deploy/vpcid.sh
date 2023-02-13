@@ -12,7 +12,7 @@ SECURITYGROUP1=`cat ./temp/securitygroup1`
 aws ec2 authorize-security-group-ingress \
     --group-id "${SECURITYGROUP1}" \
     --protocol tcp \
-    --port 80 \
+    --port 443 \
     --cidr 0.0.0.0/0
 
 
