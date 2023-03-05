@@ -1,5 +1,5 @@
 #!/bin/sh
-rm -rf ./temp/*
+rm -rf temp/*
 mkdir temp
 aws route53 list-hosted-zones > temp/list-hosted-zones.json
 aws ec2 describe-subnets > temp/subnets.json

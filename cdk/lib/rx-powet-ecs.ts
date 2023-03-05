@@ -5,11 +5,11 @@ import * as ecr from 'aws-cdk-lib/aws-ecr';
 import * as ecs_patterns from 'aws-cdk-lib/aws-ecs-patterns';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import { Construct } from 'constructs';
-import { Duration, RemovalPolicy } from 'aws-cdk-lib';
+import { Duration, Fn, RemovalPolicy } from 'aws-cdk-lib';
 import { SecurityGroup } from 'aws-cdk-lib/aws-ec2';
 import { LogGroup } from 'aws-cdk-lib/aws-logs';
-import { ApplicationProtocol, Protocol, SslPolicy } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
-import { Alarm, Color, Dashboard, GraphWidget, Metric, TreatMissingData, Stats, Unit, ComparisonOperator } from 'aws-cdk-lib/aws-cloudwatch';
+import { ApplicationProtocol, HttpCodeElb, HttpCodeTarget, Protocol } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
+import { Alarm, Metric, TreatMissingData, Stats, ComparisonOperator } from 'aws-cdk-lib/aws-cloudwatch';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import { SnsAction } from 'aws-cdk-lib/aws-cloudwatch-actions';
 import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
@@ -25,7 +25,8 @@ export class EcsStack extends cdk.Stack {
     const vpc = ec2.Vpc.fromLookup(this, `${id}-dev`, {
       vpcId: props.vpcId
     });
-    const zone = route53.HostedZone.fromLookup(this, 'MyZone', {
+    const appDomainName = `ecs-${props.domainPrefix}.${props.domainName}`;
+    const zone = route53.HostedZone.fromLookup(this, `${id}-MyZone`, {
       domainName: `${props.domainName}.`,
     });
 
@@ -70,7 +71,7 @@ export class EcsStack extends cdk.Stack {
       healthCheck: {
         interval: Duration.seconds(60),
         retries: 3,
-        command: ["CMD-SHELL", `curl -f http://localhost:${containerPort}/actuator/health || exit 1`]
+        command: ["CMD-SHELL", `curl -f -k https://localhost:8443/person/10000/health || exit 1`]
       },
       portMappings: [{
         containerPort
@@ -87,7 +88,8 @@ export class EcsStack extends cdk.Stack {
       assignPublicIp: true,
       taskDefinition: fargateTaskDefinition,
       targetProtocol: ApplicationProtocol.HTTPS,
-      loadBalancerName: 'rx-ecs-elb',
+      protocol: ApplicationProtocol.HTTPS,
+      loadBalancerName: `${props.domainPrefix}-rx-ecs-elb`,
       circuitBreaker: {
         rollback: true
       },
@@ -95,19 +97,17 @@ export class EcsStack extends cdk.Stack {
       // sslPolicy: SslPolicy.RECOMMENDED,
       maxHealthyPercent: 200,
       minHealthyPercent: 100,
-      domainName: `ecs.${props.domainName}.`,
+      domainName: `${appDomainName}.`,
       domainZone: zone,
       securityGroups: [],
-
     });
-    // loadBalancedFargateService.targetGroup.setAttribute('targetGroupName', 'rx-ecs-target')
-
+    // loadBalancedFargateService.targetGroup.setAttribute('targetGroupFullName', 'rx-ecs-target')
     loadBalancedFargateService.targetGroup.configureHealthCheck({
       protocol: Protocol.HTTPS,
       enabled: true,
-      healthyThresholdCount: 2,
-      interval: Duration.seconds(30),
-      path: '/actuator/health',
+      healthyThresholdCount: 5,
+      interval: Duration.seconds(60),
+      path: '/person/5/health',
     });
 
     const scaling = loadBalancedFargateService.service.autoScaleTaskCount({ maxCapacity: 10 });
@@ -127,31 +127,29 @@ export class EcsStack extends cdk.Stack {
       targetGroup: loadBalancedFargateService.targetGroup,
     });
 
-    const topic = new sns.Topic(this, 'NotifyHigh', {
-      topicName: 'Notify-Topic-High',
+    const topic = new sns.Topic(this, `${id}-NotifyHigh`, {
+      topicName: `Notify-Topic-High-${props.domainPrefix}`,
       displayName: "Notify-Topic-High"
     });
 
-    const queue = new Queue(this, 'NotifyHighQueue', {
-      queueName: 'Notify-Topic-High-Queue'
-    });
-    const metric = new Metric(
+
+    const metric5xx = new Metric(
       {
         namespace: 'AWS/ApplicationELB',
-        metricName: "HTTPCode_ELB_5XX_Count",
+        metricName: HttpCodeTarget.TARGET_5XX_COUNT,
         dimensionsMap: {
-          "LoadBalancerName": loadBalancedFargateService.loadBalancer.loadBalancerArn
+          "LoadBalancer": loadBalancedFargateService.loadBalancer.loadBalancerFullName
         },
 
         statistic: Stats.SAMPLE_COUNT,
         period: Duration.seconds(60),
       })
 
-    const alarm = new Alarm(
+    const alarm5xx = new Alarm(
       this,
-      "MyCloudWatchAlarm",
+      `${id}-Alarm-5xx`,
       {
-        metric,
+        metric: metric5xx,
         threshold: 1,
         evaluationPeriods: 1,
         comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
@@ -160,8 +158,59 @@ export class EcsStack extends cdk.Stack {
       }
     )
 
-    alarm.addAlarmAction(new SnsAction(topic));
-    topic.addSubscription(new subscriptions.SqsSubscription(queue))
+    const metric4xx = new Metric(
+      {
+        namespace: 'AWS/ApplicationELB',
+        metricName: HttpCodeTarget.TARGET_4XX_COUNT,
+        dimensionsMap: {
+          "LoadBalancer": loadBalancedFargateService.loadBalancer.loadBalancerFullName
+        },
+
+        statistic: Stats.SAMPLE_COUNT,
+        period: Duration.seconds(60),
+      })
+
+    const alarm4xx = new Alarm(
+      this,
+      `${id}-Alarm-4xx`,
+      {
+        metric: metric4xx,
+        threshold: 1,
+        evaluationPeriods: 1,
+        comparisonOperator: ComparisonOperator.GREATER_THAN_THRESHOLD,
+        alarmDescription: "Alarm triggered when 4xx errors occur",
+        treatMissingData: TreatMissingData.NOT_BREACHING
+      }
+    )
+
+    alarm5xx.addAlarmAction(new SnsAction(topic));
+    alarm4xx.addAlarmAction(new SnsAction(topic));
+
+    topic.addSubscription(new subscriptions.EmailSubscription("zeddarn@gmail.com"))
+
+    if (props.domainPrefix == 'v1') {
+      const healthCheck = new route53.CfnHealthCheck(this, `${props.domainPrefix}HealthCheck`, {
+
+        healthCheckConfig: {
+          type: "HTTPS",
+          fullyQualifiedDomainName: appDomainName,
+          port: 443,
+          resourcePath: `/person/2222/health`,
+        }
+      });
+      // const dnsRecord = new route53.ARecord(this, `${id}-ARecord`, {
+      //   zone,
+      //   target: route53.RecordTarget.fromValues(`ecs.${props.domainName}`)
+      // });
+
+      // const failover = new route53.CfnRecordSet(this, `CnameApiRecord`, {
+      //   hostedZoneId: zone.hostedZoneId,
+      //   failover: `ecs.${props.domainName}`,
+      //   type: appDomainName,
+      //   name: 'ecs'
+      // });
+
+    }
 
   }
 
