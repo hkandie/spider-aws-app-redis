@@ -26,7 +26,7 @@ public class PersonService {
     @Cacheable(value = "listPeople", key="#id")
     public List<Person> listPeople(String id) {
         log.info("Heading to DB");
-        return personDataGenerator.generatePersons(10);
+        return personDataGenerator.generatePersons(100);
     }
 
     @Cacheable(value = "giveMe")

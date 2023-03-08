@@ -17,10 +17,10 @@ new EcsStack(app, 'rx-powet-ecs-cluster-stack', {
   vpcId, domainName,subnetA,subnetB, domainPrefix: 'v1'
 });
 
-new EcsStack(app, 'rx-powet-ecs-cluster-stack-dr', {
-  env: { account: account, region: 'us-east-1' },
-  vpcId, domainName,subnetA,subnetB, domainPrefix: 'v2'
-});
+// new EcsStack(app, 'rx-powet-ecs-cluster-stack-dr', {
+//   env: { account: account, region: 'us-east-1' },
+//   vpcId, domainName,subnetA,subnetB, domainPrefix: 'v2'
+// });
 
 // //  new ElasticCacheStack(app, 'rx-powet-redis-stack', {
 // //    env: { account: account, region: 'us-east-1' },

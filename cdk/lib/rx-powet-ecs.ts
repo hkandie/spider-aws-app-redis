@@ -109,6 +109,8 @@ export class EcsStack extends cdk.Stack {
       interval: Duration.seconds(60),
       path: '/person/5/health',
     });
+    const cfnEcsService = loadBalancedFargateService.service.node.defaultChild as ecs.CfnService
+    cfnEcsService.addPropertyOverride('DesiredCount', 0);
 
     const scaling = loadBalancedFargateService.service.autoScaleTaskCount({ maxCapacity: 10 });
     scaling.scaleOnCpuUtilization('CpuScaling', {
