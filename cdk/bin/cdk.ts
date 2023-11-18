@@ -4,6 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { ApiGateWayStack } from '../lib/api-gateway-stack';
 import { EcsStack } from '../lib/rx-powet-ecs';
 import { RxLambdaStack } from '../lib/rx-powet-lambda-stack';
+import { DynamoDBStack } from '../lib/rx-powet-dynamo-db';
 
 const app = new cdk.App();
 const vpcId = process.env.AWS_VPC_ID;
@@ -12,10 +13,14 @@ const domainName = process.env.AWS_DOMAIN_NAME;
 const subnetA = process.env.AWS_SUBNET_A;
 const subnetB = process.env.AWS_SUBNET_B;
 console.log(`Deploying to ${process.env.AWS_DOMAIN_NAME}`);
-new EcsStack(app, 'rx-powet-ecs-cluster-stack', {
+new DynamoDBStack(app, 'rx-powet-ecs-cluster-stack', {
   env: { account: account, region: 'us-east-1' },
   vpcId, domainName,subnetA,subnetB, domainPrefix: 'v1'
 });
+// new EcsStack(app, 'rx-powet-ecs-cluster-stack', {
+//   env: { account: account, region: 'us-east-1' },
+//   vpcId, domainName,subnetA,subnetB, domainPrefix: 'v1'
+// });
 
 // new EcsStack(app, 'rx-powet-ecs-cluster-stack-dr', {
 //   env: { account: account, region: 'us-east-1' },

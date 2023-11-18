@@ -19,7 +19,8 @@ spring:
       port: 6379
       password: ${REDIS_PASSWORD:}
       host: ${REDIS_HOST:localhost} 
-      ssl: ${REDIS_USE_SSL:true}
+      ssl:
+        enabled: ${REDIS_USE_SSL:true}
 
 
 logging:
