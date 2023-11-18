@@ -1,44 +1,16 @@
-
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://auth-server:3001/oauth2/jwks
-  flyway:
-    placeholders:
-      AR_READ_ONLY_PASS: '''ReadOnlyUser123!'''
-      AR_READ_ONLY_USER: read_only_user
-    baseline:
-      on-migrate: true
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
-  redis:
-    host: localhost
-    port: 6379
-    prefix: 'x3'
-  application:
-    name: 'database'
-  profiles:
-    active: local
-  config:
-    import: aws-secretsmanager:/secret/rxpowet/${spring.application.name}/test-secret
-    use-legacy-processing: false
-  datasource:
-    username: ${db-username}
-    password: ${db-password}
-    url: jdbc:postgresql://localhost:5432/taifa?allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false
-    poolSize: 3
-  cache:
-    type: redis
-server:
-  port: 3010
-NetworkTimeout: 2000
+logging: 
+  file:
+    name: logs/application.log
+    path: logs/
+    max-size: 50mb
+      
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5level) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %X{userId} %m%n%wEx"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5level ${PID:- } --- [%15.15t] %-40.40logger{39} : %X{userId} %m%n%wEx"
+  level:
+    root: info
 management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
+    dynatrace:
+      metrics:
+        export:
+          enabled: true

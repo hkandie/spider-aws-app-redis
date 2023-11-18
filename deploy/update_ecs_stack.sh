@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aws s3 cp ../aws/ecs-fargate.json s3://rxpowet-bucket-02/cf/ecs-fargate.json
+aws s3 cp ../aws/ecs-fargate.json s3://rxpowet-bucket-01/cf/ecs-fargate.json
 
 VPCID=`cat ./temp/vpcid`
 ACCOUNTID=`cat ./temp/accountid`
@@ -10,10 +10,10 @@ SUBNETID02=`cat ./temp/subnetid02`
 HostedZones=`cat ./temp/HostedZones`
 
 aws cloudformation update-stack --stack-name rx-powet-ecs-stack \
---template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/ecs-fargate.json \
+--template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/ecs-fargate.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \
-ParameterKey=AppVersion,ParameterValue=0.0.2 \
+ParameterKey=AppVersion,ParameterValue=0.0.5 \
 ParameterKey=VPC,ParameterValue=${VPCID} \
 ParameterKey=SubnetA,ParameterValue=${SUBNETID01} \
 ParameterKey=HostedZoneName,ParameterValue=${HostedZones} \

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-aws s3 cp ../aws/db-stack.json s3://rxpowet-bucket-02/cf/db-stack.json
+aws s3 cp ../aws/db-stack.json s3://rxpowet-bucket-01/cf/db-stack.json
 
 
 VPCID=`cat ./temp/vpcid`
@@ -13,7 +13,7 @@ HostedZones=`cat ./temp/HostedZones`
 HostedZoneID=`cat ./temp/HostedZoneID`
 
 aws cloudformation update-stack --stack-name rx-powet-db-stack \
---template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/db-stack.json \
+--template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/db-stack.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \
 ParameterKey=VPC,ParameterValue=${VPCID} \

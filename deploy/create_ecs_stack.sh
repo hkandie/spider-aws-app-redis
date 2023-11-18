@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aws s3 rm s3://rxpowet-bucket-02-logs --recursive
+aws s3 rm s3://rxpowet-bucket-01-logs --recursive
 
 aws cloudformation delete-stack \
     --stack-name rx-powet-ecs-stack
@@ -8,7 +8,7 @@ aws cloudformation delete-stack \
 aws cloudformation wait stack-delete-complete \
     --stack-name rx-powet-ecs-stack
 
-aws s3 cp ../aws/ecs-fargate.json s3://rxpowet-bucket-02/cf/ecs-fargate.json
+aws s3 cp ../aws/ecs-fargate.json s3://rxpowet-bucket-01/cf/ecs-fargate.json
 
 
 VPCID=`cat ./temp/vpcid`
@@ -19,11 +19,11 @@ SUBNETID02=`cat ./temp/subnetid02`
 HostedZones=`cat ./temp/HostedZones`
 
 aws cloudformation create-stack --stack-name rx-powet-ecs-stack \
---template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/ecs-fargate.json \
+--template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/ecs-fargate.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --on-failure DO_NOTHING \
 --parameters \
-ParameterKey=AppVersion,ParameterValue=0.0.2 \
+ParameterKey=AppVersion,ParameterValue=0.0.5 \
 ParameterKey=VPC,ParameterValue=${VPCID} \
 ParameterKey=HostedZoneName,ParameterValue=${HostedZones} \
 ParameterKey=SubnetA,ParameterValue=${SUBNETID01} \

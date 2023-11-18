@@ -40,14 +40,5 @@ with open('temp/list-hosted-zones.json') as f:
 HostedZones = (data['HostedZones'][0]['Name'])
 
 f = open("temp/HostedZones", "a")
-f.write(HostedZones)
-f.close()
-
-with open('temp/secrets.json') as f:
-    data = json.load(f)
-
-HostedZones = (data['ARN'])
-
-f = open("temp/secretsarns", "a")
-f.write(HostedZones)
+f.write(HostedZones[:-1])
 f.close()

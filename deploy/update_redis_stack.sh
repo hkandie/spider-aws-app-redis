@@ -3,7 +3,7 @@ AppVersion=1
 
 
 
-aws s3 cp ../aws/rx-redis-template.json s3://rxpowet-bucket-02/cf/rx-redis-template.json
+aws s3 cp ../aws/rx-redis-template.json s3://rxpowet-bucket-01/cf/rx-redis-template.json
 
 VPCID=`cat ./temp/vpcid`
 SECURITYGROUP1=`cat ./temp/securitygroup1`
@@ -11,7 +11,7 @@ SUBNETID01=`cat ./temp/subnetid01`
 SUBNETID02=`cat ./temp/subnetid02`
 
 aws cloudformation update-stack --stack-name rx-redis-stack \
---template-url https://rxpowet-bucket-02.s3.amazonaws.com/cf/rx-redis-template.json \
+--template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/rx-redis-template.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \
 ParameterKey=VpcId,ParameterValue=${VPCID} \

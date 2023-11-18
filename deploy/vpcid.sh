@@ -1,5 +1,5 @@
 #!/bin/sh
-rm -rf ./temp/*
+rm -rf temp/*
 mkdir temp
 aws route53 list-hosted-zones > temp/list-hosted-zones.json
 aws ec2 describe-subnets > temp/subnets.json
@@ -12,15 +12,9 @@ SECURITYGROUP1=`cat ./temp/securitygroup1`
 aws ec2 authorize-security-group-ingress \
     --group-id "${SECURITYGROUP1}" \
     --protocol tcp \
-    --port 80 \
+    --port 443 \
     --cidr 0.0.0.0/0
 
-
-aws ec2 authorize-security-group-ingress \
-    --group-id "${SECURITYGROUP1}" \
-    --protocol tcp \
-    --port 5432 \
-    --cidr 0.0.0.0/0
 
 
 

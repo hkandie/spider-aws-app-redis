@@ -1,40 +1,33 @@
+server:
+  ssl:
+    enabled: true
+    key-store: classpath:springboot.p12
+    key-store-password: password
+    key-store-type: pkcs12
+    key-alias: springboot
+    key-password: password
+  port: 8443
 spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://auth-server:3001/oauth2/jwks
-  flyway:
-    placeholders:
-      AR_READ_ONLY_PASS: '''ReadOnlyUser123!'''
-      AR_READ_ONLY_USER: read_only_user
-    baseline:
-      on-migrate: true
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
-  redis:
-    host: localhost
-    port: 6379
-    prefix: 'x3'
-  application:
-    name: 'database'
   profiles:
-    active: local
-  datasource:
-    password: taifa123*
-    username: taifa-01
-    url: jdbc:postgresql://localhost:5432/taifa?allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false
-    poolSize: 3
+      active: ${SPRING_PROFILES_ACTIVE}
   cache:
     type: redis
-server:
-  port: 3010
-NetworkTimeout: 2000
+    redis:
+      time-to-live: 600000
+  data:
+    redis:
+      port: 6379
+      password: ${REDIS_PASSWORD:}
+      host: ${REDIS_HOST:localhost} 
+      ssl:
+        enabled: ${REDIS_USE_SSL:true}
+
+
+logging:
+  level:
+    root: info
+
 management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
+  health:
+    redis:
+      enabled: false

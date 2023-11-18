@@ -41,7 +41,7 @@
     },
     "ContainerPort": {
       "Type": "Number",
-      "Default": 9000
+      "Default": 8443
     },
     "LoadBalancerPort": {
       "Type": "Number",
@@ -49,18 +49,18 @@
     },
     "HealthCheckPath": {
       "Type": "String",
-      "Default": "/health-check"
+      "Default": "/actuator/health"
     },
     "HostedZoneName": {
       "Type": "String"
     },
     "Subdomain": {
       "Type": "String",
-      "Default": "rx-powet-prod"
+      "Default": "api"
     },
     "MinTaskCount": {
       "Type": "Number",
-      "Default": 2
+      "Default": 1
     },
     "MaxTaskCount": {
       "Type": "Number",
@@ -72,7 +72,7 @@
     },
     "DBSecrets": {
       "Type": "String",
-      "Default":"Spider/rx-powet/database"
+      "Default":"Spider/rx-powet/db-normal-user-secret"
     }
   },
   "Resources": {
@@ -125,7 +125,7 @@
               "Ref": "ServiceName"
             },
             "Image": {
-              "Fn::Sub": "${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:${AppVersion}"
+              "Fn::Sub": "${ACCOUNTID}.dkr.ecr.us-east-1.amazonaws.com/spider-walker/emrys:latest"
             },
             "PortMappings": [
               {
@@ -152,10 +152,16 @@
                 "Value": "prod"
               },
               {
-                "Name": "DB_PASS",
-                "Value":{
-                  "Fn::Sub": "{{resolve:secretsmanager:${DBSecrets}:SecretString:password}}"
-                }
+                "Name": "SPRING_PROFILES_ACTIVE",
+                "Value": "dev"
+              },
+              {
+                "Name": "REDIS_PASSWORD",
+                "Value": "Milk1234Milk1234Milk1234Milk1234<?"
+              },
+              {
+                "Name": "REDIS_HOST",
+                "Value": "master.rxr8bldylsoeh3p.zqlpfa.use1.cache.amazonaws.com"
               }
             ]
           }
@@ -352,7 +358,7 @@
           "MinimumHealthyPercent": 100,
           "MaximumPercent": 200
         },
-        "DesiredCount": 0,
+        "DesiredCount": 1,
         "HealthCheckGracePeriodSeconds": 90,
         "LaunchType": "FARGATE",
         "NetworkConfiguration": {
@@ -405,14 +411,14 @@
               {
                 "Ref": "ServiceName"
               },
-              "TargetGroup"
+              "target-group-v4"
             ]
           ]
         },
         "Port": {
           "Ref": "ContainerPort"
         },
-        "Protocol": "HTTP",
+        "Protocol": "HTTPS",
         "TargetGroupAttributes": [
           {
             "Key": "deregistration_delay.timeout_seconds",
@@ -528,7 +534,7 @@
     "S3Bucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "rxpowet-bucket-02-logs"
+        "BucketName": "rxpowet-bucket-01-logs"
       }
     },
     "LoadBalancer": {
@@ -646,12 +652,8 @@
     "AutoScalingTarget": {
       "Type": "AWS::ApplicationAutoScaling::ScalableTarget",
       "Properties": {
-        "MinCapacity": {
-          "Ref": "MinTaskCount"
-        },
-        "MaxCapacity": {
-          "Ref": "MaxTaskCount"
-        },
+        "MinCapacity": 1,
+        "MaxCapacity": 3,
         "ResourceId": {
           "Fn::Join": [
             "/",
