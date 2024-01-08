@@ -49,3 +49,4 @@ deploy/deployments
 deploy/temp
 deploy/deployments/rxKeyPair.pem
 /html/node_modules
+.history

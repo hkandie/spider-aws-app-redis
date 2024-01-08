@@ -3,7 +3,8 @@ package com.spiderwalker.app.web;
 import com.spiderwalker.app.models.Person;
 import com.spiderwalker.app.service.PersonService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.rng.UniformRandomProvider;
+import org.apache.commons.rng.simple.RandomSource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Slf4j
 public class IndexController {
     private PersonService personService;
+    UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create();
     public IndexController(PersonService personService) {
         this.personService = personService;
     }
@@ -30,7 +32,7 @@ public class IndexController {
 
     @GetMapping(value = "/person/{id}",  produces = "application/json")
     public ResponseEntity<Integer> health503(@PathVariable int lower) {
-        return ResponseEntity.status(RandomUtils.nextInt(lower, 599)).build();
+        return ResponseEntity.status(rng.nextInt(lower, 599)).build();
     }
 
     @GetMapping(value = "/person/{id}/health",  produces = "application/json")

@@ -26,27 +26,31 @@ services:
 #      - nginx-volume:/usr/share/nginx/html
 #    ports:
 #      - "80:80"
-#  rxpowet-server-01:
-#    image: "spider-walker/emrys:latest"
-#    container_name: rxpowet-server-01
-#    volumes:
-#      - app-volume:/app/
-#    ports:
-#      - "9000:9000"
-#  rxpowet-server-02:
-#    image: "spider-walker/emrys:latest"
-#    container_name: rxpowet-server-02
-#    volumes:
-#      - app-volume:/app/
-#    ports:
-#      - "9001:9000"
-#  rxpowet-server-03:
-#    image: "spider-walker/emrys:latest"
-#    container_name: rxpowet-server-03
-#    volumes:
-#      - app-volume:/app/
-#    ports:
-#      - "9002:9000"
+  rxpowet-server-01:
+    image: "spider-walker/emrys:latest"
+    container_name: rxpowet-server-01
+    volumes:
+      - app-volume:/app/
+    ports:
+      - "9000:8443"
+    environment:
+      SPRING_PROFILES_ACTIVE: "prod"  
+      AR_READ_ONLY_USER: "admin"
+      AR_READ_ONLY_PASS: "admin"
+  rxpowet-server-02:
+    image: "spider-walker/emrys:latest"
+    container_name: rxpowet-server-02
+    volumes:
+      - app-volume:/application/
+    ports:
+      - "9001:8443"
+  rxpowet-server-03:
+    image: "spider-walker/emrys:latest"
+    container_name: rxpowet-server-03
+    volumes:
+      - app-volume:/application/
+    ports:
+      - "9002:8443"
 volumes:
   data-volume:
   app-volume:

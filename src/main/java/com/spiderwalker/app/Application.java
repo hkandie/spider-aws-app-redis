@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -21,7 +22,7 @@ public class Application {
         application.addListeners((ApplicationListener<ContextClosedEvent>) event -> {
             log.info("Shutdown process initiated...");
             try {
-                Thread.sleep(TimeUnit.MINUTES.toMillis(5));
+                Thread.sleep(TimeUnit.SECONDS.toMillis(5));
             } catch (InterruptedException e) {
                 log.error("Exception is thrown during the ContextClosedEvent", e);
             }
@@ -29,10 +30,12 @@ public class Application {
         });
         application.run(args);
         log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        log.info("Successfully started");
-        log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        log.info("AR_READ_ONLY_USER: {}", System.getProperty("AR_READ_ONLY_USER"));
-        log.info("AR_READ_ONLY_PASS: {}", System.getProperty("AR_READ_ONLY_PASS"));
+        log.info("Successfully started: SPRING_PROFILES_ACTIVE: {} ", System.getProperty("SPRING_PROFILES_ACTIVE"));
+
+        List<String> list = List.of("a", "b", "c");
+        list.forEach(a -> {
+            log.info("{}", a);
+        });
 
     }
 
