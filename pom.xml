@@ -94,11 +94,29 @@
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>3.3.2</version>
-                <configuration>
-                    <to>
-                        <image>spider-walker/emrys</image>
-                        <tags>
-                            <tag>latest</tag>
+<kkkkkkkmmmmmlllllllll1111111 class="oooooooolllllllllllllllllllllllll
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</kkkkkkkmmmmmlllllllll1111111></tag>
                         </tags>
                     </to>
                 </configuration>

@@ -6,15 +6,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextClosedEvent;
+import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
 @Slf4j
 @SpringBootApplication
 @EnableCaching
 @EnableScheduling
+
 public class Application {
 
     public static void main(String[] args) {
@@ -28,9 +33,13 @@ public class Application {
             }
             log.info("Graceful Shutdown is processed successfully");
         });
-        application.run(args);
+        var applicationContext = application.run(args);
+        Environment environment = applicationContext.getEnvironment();
+
         log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        log.info("Successfully started: SPRING_PROFILES_ACTIVE: {} ", System.getProperty("SPRING_PROFILES_ACTIVE"));
+        log.info("Successfully started: SPRING_PROFILES_ACTIVE: {} ", environment.getProperty("spring.profiles.active"));
+        log.info("AR_READ_ONLY_USER: {} ", environment.getProperty("AR_READ_ONLY_USER"));
+        log.info("AR_READ_ONLY_PASS: {} ", environment.getProperty("AR_READ_ONLY_PASS"));
 
         List<String> list = List.of("a", "b", "c");
         list.forEach(a -> {
