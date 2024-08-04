@@ -13,10 +13,10 @@ const domainName = process.env.AWS_DOMAIN_NAME;
 const subnetA = process.env.AWS_SUBNET_A;
 const subnetB = process.env.AWS_SUBNET_B;
 console.log(`Deploying to ${process.env.AWS_DOMAIN_NAME}`);
-new DynamoDBStack(app, 'rx-powet-ecs-cluster-stack', {
-  env: { account: account, region: 'us-east-1' },
-  vpcId, domainName,subnetA,subnetB, domainPrefix: 'v1'
-});
+// new DynamoDBStack(app, 'rx-powet-ecs-cluster-stack', {
+//   env: { account: account, region: 'us-east-1' },
+//   vpcId, domainName,subnetA,subnetB, domainPrefix: 'v1'
+// });
 // new EcsStack(app, 'rx-powet-ecs-cluster-stack', {
 //   env: { account: account, region: 'us-east-1' },
 //   vpcId, domainName,subnetA,subnetB, domainPrefix: 'v1'

@@ -1,0 +1,17 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Creating Code Deploy service",
+    "Resources": {
+    "Type" : "AWS::CodeDeploy::Application",
+    "Properties" : {
+        "ApplicationName" : "rx-ecs-app",
+        "ComputePlatform" : "ECS",
+        "Tags" : [
+            {
+                "Key" : "Name",
+                "Value" : "rx-ecs-app"
+            }
+        ]
+      }
+  }
+}
