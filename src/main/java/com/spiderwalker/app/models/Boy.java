@@ -1,10 +1,15 @@
 package com.spiderwalker.app.models;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 @Builder
-public class Boy extends Parent{
+@EqualsAndHashCode(callSuper = false)
+public class Boy extends Parent {
+
     public String playSoccer;
 }

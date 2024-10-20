@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.1</version>
+        <version>3.3.4</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <properties>
@@ -93,30 +93,12 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.3.2</version>
-<kkkkkkkmmmmmlllllllll1111111 class="oooooooolllllllllllllllllllllllll
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</kkkkkkkmmmmmlllllllll1111111></tag>
+                <version>3.4.4</version>
+                <configuration>
+                    <to>
+                        <image>spider-walker/emrys</image>
+                        <tags>
+                            <tag>latest</tag>
                         </tags>
                     </to>
                 </configuration>

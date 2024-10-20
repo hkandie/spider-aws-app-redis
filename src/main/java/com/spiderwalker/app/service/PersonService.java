@@ -3,7 +3,6 @@ package com.spiderwalker.app.service;
 import com.spiderwalker.app.models.Person;
 import com.spiderwalker.app.repository.PersonDataGenerator;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
@@ -18,8 +17,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 @Slf4j
 public class PersonService {
-    @Autowired
-    PersonDataGenerator personDataGenerator;
+    private final PersonDataGenerator personDataGenerator;
+
+    public PersonService(PersonDataGenerator personDataGenerator) {
+        this.personDataGenerator = personDataGenerator;
+    }
     AtomicInteger atomicInteger=new AtomicInteger();
     Instant  instant= Instant.now();
 

@@ -26,13 +26,13 @@ public class IndexController {
     }
 
     @GetMapping(value = "/person/{id}/me", produces = "application/json")
-    public ResponseEntity<List<Person>> health100() throws SQLException {
+    public ResponseEntity<List<Person>> health100(@PathVariable String id) throws SQLException {
         return ResponseEntity.ok(personService.giveMe());
     }
 
     @GetMapping(value = "/person/{id}",  produces = "application/json")
-    public ResponseEntity<Integer> health503(@PathVariable int lower) {
-        return ResponseEntity.status(rng.nextInt(lower, 599)).build();
+    public ResponseEntity<Integer> health503(@PathVariable int id) {
+        return ResponseEntity.status(rng.nextInt(id, 599)).build();
     }
 
     @GetMapping(value = "/person/{id}/health",  produces = "application/json")
