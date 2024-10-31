@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aws s3 cp ../aws/website-template.json s3://rxpowet-bucket-01/cf/website-template.json
+aws s3 cp ../aws/website-template.json s3://rxpowet-bucket-03/cf/website-template.json
 
 VPCID=`cat ./temp/vpcid`
 ACCOUNTID=`cat ./temp/accountid`
@@ -10,7 +10,7 @@ SUBNETID02=`cat ./temp/subnetid02`
 HostedZones=`cat ./temp/HostedZones`
 
 aws cloudformation update-stack --stack-name rx-powet-website-template-stack \
---template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/website-template.json \
+--template-url https://rxpowet-bucket-03.s3.amazonaws.com/cf/website-template.json \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \
 ParameterKey=VPC,ParameterValue=${VPCID} \

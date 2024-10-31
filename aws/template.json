@@ -60,7 +60,7 @@
           "Ref": "RxPowetApplication"
         },
         "SourceBundle": {
-          "S3Bucket": "rxpowet-bucket-01",
+          "S3Bucket": "rxpowet-bucket-03",
           "S3Key": {
             "Fn::Sub": "apps/deployments/RxPowet-${AppVersion}.zip"
           }

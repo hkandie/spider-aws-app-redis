@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aws s3 cp ./rx-powet-code.json s3://rxpowet-bucket-01/cf/rx-powet-code.json
+aws s3 cp ./rx-powet-code.json s3://rxpowet-bucket-03/cf/rx-powet-code.json
 
 aws cloudformation delete-stack \
     --stack-name rx-powet-code-stack
@@ -15,7 +15,7 @@ SUBNETID01=`cat ./temp/subnetid01`
 SUBNETID02=`cat ./temp/subnetid02`
 
 aws cloudformation create-stack --stack-name rx-powet-code-stack \
---template-url https://rxpowet-bucket-01.s3.amazonaws.com/cf/rx-powet-code.json \
+--template-url https://rxpowet-bucket-03.s3.amazonaws.com/cf/rx-powet-code.json \
 --on-failure DO_NOTHING \
 --capabilities CAPABILITY_NAMED_IAM \
 --parameters \
