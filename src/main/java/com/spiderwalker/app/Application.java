@@ -34,7 +34,8 @@ public class Application {
         Environment environment = applicationContext.getEnvironment();
 
         log.info("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        log.info("Successfully started: SPRING_PROFILES_ACTIVE: {} ", environment.getProperty("spring.profiles.active"));
+        log.info("Successfully started: SPRING_PROFILES_ACTIVE: {} ",
+                environment.getProperty("spring.profiles.active"));
         log.info("AR_READ_ONLY_USER: {} ", environment.getProperty("AR_READ_ONLY_USER"));
         log.info("AR_READ_ONLY_PASS: {} ", environment.getProperty("AR_READ_ONLY_PASS"));
 
@@ -43,6 +44,10 @@ public class Application {
             log.info("{}", a);
         });
 
+    }
+
+    char[][] items() {
+        return new char[][] {};
     }
 
 }
